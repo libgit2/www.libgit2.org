@@ -220,7 +220,7 @@ running version.</p>
               </a>
             </div>
             <div class="apiListItemDescription enumListItemDescription">
-              <p>Combinations of these values describe the features with which libgit2 was compiled</p> 
+              <p>Configurable features of libgit2; either optional settings (like threading), or features that can be enabled by one of a number of different backend &quot;providers&quot; (like HTTPS, which can be provided by OpenSSL, mbedTLS, or system libraries)</p> 
             </div>
           </div>
           <div class="apiListItem enumListItem">
@@ -265,6 +265,16 @@ running version.</p>
             </div>
             <div class="apiListItemDescription functionListItemDescription">
               <p>Query compile time options for libgit2</p> 
+            </div>
+          </div>
+          <div class="apiListItem functionListItem">
+            <div class="apiListName functionListName">
+              <a href="/docs/reference/main/common/git_libgit2_feature_backend.html">
+                git_libgit2_feature_backend
+              </a>
+            </div>
+            <div class="apiListItemDescription functionListItemDescription">
+              <p>Query the backend details for the compile-time feature in libgit2</p> 
             </div>
           </div>
           <div class="apiListItem functionListItem">

@@ -1,0 +1,94 @@
+---
+title: git_libgit2_feature_backend (libgit2 main)
+layout: default
+---
+
+      <div class="api function">
+        <div class="apiBreadcrumb functionBreadcrumb">
+          <ul>
+            <li><a href="/docs/reference/main/index.html">API Documentation</a></li>
+            <li><a href="/docs/reference/main/common/index.html">common</a></li>
+          </ul>
+        </div>
+        <div class="apiHeader functionHeader">
+          <h2 class="apiName functionName">git_libgit2_feature_backend</h2>
+
+           <script src="/js/minisearch.js"></script>
+           <script src="/js/search.js"></script>
+           <div class="headerSearchArea functionHeaderSearchArea" id="headersearcharea">
+             <input class="headerSearchBox functionHeaderSearchBox" id="headersearchbox" placeholder="Search..." onInput="handleSearchSuggest({ version: 'main' })" onFocusIn="handleSearchSuggest({ version: 'main' })" onKeyUp="if (event.code === 'Enter') { submitSearch({ version: 'main' }); }"/>
+             <div class="headerSearchResults functionHeaderSearchResults" id="headersearchresults">
+             </div>
+           </div>
+
+          <div class="apiHeaderVersionSelect functionHeaderVersionSelect">
+            <span>Version:</span>
+            <select onChange="window.location.href = this.value">
+              <option value="/docs/reference/main/common/git_libgit2_feature_backend.html" selected>main</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="apiDescription functionDescription">
+        <p>Query the backend details for the compile-time feature in libgit2.</p>
+
+        <p>This will return the &quot;backend&quot; for the feature, which is useful for
+things like HTTPS or SSH support, that can have multiple backends
+that could be compiled in.</p>
+
+        <p>For example, when libgit2 is compiled with dynamic OpenSSL support,
+the feature backend will be <code><span class="codeWord">openssl-dynamic</span></code>. The feature backend
+names reflect the compilation options specified to the build system
+(though in all lower case). The backend <em>may</em> be &quot;builtin&quot; for
+features that are provided by libgit2 itself.</p>
+
+        <p>If the feature is not supported by the library, this API returns
+<code><span class="codeWord">NULL</span></code>.</p>
+
+        </div>
+
+        <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
+        <div class="apiSignatureLink functionSignatureLink">
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/common.h#L205" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="apiSignature functionSignature">
+          const char *git_libgit2_feature_backend(<span class="apiSignatureParameter functionSignatureParameter">git_feature_t feature</span>);
+        </div>
+
+        <h3 class="apiParametersHeader functionParametersHeader">Parameters</h3>
+        <div class="apiParameters functionParameters">
+          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+            <div class="apiParameterType functionParameterType">
+              <a href="/docs/reference/main/common/git_feature_t.html" class="apiLink enumLink">git_feature_t</a>
+            </div>
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
+              In
+            </div>
+            <div class="apiParameterName functionParameterName">
+              feature
+            </div>
+            <div class="apiParameterDescription functionParameterDescription">
+              <p>the feature to query details for</p> 
+            </div>
+          </div>
+        </div>
+
+        <h3 class="apiReturnHeader functionReturnHeader">Returns</h3>
+        <div class="apiReturn functionReturn">
+          <div class="apiReturnType functionReturnType">
+            const char *
+          </div>
+          <div class="apiReturnDescription functionReturnDescription">
+            <p>the provider details, or NULL if the feature is not supported</p> 
+          </div>
+        </div>
+        <h3 class="apiVersionsHeader functionVersionsHeader">Versions</h3>
+        <div class="apiVersions functionVersions">
+          <ul>
+          <li class="apiVersionDeltaIntroduced functionVersionDeltaIntroduced">
+            <a href="/docs/reference/main/common/git_libgit2_feature_backend.html" class="apiVersionLink functionVersionLink">main</a>
+          </li>
+          </ul>
+        </div>
+      </div>

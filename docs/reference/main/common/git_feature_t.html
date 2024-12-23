@@ -129,14 +129,16 @@ layout: default
 
 
         <div class="apiDescription enumDescription">
-        <p>Combinations of these values describe the features with which libgit2
-was compiled</p>
+        <p>Configurable features of libgit2; either optional settings (like
+threading), or features that can be enabled by one of a number of
+different backend &quot;providers&quot; (like HTTPS, which can be provided by
+OpenSSL, mbedTLS, or system libraries).</p>
 
         </div>
 
         <h3 class="apiMembersHeader enumMembersHeader">Values</h3>
         <div class="apiSignatureLink enumSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/common.h#L136" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/common.h#L138" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiMembers enumMembers">
           <div class="apiMember enumMember">
@@ -147,7 +149,7 @@ was compiled</p>
               (1 << 0)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
-              <p>If set, libgit2 was built thread-aware and can be safely used from multiple threads.</p> 
+              <p>libgit2 is thread-aware and can be used from multiple threads (as described in the documentation).</p> 
             </div>
           </div>
           <div class="apiMember enumMember">
@@ -158,7 +160,7 @@ was compiled</p>
               (1 << 1)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
-              <p>If set, libgit2 was built with and linked against a TLS implementation. Custom TLS streams may still be added by the user to support HTTPS regardless of this.</p> 
+              <p>HTTPS remotes</p> 
             </div>
           </div>
           <div class="apiMember enumMember">
@@ -169,7 +171,7 @@ was compiled</p>
               (1 << 2)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
-              <p>If set, libgit2 was built with and linked against libssh2. A custom transport may still be added by the user to support libssh2 regardless of this.</p> 
+              <p>SSH remotes</p> 
             </div>
           </div>
           <div class="apiMember enumMember">
@@ -180,14 +182,111 @@ was compiled</p>
               (1 << 3)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
-              <p>If set, libgit2 was built with support for sub-second resolution in file modification times.</p> 
+              <p>Sub-second resolution in index timestamps</p> 
             </div>
           </div>
+          <div class="apiMember enumMember">
+            <div class="apiMemberName enumMemberName">
+              GIT_FEATURE_HTTP_PARSER
+            </div>
+            <div class="apiMemberValue enumMemberValue">
+              (1 << 4)
+            </div>
+            <div class="apiMemberDescription enumMemberDescription">
+              <p>HTTP parsing; always available</p> 
+            </div>
+          </div>
+          <div class="apiMember enumMember">
+            <div class="apiMemberName enumMemberName">
+              GIT_FEATURE_REGEX
+            </div>
+            <div class="apiMemberValue enumMemberValue">
+              (1 << 5)
+            </div>
+            <div class="apiMemberDescription enumMemberDescription">
+              <p>Regular expression support; always available</p> 
+            </div>
+          </div>
+          <div class="apiMember enumMember">
+            <div class="apiMemberName enumMemberName">
+              GIT_FEATURE_I18N
+            </div>
+            <div class="apiMemberValue enumMemberValue">
+              (1 << 6)
+            </div>
+            <div class="apiMemberDescription enumMemberDescription">
+              <p>Internationalization support for filename translation</p> 
+            </div>
+          </div>
+          <div class="apiMember enumMember">
+            <div class="apiMemberName enumMemberName">
+              GIT_FEATURE_AUTH_NTLM
+            </div>
+            <div class="apiMemberValue enumMemberValue">
+              (1 << 7)
+            </div>
+            <div class="apiMemberDescription enumMemberDescription">
+              <p>NTLM support over HTTPS</p> 
+            </div>
+          </div>
+          <div class="apiMember enumMember">
+            <div class="apiMemberName enumMemberName">
+              GIT_FEATURE_AUTH_NEGOTIATE
+            </div>
+            <div class="apiMemberValue enumMemberValue">
+              (1 << 8)
+            </div>
+            <div class="apiMemberDescription enumMemberDescription">
+              <p>Kerberos (SPNEGO) authentication support over HTTPS</p> 
+            </div>
+          </div>
+          <div class="apiMember enumMember">
+            <div class="apiMemberName enumMemberName">
+              GIT_FEATURE_COMPRESSION
+            </div>
+            <div class="apiMemberValue enumMemberValue">
+              (1 << 9)
+            </div>
+            <div class="apiMemberDescription enumMemberDescription">
+              <p>zlib support; always available</p> 
+            </div>
+          </div>
+          <div class="apiMember enumMember">
+            <div class="apiMemberName enumMemberName">
+              GIT_FEATURE_SHA1
+            </div>
+            <div class="apiMemberValue enumMemberValue">
+              (1 << 10)
+            </div>
+            <div class="apiMemberDescription enumMemberDescription">
+              <p>SHA1 object support; always available</p> 
+            </div>
+          </div>
+          <div class="apiMember enumMember">
+            <div class="apiMemberName enumMemberName">
+              GIT_FEATURE_SHA256
+            </div>
+            <div class="apiMemberValue enumMemberValue">
+              (1 << 11)
+            </div>
+            <div class="apiMemberDescription enumMemberDescription">
+              <p>SHA256 object support</p> 
+            </div>
+          </div>
+        </div>
+
+        <h3 class="apiParameterToHeader enumParameterToHeader">Parameter To</h3>
+        <div class="apiParameterTo enumParameterTo">
+          <ul>
+          <li>
+            <a href="/docs/reference/main/common/git_libgit2_feature_backend.html" className="apiLink functionLink">git_libgit2_feature_backend</a>
+          </li>
+          </ul>
         </div>
         <h3 class="apiVersionsHeader enumVersionsHeader">Versions</h3>
         <div class="apiVersions enumVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged enumVersionDeltaChanged">
             <a href="/docs/reference/main/common/git_feature_t.html" class="apiVersionLink enumVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">

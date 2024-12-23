@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "4dcdb64c6844d76776745cdc25071a72c1af84d6"
+    "commit": "95dfb8398d65060ae5af0cdf3ffe5ea95b90dff8"
   },
   "groups": {
     "sys/alloc": {
@@ -7763,47 +7763,106 @@
               "name": "GIT_FEATURE_THREADS",
               "value": "1",
               "comment": [
-                "If set, libgit2 was built thread-aware and can be safely used from multiple\n threads."
+                "libgit2 is thread-aware and can be used from multiple threads\n (as described in the documentation)."
               ]
             },
             {
               "name": "GIT_FEATURE_HTTPS",
               "value": "2",
               "comment": [
-                "If set, libgit2 was built with and linked against a TLS implementation.\n Custom TLS streams may still be added by the user to support HTTPS\n regardless of this."
+                "HTTPS remotes"
               ]
             },
             {
               "name": "GIT_FEATURE_SSH",
               "value": "4",
               "comment": [
-                "If set, libgit2 was built with and linked against libssh2. A custom\n transport may still be added by the user to support libssh2 regardless of\n this."
+                "SSH remotes"
               ]
             },
             {
               "name": "GIT_FEATURE_NSEC",
               "value": "8",
               "comment": [
-                "If set, libgit2 was built with support for sub-second resolution in file\n modification times."
+                "Sub-second resolution in index timestamps"
+              ]
+            },
+            {
+              "name": "GIT_FEATURE_HTTP_PARSER",
+              "value": "16",
+              "comment": [
+                "HTTP parsing; always available"
+              ]
+            },
+            {
+              "name": "GIT_FEATURE_REGEX",
+              "value": "32",
+              "comment": [
+                "Regular expression support; always available"
+              ]
+            },
+            {
+              "name": "GIT_FEATURE_I18N",
+              "value": "64",
+              "comment": [
+                "Internationalization support for filename translation"
+              ]
+            },
+            {
+              "name": "GIT_FEATURE_AUTH_NTLM",
+              "value": "128",
+              "comment": [
+                "NTLM support over HTTPS"
+              ]
+            },
+            {
+              "name": "GIT_FEATURE_AUTH_NEGOTIATE",
+              "value": "256",
+              "comment": [
+                "Kerberos (SPNEGO) authentication support over HTTPS"
+              ]
+            },
+            {
+              "name": "GIT_FEATURE_COMPRESSION",
+              "value": "512",
+              "comment": [
+                "zlib support; always available"
+              ]
+            },
+            {
+              "name": "GIT_FEATURE_SHA1",
+              "value": "1024",
+              "comment": [
+                "SHA1 object support; always available"
+              ]
+            },
+            {
+              "name": "GIT_FEATURE_SHA256",
+              "value": "2048",
+              "comment": [
+                "SHA256 object support"
               ]
             }
           ],
           "comment": [
-            "Combinations of these values describe the features with which libgit2\n was compiled"
+            "Configurable features of libgit2; either optional settings (like\n threading), or features that can be enabled by one of a number of\n different backend \"providers\" (like HTTPS, which can be provided by\n OpenSSL, mbedTLS, or system libraries)."
           ],
           "location": {
             "file": "common.h",
-            "line": 136,
+            "line": 138,
             "column": 9
           },
-          "group": "common"
+          "group": "common",
+          "parameterTo": [
+            "git_libgit2_feature_backend"
+          ]
         },
         "git_libgit2_features": {
           "kind": "function",
           "name": "git_libgit2_features",
           "location": {
             "file": "common.h",
-            "line": 182,
+            "line": 184,
             "column": 17
           },
           "returns": {
@@ -7811,11 +7870,36 @@
             "comment": "A combination of GIT_FEATURE_* values."
           },
           "comment": [
-            "Query compile time options for libgit2.",
-            "- GIT_FEATURE_THREADS\n   Libgit2 was compiled with thread support. Note that thread support is\n   still to be seen as a 'work in progress' - basic object lookups are\n   believed to be threadsafe, but other operations may not be.",
-            "- GIT_FEATURE_HTTPS\n   Libgit2 supports the https:// protocol. This requires the openssl\n   library to be found when compiling libgit2.",
-            "- GIT_FEATURE_SSH\n   Libgit2 supports the SSH protocol for network operations. This requires\n   the libssh2 library to be found when compiling libgit2",
-            "- GIT_FEATURE_NSEC\n   Libgit2 supports the sub-second resolution in file modification times."
+            "Query compile time options for libgit2."
+          ],
+          "group": "common"
+        },
+        "git_libgit2_feature_backend": {
+          "kind": "function",
+          "name": "git_libgit2_feature_backend",
+          "location": {
+            "file": "common.h",
+            "line": 205,
+            "column": 26
+          },
+          "returns": {
+            "type": "const char *",
+            "comment": "the provider details, or NULL if the feature is not supported"
+          },
+          "params": [
+            {
+              "name": "feature",
+              "type": "git_feature_t",
+              "direction": "in",
+              "comment": "the feature to query details for",
+              "referenceType": "enum git_feature_t"
+            }
+          ],
+          "comment": [
+            "Query the backend details for the compile-time feature in libgit2.",
+            "This will return the \"backend\" for the feature, which is useful for\n things like HTTPS or SSH support, that can have multiple backends\n that could be compiled in.",
+            "For example, when libgit2 is compiled with dynamic OpenSSL support,\n the feature backend will be `openssl-dynamic`. The feature backend\n names reflect the compilation options specified to the build system\n (though in all lower case). The backend _may_ be \"builtin\" for\n features that are provided by libgit2 itself.",
+            "If the feature is not supported by the library, this API returns\n `NULL`."
           ],
           "group": "common"
         },
@@ -7969,7 +8053,7 @@
           ],
           "location": {
             "file": "common.h",
-            "line": 190,
+            "line": 214,
             "column": 9
           },
           "group": "common"
@@ -7979,7 +8063,7 @@
           "name": "git_libgit2_opts",
           "location": {
             "file": "common.h",
-            "line": 545,
+            "line": 569,
             "column": 17
           },
           "returns": {

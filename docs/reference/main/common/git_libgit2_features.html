@@ -131,35 +131,11 @@ layout: default
         <div class="apiDescription functionDescription">
         <p>Query compile time options for libgit2.</p>
 
-        <ul>
-<li>GIT_FEATURE_THREADS
-Libgit2 was compiled with thread support. Note that thread support is
-still to be seen as a 'work in progress' - basic object lookups are
-believed to be threadsafe, but other operations may not be.</li>
-</ul>
-
-        <ul>
-<li>GIT_FEATURE_HTTPS
-Libgit2 supports the https:// protocol. This requires the openssl
-library to be found when compiling libgit2.</li>
-</ul>
-
-        <ul>
-<li>GIT_FEATURE_SSH
-Libgit2 supports the SSH protocol for network operations. This requires
-the libssh2 library to be found when compiling libgit2</li>
-</ul>
-
-        <ul>
-<li>GIT_FEATURE_NSEC
-Libgit2 supports the sub-second resolution in file modification times.</li>
-</ul>
-
         </div>
 
         <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
         <div class="apiSignatureLink functionSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/common.h#L182" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/common.h#L184" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature functionSignature">
           int git_libgit2_features();
