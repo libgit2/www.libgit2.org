@@ -288,7 +288,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_ADD_SSL_X509_CERT
+              GIT_OPT_SET_USER_AGENT
             </div>
             <div class="apiMemberValue enumMemberValue">
               13
@@ -299,7 +299,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_USER_AGENT
+              GIT_OPT_ENABLE_STRICT_OBJECT_CREATION
             </div>
             <div class="apiMemberValue enumMemberValue">
               14
@@ -310,7 +310,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_ENABLE_STRICT_OBJECT_CREATION
+              GIT_OPT_ENABLE_STRICT_SYMBOLIC_REF_CREATION
             </div>
             <div class="apiMemberValue enumMemberValue">
               15
@@ -321,7 +321,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_ENABLE_STRICT_SYMBOLIC_REF_CREATION
+              GIT_OPT_SET_SSL_CIPHERS
             </div>
             <div class="apiMemberValue enumMemberValue">
               16
@@ -332,7 +332,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_SSL_CIPHERS
+              GIT_OPT_GET_USER_AGENT
             </div>
             <div class="apiMemberValue enumMemberValue">
               17
@@ -343,7 +343,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_GET_USER_AGENT
+              GIT_OPT_ENABLE_OFS_DELTA
             </div>
             <div class="apiMemberValue enumMemberValue">
               18
@@ -354,7 +354,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_ENABLE_OFS_DELTA
+              GIT_OPT_ENABLE_FSYNC_GITDIR
             </div>
             <div class="apiMemberValue enumMemberValue">
               19
@@ -365,7 +365,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_ENABLE_FSYNC_GITDIR
+              GIT_OPT_GET_WINDOWS_SHAREMODE
             </div>
             <div class="apiMemberValue enumMemberValue">
               20
@@ -376,7 +376,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_GET_WINDOWS_SHAREMODE
+              GIT_OPT_SET_WINDOWS_SHAREMODE
             </div>
             <div class="apiMemberValue enumMemberValue">
               21
@@ -387,7 +387,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_WINDOWS_SHAREMODE
+              GIT_OPT_ENABLE_STRICT_HASH_VERIFICATION
             </div>
             <div class="apiMemberValue enumMemberValue">
               22
@@ -398,7 +398,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_ENABLE_STRICT_HASH_VERIFICATION
+              GIT_OPT_SET_ALLOCATOR
             </div>
             <div class="apiMemberValue enumMemberValue">
               23
@@ -409,7 +409,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_ALLOCATOR
+              GIT_OPT_ENABLE_UNSAVED_INDEX_SAFETY
             </div>
             <div class="apiMemberValue enumMemberValue">
               24
@@ -420,7 +420,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_ENABLE_UNSAVED_INDEX_SAFETY
+              GIT_OPT_GET_PACK_MAX_OBJECTS
             </div>
             <div class="apiMemberValue enumMemberValue">
               25
@@ -431,7 +431,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_GET_PACK_MAX_OBJECTS
+              GIT_OPT_SET_PACK_MAX_OBJECTS
             </div>
             <div class="apiMemberValue enumMemberValue">
               26
@@ -442,7 +442,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_PACK_MAX_OBJECTS
+              GIT_OPT_DISABLE_PACK_KEEP_FILE_CHECKS
             </div>
             <div class="apiMemberValue enumMemberValue">
               27
@@ -453,7 +453,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_DISABLE_PACK_KEEP_FILE_CHECKS
+              GIT_OPT_ENABLE_HTTP_EXPECT_CONTINUE
             </div>
             <div class="apiMemberValue enumMemberValue">
               28
@@ -464,7 +464,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_ENABLE_HTTP_EXPECT_CONTINUE
+              GIT_OPT_GET_MWINDOW_FILE_LIMIT
             </div>
             <div class="apiMemberValue enumMemberValue">
               29
@@ -475,7 +475,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_GET_MWINDOW_FILE_LIMIT
+              GIT_OPT_SET_MWINDOW_FILE_LIMIT
             </div>
             <div class="apiMemberValue enumMemberValue">
               30
@@ -486,7 +486,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_MWINDOW_FILE_LIMIT
+              GIT_OPT_SET_ODB_PACKED_PRIORITY
             </div>
             <div class="apiMemberValue enumMemberValue">
               31
@@ -497,7 +497,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_ODB_PACKED_PRIORITY
+              GIT_OPT_SET_ODB_LOOSE_PRIORITY
             </div>
             <div class="apiMemberValue enumMemberValue">
               32
@@ -508,7 +508,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_ODB_LOOSE_PRIORITY
+              GIT_OPT_GET_EXTENSIONS
             </div>
             <div class="apiMemberValue enumMemberValue">
               33
@@ -519,7 +519,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_GET_EXTENSIONS
+              GIT_OPT_SET_EXTENSIONS
             </div>
             <div class="apiMemberValue enumMemberValue">
               34
@@ -530,7 +530,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_EXTENSIONS
+              GIT_OPT_GET_OWNER_VALIDATION
             </div>
             <div class="apiMemberValue enumMemberValue">
               35
@@ -541,7 +541,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_GET_OWNER_VALIDATION
+              GIT_OPT_SET_OWNER_VALIDATION
             </div>
             <div class="apiMemberValue enumMemberValue">
               36
@@ -552,7 +552,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_OWNER_VALIDATION
+              GIT_OPT_GET_HOMEDIR
             </div>
             <div class="apiMemberValue enumMemberValue">
               37
@@ -563,7 +563,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_GET_HOMEDIR
+              GIT_OPT_SET_HOMEDIR
             </div>
             <div class="apiMemberValue enumMemberValue">
               38
@@ -574,7 +574,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_HOMEDIR
+              GIT_OPT_SET_SERVER_CONNECT_TIMEOUT
             </div>
             <div class="apiMemberValue enumMemberValue">
               39
@@ -585,7 +585,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_SERVER_CONNECT_TIMEOUT
+              GIT_OPT_GET_SERVER_CONNECT_TIMEOUT
             </div>
             <div class="apiMemberValue enumMemberValue">
               40
@@ -596,7 +596,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_GET_SERVER_CONNECT_TIMEOUT
+              GIT_OPT_SET_SERVER_TIMEOUT
             </div>
             <div class="apiMemberValue enumMemberValue">
               41
@@ -607,7 +607,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_SERVER_TIMEOUT
+              GIT_OPT_GET_SERVER_TIMEOUT
             </div>
             <div class="apiMemberValue enumMemberValue">
               42
@@ -618,7 +618,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_GET_SERVER_TIMEOUT
+              GIT_OPT_SET_USER_AGENT_PRODUCT
             </div>
             <div class="apiMemberValue enumMemberValue">
               43
@@ -629,7 +629,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_SET_USER_AGENT_PRODUCT
+              GIT_OPT_GET_USER_AGENT_PRODUCT
             </div>
             <div class="apiMemberValue enumMemberValue">
               44
@@ -640,7 +640,7 @@ used in <code><span class="codeWord">git_libgit2_opts()</span></code>.</p>
           </div>
           <div class="apiMember enumMember">
             <div class="apiMemberName enumMemberName">
-              GIT_OPT_GET_USER_AGENT_PRODUCT
+              GIT_OPT_ADD_SSL_X509_CERT
             </div>
             <div class="apiMemberValue enumMemberValue">
               45
