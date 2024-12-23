@@ -5,14 +5,85 @@ layout: default
 
 # Security Information
 
-Information about security advisories affecting libgit2 and the releases that
-provide resolution.
+Information about security advisories affecting libgit2 and the
+releases that provide resolution.
 
-In case you think to have found a security issue with libgit2, please do not
-open a public issue. Instead, you can report the issue to the private mailing
-list [security@libgit2.org](mailto:security@libgit2.org).
+In case you think to have found a security issue with libgit2, please
+do not open a public issue. Instead, you can report the issue to the
+private mailing list [security@libgit2.org](mailto:security@libgit2.org).
 
 Previous security releases:
+
+* **[libgit2 v1.7.2](https://github.com/libgit2/libgit2/releases/tag/v1.7.2)** and **[libgit2 v1.6.5](https://github.com/libgit2/libgit2/releases/tag/v1.6.5)**, Feb 6, 2024
+
+   - CVE-2024-24575: a bug in git_revparse_single is fixed that could
+     have caused the function to enter an infinite loop given
+     well-crafted inputs, potentially causing a Denial of Service
+     attack in the calling application.
+
+   - CVE-2024-24577: a bug in git_index_add is fixed that could have
+     caused the function to corrupt its heap and possibly lead to
+     arbitrary code execution.
+
+   - A bug in the smart transport negotiation could have caused an
+     out-of-bounds read when a remote server did not advertise
+     capabilities.
+
+* **[libgit2 v1.5.1](https://github.com/libgit2/libgit2/releases/tag/v1.5.1)** and **[libgit2 v1.4.5](https://github.com/libgit2/libgit2/releases/tag/v1.4.5)**, Jan 20, 2023
+
+   - When using an SSH remote with the optional, included libssh2
+     backend, libgit2 does not perform certificate checking by default.
+     Prior versions of libgit2 require the caller to set the
+     certificate_check field of libgit2's git_remote_callbacks
+     structure - if a certificate check callback is not set, libgit2
+     does not perform any certificate checking. This means that by
+     default - without configuring a certificate check callback,
+     clients will not perform validation on the server SSH keys and
+     may be subject to a man-in-the-middle attack.
+
+     Beginning in libgit2 v1.4.5 and v1.5.1, libgit2 will now perform
+     host key checking by default. Users can still override the default
+     behavior using the certificate_check function.
+
+* **[libgit2 v1.4.4](https://github.com/libgit2/libgit2/releases/tag/v1.4.4)** and **[libgit2 v1.3.2](https://github.com/libgit2/libgit2/releases/tag/v1.3.2)**, Jul 12, 2022
+
+   - CVE-2022-29187: this provides compatibility with git's changes to
+     address CVE 2022-29187. As a follow up to CVE 2022-24765, now not
+     only is the working directory of a non-bare repository examined
+     for its ownership, but the .git directory and the .git file (if
+     present) are also examined for their ownership.
+
+   - A fix for compatibility with git's (new) behavior for CVE
+     2022-24765 allows users on POSIX systems to access a git
+     repository that is owned by them when they are running in sudo.
+
+   - A fix for further compatibility with git's (existing) behavior for
+     CVE 2022-24765 allows users on Windows to access a git repository
+     that is owned by the Administrator when running with escalated
+     privileges (using runas Administrator).
+
+   - The bundled zlib is updated to v1.2.12, as prior versions had
+     memory corruption bugs. It is not known that there is a security
+     vulnerability in libgit2 based on these bugs, but we are updating
+     to be cautious.
+
+* **[libgit2 v1.4.3](https://github.com/libgit2/libgit2/releases/tag/v1.4.3)** and **[libgit2 v1.3.1](https://github.com/libgit2/libgit2/releases/tag/v1.3.1)**, Apr 12, 2022
+
+   - CVE 2022-24765: libgit2 is not directly affected by this
+     vulnerability, because libgit2 does not directly invoke any
+     executable. But we are providing these changes as a security
+     release for any users that use libgit2 for repository discovery
+     and then also use git on that repository. In this release, we will
+     now validate that the user opening the repository is the same user
+     that owns the on-disk repository. This is to match git's behavior.
+   - Several correctness fixes where invalid input can lead to a crash.
+     These may prevent possible denial of service attacks. At this time
+     there are not known exploits to these issues.
+
+     - midx: Fix an undefined behavior (left-shift signed overflow)
+     - fetch: support OID refspec without dst
+     - Fix crash when regenerating a patch with unquoted spaces in
+       filename
 
 * **[libgit2 v0.28.4](https://github.com/libgit2/libgit2/releases/tag/v0.28.4)** and **[libgit2 v0.27.10](https://github.com/libgit2/libgit2/releases/tag/v0.27.10)**, Dec 10, 2019
 
