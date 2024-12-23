@@ -144,7 +144,7 @@ merging functionality how to deal with conflicting regions of the files.</p>
               GIT_MERGE_FILE_FAVOR_NORMAL
             </div>
             <div class="apiMemberValue enumMemberValue">
-              [object Object]
+              0
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>When a region of a file is changed in both branches, a conflict will be recorded in the index so that <code><span class="codeWord">git_checkout</span></code> can produce a merge file with conflict markers in the working directory. This is the default.</p> 
@@ -155,7 +155,7 @@ merging functionality how to deal with conflicting regions of the files.</p>
               GIT_MERGE_FILE_FAVOR_OURS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              [object Object]
+              1
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>When a region of a file is changed in both branches, the file created in the index will contain the &quot;ours&quot; side of any conflicting region. The index will not record a conflict.</p> 
@@ -166,7 +166,7 @@ merging functionality how to deal with conflicting regions of the files.</p>
               GIT_MERGE_FILE_FAVOR_THEIRS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              [object Object]
+              2
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>When a region of a file is changed in both branches, the file created in the index will contain the &quot;theirs&quot; side of any conflicting region. The index will not record a conflict.</p> 
@@ -177,7 +177,7 @@ merging functionality how to deal with conflicting regions of the files.</p>
               GIT_MERGE_FILE_FAVOR_UNION
             </div>
             <div class="apiMemberValue enumMemberValue">
-              [object Object]
+              3
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>When a region of a file is changed in both branches, the file created in the index will contain each unique line from each side, which has the result of combining both files. The index will not record a conflict.</p> 
@@ -187,7 +187,7 @@ merging functionality how to deal with conflicting regions of the files.</p>
         <h3 class="apiVersionsHeader enumVersionsHeader">Versions</h3>
         <div class="apiVersions enumVersions">
           <ul>
-          <li class="apiVersionDeltaChanged enumVersionDeltaChanged">
+          <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
             <a href="/docs/reference/main/merge/git_merge_file_favor_t.html" class="apiVersionLink enumVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">

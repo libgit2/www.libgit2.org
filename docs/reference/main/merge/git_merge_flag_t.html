@@ -123,7 +123,7 @@ passed in via the <code><span class="codeWord">flags</span></code> value in the 
               GIT_MERGE_FIND_RENAMES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              [object Object]
+              (1 << 0)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Detect renames that occur between the common ancestor and the &quot;ours&quot; side or the common ancestor and the &quot;theirs&quot; side. This will enable the ability to merge between a modified and renamed file.</p> 
@@ -134,7 +134,7 @@ passed in via the <code><span class="codeWord">flags</span></code> value in the 
               GIT_MERGE_FAIL_ON_CONFLICT
             </div>
             <div class="apiMemberValue enumMemberValue">
-              [object Object]
+              (1 << 1)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>If a conflict occurs, exit immediately instead of attempting to continue resolving conflicts. The merge operation will fail with GIT_EMERGECONFLICT and no index will be returned.</p> 
@@ -145,7 +145,7 @@ passed in via the <code><span class="codeWord">flags</span></code> value in the 
               GIT_MERGE_SKIP_REUC
             </div>
             <div class="apiMemberValue enumMemberValue">
-              [object Object]
+              (1 << 2)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Do not write the REUC extension on the generated index</p> 
@@ -156,7 +156,7 @@ passed in via the <code><span class="codeWord">flags</span></code> value in the 
               GIT_MERGE_NO_RECURSIVE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              [object Object]
+              (1 << 3)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>If the commits being merged have multiple merge bases, do not build a recursive merge base (by merging the multiple merge bases), instead simply use the first base. This flag provides a similar merge base to <code><span class="codeWord">git-merge-resolve</span></code>.</p> 
@@ -167,7 +167,7 @@ passed in via the <code><span class="codeWord">flags</span></code> value in the 
               GIT_MERGE_VIRTUAL_BASE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              [object Object]
+              (1 << 4)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Treat this merge as if it is to produce the virtual base of a recursive merge. This will ensure that there are no conflicts, any conflicting regions will keep conflict markers in the merge result.</p> 
@@ -177,7 +177,7 @@ passed in via the <code><span class="codeWord">flags</span></code> value in the 
         <h3 class="apiVersionsHeader enumVersionsHeader">Versions</h3>
         <div class="apiVersions enumVersions">
           <ul>
-          <li class="apiVersionDeltaChanged enumVersionDeltaChanged">
+          <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
             <a href="/docs/reference/main/merge/git_merge_flag_t.html" class="apiVersionLink enumVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
