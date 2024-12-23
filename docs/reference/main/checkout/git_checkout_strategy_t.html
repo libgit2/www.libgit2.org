@@ -250,7 +250,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_SAFE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              0
+              (1 << NaN)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Allow safe updates that cannot overwrite uncommitted data. If the uncommitted changes don't conflict with the checked out files, the checkout will still proceed, leaving the changes intact.</p> 
@@ -261,7 +261,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_FORCE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              1
+              (1 << 1)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Allow all updates to force working directory to look like the index, potentially losing data in the process.</p> 
@@ -272,7 +272,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_RECREATE_MISSING
             </div>
             <div class="apiMemberValue enumMemberValue">
-              2
+              (1 << 2)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Allow checkout to recreate missing files</p> 
@@ -283,7 +283,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_ALLOW_CONFLICTS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              3
+              (1 << 4)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Allow checkout to make safe updates even if conflicts are found</p> 
@@ -294,7 +294,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_REMOVE_UNTRACKED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              4
+              (1 << 5)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Remove untracked files not in index (that are not ignored)</p> 
@@ -305,7 +305,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_REMOVE_IGNORED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              5
+              (1 << 6)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Remove ignored files not in index</p> 
@@ -316,7 +316,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_UPDATE_ONLY
             </div>
             <div class="apiMemberValue enumMemberValue">
-              6
+              (1 << 7)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Only update existing files, don't create new ones</p> 
@@ -327,7 +327,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_DONT_UPDATE_INDEX
             </div>
             <div class="apiMemberValue enumMemberValue">
-              7
+              (1 << 8)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Normally checkout updates index entries as it goes; this stops that. Implies <a href="/docs/reference/main/checkout/git_checkout_strategy_t.html#GIT_CHECKOUT_DONT_WRITE_INDEX" class="apiLink enumLink"><code><span class="codeWord">GIT_CHECKOUT_DONT_WRITE_INDEX</span></code></a>.</p> 
@@ -338,7 +338,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_NO_REFRESH
             </div>
             <div class="apiMemberValue enumMemberValue">
-              8
+              (1 << 9)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Don't refresh index/config/etc before doing checkout</p> 
@@ -349,7 +349,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_SKIP_UNMERGED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              9
+              (1 << 10)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Allow checkout to skip unmerged files</p> 
@@ -360,7 +360,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_USE_OURS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              10
+              (1 << 11)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>For unmerged files, checkout stage 2 from index</p> 
@@ -371,7 +371,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_USE_THEIRS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              11
+              (1 << 12)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>For unmerged files, checkout stage 3 from index</p> 
@@ -382,7 +382,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_DISABLE_PATHSPEC_MATCH
             </div>
             <div class="apiMemberValue enumMemberValue">
-              12
+              (1 << 13)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Treat pathspec as simple list of exact match file paths</p> 
@@ -393,7 +393,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_SKIP_LOCKED_DIRECTORIES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              13
+              (1 << 18)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Ignore directories in use, they will be left empty</p> 
@@ -404,7 +404,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_DONT_OVERWRITE_IGNORED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              14
+              (1 << 19)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Don't overwrite ignored files that exist in the checkout target</p> 
@@ -415,7 +415,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_CONFLICT_STYLE_MERGE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              15
+              (1 << 20)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Write normal merge files for conflicts</p> 
@@ -426,7 +426,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_CONFLICT_STYLE_DIFF3
             </div>
             <div class="apiMemberValue enumMemberValue">
-              16
+              (1 << 21)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Include common ancestor data in diff3 format files for conflicts</p> 
@@ -437,7 +437,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_DONT_REMOVE_EXISTING
             </div>
             <div class="apiMemberValue enumMemberValue">
-              17
+              (1 << 22)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Don't overwrite existing files or folders</p> 
@@ -448,7 +448,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_DONT_WRITE_INDEX
             </div>
             <div class="apiMemberValue enumMemberValue">
-              18
+              (1 << 23)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Normally checkout writes the index upon completion; this prevents that.</p> 
@@ -459,7 +459,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_DRY_RUN
             </div>
             <div class="apiMemberValue enumMemberValue">
-              19
+              (1 << 24)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Perform a &quot;dry run&quot;, reporting what <em>would</em> be done but without actually making changes in the working directory or the index.</p> 
@@ -470,7 +470,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_CONFLICT_STYLE_ZDIFF3
             </div>
             <div class="apiMemberValue enumMemberValue">
-              20
+              (1 << 25)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Include common ancestor data in zdiff3 format for conflicts</p> 
@@ -481,7 +481,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_NONE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              21
+              (1 << 30)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Do not do a checkout and do not fire callbacks; this is primarily useful only for internal functions that will perform the checkout themselves but need to pass checkout options into another function, for example, <a href="/docs/reference/main/clone/git_clone.html" class="apiLink functionLink"><code><span class="codeWord">git_clone</span></code></a>.</p> 
@@ -492,7 +492,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_UPDATE_SUBMODULES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              22
+              (1 << 16)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Recursively checkout submodules with same options (NOT IMPLEMENTED)</p> 
@@ -503,7 +503,7 @@ and write through existing symbolic links.</li>
               GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              23
+              (1 << 17)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Recursively checkout submodules if HEAD moved in super repo (NOT IMPLEMENTED)</p> 

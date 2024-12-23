@@ -140,7 +140,7 @@ layout: default
               GIT_FILTER_ALLOW_UNSAFE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              1
+              (1 << 0)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Don't error for <code><span class="codeWord">safecrlf</span></code> violations, allow them to continue.</p> 
@@ -151,7 +151,7 @@ layout: default
               GIT_FILTER_NO_SYSTEM_ATTRIBUTES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              2
+              (1 << 1)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Don't load <code><span class="codeWord">/etc/gitattributes</span></code> (or the system equivalent)</p> 
@@ -162,7 +162,7 @@ layout: default
               GIT_FILTER_ATTRIBUTES_FROM_HEAD
             </div>
             <div class="apiMemberValue enumMemberValue">
-              3
+              (1 << 2)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Load attributes from <code><span class="codeWord">.gitattributes</span></code> in the root of HEAD</p> 
@@ -173,7 +173,7 @@ layout: default
               GIT_FILTER_ATTRIBUTES_FROM_COMMIT
             </div>
             <div class="apiMemberValue enumMemberValue">
-              4
+              (1 << 3)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Load attributes from <code><span class="codeWord">.gitattributes</span></code> in a given commit. This can only be specified in a <a href="/docs/reference/main/filter/git_filter_options.html" class="apiLink structLink"><code><span class="codeWord">git_filter_options</span></code></a>.</p> 
@@ -183,7 +183,7 @@ layout: default
         <h3 class="apiVersionsHeader enumVersionsHeader">Versions</h3>
         <div class="apiVersions enumVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged enumVersionDeltaChanged">
             <a href="/docs/reference/main/filter/git_filter_flag_t.html" class="apiVersionLink enumVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">

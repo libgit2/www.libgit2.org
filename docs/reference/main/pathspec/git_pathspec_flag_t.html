@@ -144,7 +144,7 @@ layout: default
               GIT_PATHSPEC_DEFAULT
             </div>
             <div class="apiMemberValue enumMemberValue">
-              0
+              (1 << NaN)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               
@@ -155,7 +155,7 @@ layout: default
               GIT_PATHSPEC_IGNORE_CASE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              1
+              (1 << 0)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>GIT_PATHSPEC_IGNORE_CASE forces match to ignore case; otherwise match will use native case sensitivity of platform filesystem</p> 
@@ -166,7 +166,7 @@ layout: default
               GIT_PATHSPEC_USE_CASE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              2
+              (1 << 1)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>GIT_PATHSPEC_USE_CASE forces case sensitive match; otherwise match will use native case sensitivity of platform filesystem</p> 
@@ -177,7 +177,7 @@ layout: default
               GIT_PATHSPEC_NO_GLOB
             </div>
             <div class="apiMemberValue enumMemberValue">
-              3
+              (1 << 2)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>GIT_PATHSPEC_NO_GLOB disables glob patterns and just uses simple string comparison for matching</p> 
@@ -188,7 +188,7 @@ layout: default
               GIT_PATHSPEC_NO_MATCH_ERROR
             </div>
             <div class="apiMemberValue enumMemberValue">
-              4
+              (1 << 3)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>GIT_PATHSPEC_NO_MATCH_ERROR means the match functions return error code GIT_ENOTFOUND if no matches are found; otherwise no matches is still success (return 0) but <a href="/docs/reference/main/pathspec/git_pathspec_match_list_entrycount.html" class="apiLink functionLink"><code><span class="codeWord">git_pathspec_match_list_entrycount</span></code></a> will indicate 0 matches.</p> 
@@ -199,7 +199,7 @@ layout: default
               GIT_PATHSPEC_FIND_FAILURES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              5
+              (1 << 4)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>GIT_PATHSPEC_FIND_FAILURES means that the <a href="/docs/reference/main/pathspec/git_pathspec_match_list.html" class="apiLink objectLink"><code><span class="codeWord">git_pathspec_match_list</span></code></a> should track which patterns matched which files so that at the end of the match we can identify patterns that did not match any files.</p> 
@@ -210,7 +210,7 @@ layout: default
               GIT_PATHSPEC_FAILURES_ONLY
             </div>
             <div class="apiMemberValue enumMemberValue">
-              6
+              (1 << 5)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>GIT_PATHSPEC_FAILURES_ONLY means that the <a href="/docs/reference/main/pathspec/git_pathspec_match_list.html" class="apiLink objectLink"><code><span class="codeWord">git_pathspec_match_list</span></code></a> does not need to keep the actual matching filenames. Use this to just test if there were any matches at all or in combination with GIT_PATHSPEC_FIND_FAILURES to validate a pathspec.</p> 
@@ -220,7 +220,7 @@ layout: default
         <h3 class="apiVersionsHeader enumVersionsHeader">Versions</h3>
         <div class="apiVersions enumVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged enumVersionDeltaChanged">
             <a href="/docs/reference/main/pathspec/git_pathspec_flag_t.html" class="apiVersionLink enumVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">

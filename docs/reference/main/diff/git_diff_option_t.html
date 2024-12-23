@@ -147,7 +147,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_NORMAL
             </div>
             <div class="apiMemberValue enumMemberValue">
-              0
+              (1 << NaN)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Normal diff, the default</p> 
@@ -158,7 +158,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_REVERSE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              1
+              (1 << 0)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Reverse the sides of the diff</p> 
@@ -169,7 +169,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_INCLUDE_IGNORED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              2
+              (1 << 1)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Include ignored files in the diff</p> 
@@ -180,7 +180,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_RECURSE_IGNORED_DIRS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              3
+              (1 << 2)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Even with GIT_DIFF_INCLUDE_IGNORED, an entire ignored directory will be marked with only a single entry in the diff; this flag adds all files under the directory as IGNORED entries, too.</p> 
@@ -191,7 +191,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_INCLUDE_UNTRACKED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              4
+              (1 << 3)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Include untracked files in the diff</p> 
@@ -202,7 +202,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_RECURSE_UNTRACKED_DIRS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              5
+              (1 << 4)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Even with GIT_DIFF_INCLUDE_UNTRACKED, an entire untracked directory will be marked with only a single entry in the diff (a la what core Git does in <code><span class="codeWord">git</span> <span class="codeWord">status</span></code>); this flag adds <em>all</em> files under untracked directories as UNTRACKED entries, too.</p> 
@@ -213,7 +213,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_INCLUDE_UNMODIFIED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              6
+              (1 << 5)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Include unmodified files in the diff</p> 
@@ -224,7 +224,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_INCLUDE_TYPECHANGE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              7
+              (1 << 6)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Normally, a type change between files will be converted into a DELETED record for the old and an ADDED record for the new; this options enabled the generation of TYPECHANGE delta records.</p> 
@@ -235,7 +235,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_INCLUDE_TYPECHANGE_TREES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              8
+              (1 << 7)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Even with GIT_DIFF_INCLUDE_TYPECHANGE, blob-&gt;tree changes still generally show as a DELETED blob. This flag tries to correctly label blob-&gt;tree transitions as TYPECHANGE records with new_file's mode set to tree. Note: the tree SHA will not be available.</p> 
@@ -246,7 +246,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_IGNORE_FILEMODE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              9
+              (1 << 8)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Ignore file mode changes</p> 
@@ -257,7 +257,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_IGNORE_SUBMODULES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              10
+              (1 << 9)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Treat all submodules as unmodified</p> 
@@ -268,7 +268,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_IGNORE_CASE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              11
+              (1 << 10)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Use case insensitive filename comparisons</p> 
@@ -279,7 +279,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_INCLUDE_CASECHANGE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              12
+              (1 << 11)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>May be combined with <a href="/docs/reference/main/diff/git_diff_option_t.html#GIT_DIFF_IGNORE_CASE" class="apiLink enumLink"><code><span class="codeWord">GIT_DIFF_IGNORE_CASE</span></code></a> to specify that a file that has changed case will be returned as an add/delete pair.</p> 
@@ -290,7 +290,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_DISABLE_PATHSPEC_MATCH
             </div>
             <div class="apiMemberValue enumMemberValue">
-              13
+              (1 << 12)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>If the pathspec is set in the diff options, this flags indicates that the paths will be treated as literal paths instead of fnmatch patterns. Each path in the list must either be a full path to a file or a directory. (A trailing slash indicates that the path will <em>only</em> match a directory). If a directory is specified, all children will be included.</p> 
@@ -301,7 +301,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_SKIP_BINARY_CHECK
             </div>
             <div class="apiMemberValue enumMemberValue">
-              14
+              (1 << 13)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Disable updating of the <code><span class="codeWord">binary</span></code> flag in delta records. This is useful when iterating over a diff if you don't need hunk and data callbacks and want to avoid having to load file completely.</p> 
@@ -312,7 +312,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_ENABLE_FAST_UNTRACKED_DIRS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              15
+              (1 << 14)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>When diff finds an untracked directory, to match the behavior of core Git, it scans the contents for IGNORED and UNTRACKED files. If <em>all</em> contents are IGNORED, then the directory is IGNORED; if any contents are not IGNORED, then the directory is UNTRACKED. This is extra work that may not matter in many cases. This flag turns off that scan and immediately labels an untracked directory as UNTRACKED (changing the behavior to not match core Git).</p> 
@@ -323,7 +323,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_UPDATE_INDEX
             </div>
             <div class="apiMemberValue enumMemberValue">
-              16
+              (1 << 15)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>When diff finds a file in the working directory with stat information different from the index, but the OID ends up being the same, write the correct stat information into the index. Note: without this flag, diff will always leave the index untouched.</p> 
@@ -334,7 +334,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_INCLUDE_UNREADABLE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              17
+              (1 << 16)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Include unreadable files in the diff</p> 
@@ -345,7 +345,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_INCLUDE_UNREADABLE_AS_UNTRACKED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              18
+              (1 << 17)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Include unreadable files in the diff</p> 
@@ -356,7 +356,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_INDENT_HEURISTIC
             </div>
             <div class="apiMemberValue enumMemberValue">
-              19
+              (1 << 18)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Use a heuristic that takes indentation and whitespace into account which generally can produce better diffs when dealing with ambiguous diff hunks.</p> 
@@ -367,7 +367,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_IGNORE_BLANK_LINES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              20
+              (1 << 19)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Ignore blank lines</p> 
@@ -378,7 +378,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_FORCE_TEXT
             </div>
             <div class="apiMemberValue enumMemberValue">
-              21
+              (1 << 20)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Treat all files as text, disabling binary attributes &amp; detection</p> 
@@ -389,7 +389,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_FORCE_BINARY
             </div>
             <div class="apiMemberValue enumMemberValue">
-              22
+              (1 << 21)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Treat all files as binary, disabling text diffs</p> 
@@ -400,7 +400,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_IGNORE_WHITESPACE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              23
+              (1 << 22)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Ignore all whitespace</p> 
@@ -411,7 +411,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_IGNORE_WHITESPACE_CHANGE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              24
+              (1 << 23)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Ignore changes in amount of whitespace</p> 
@@ -422,7 +422,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_IGNORE_WHITESPACE_EOL
             </div>
             <div class="apiMemberValue enumMemberValue">
-              25
+              (1 << 24)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Ignore whitespace at end of line</p> 
@@ -433,7 +433,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_SHOW_UNTRACKED_CONTENT
             </div>
             <div class="apiMemberValue enumMemberValue">
-              26
+              (1 << 25)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>When generating patch text, include the content of untracked files. This automatically turns on GIT_DIFF_INCLUDE_UNTRACKED but it does not turn on GIT_DIFF_RECURSE_UNTRACKED_DIRS. Add that flag if you want the content of every single UNTRACKED file.</p> 
@@ -444,7 +444,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_SHOW_UNMODIFIED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              27
+              (1 << 26)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>When generating output, include the names of unmodified files if they are included in the git_diff. Normally these are skipped in the formats that list files (e.g. name-only, name-status, raw). Even with this, these will not be included in patch format.</p> 
@@ -455,7 +455,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_PATIENCE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              28
+              (1 << 28)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Use the &quot;patience diff&quot; algorithm</p> 
@@ -466,7 +466,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_MINIMAL
             </div>
             <div class="apiMemberValue enumMemberValue">
-              29
+              (1 << 29)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Take extra time to find minimal diff</p> 
@@ -477,7 +477,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
               GIT_DIFF_SHOW_BINARY
             </div>
             <div class="apiMemberValue enumMemberValue">
-              30
+              (1 << 30)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Include the necessary deflate / delta information so that <code><span class="codeWord">git-apply</span></code> can apply given diff information to binary files.</p> 
@@ -487,7 +487,7 @@ in via the <code><span class="codeWord">flags</span></code> value in the <a href
         <h3 class="apiVersionsHeader enumVersionsHeader">Versions</h3>
         <div class="apiVersions enumVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged enumVersionDeltaChanged">
             <a href="/docs/reference/main/diff/git_diff_option_t.html" class="apiVersionLink enumVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">

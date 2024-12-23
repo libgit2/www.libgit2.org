@@ -96,7 +96,7 @@ layout: default
               GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL
             </div>
             <div class="apiMemberValue enumMemberValue">
-              1
+              (1 << 0)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Control whether one-level refnames are accepted (i.e., refnames that do not contain multiple /-separated components). Those are expected to be written only using uppercase letters and underscore (FETCH_HEAD, ...)</p> 
@@ -107,7 +107,7 @@ layout: default
               GIT_REFERENCE_FORMAT_REFSPEC_PATTERN
             </div>
             <div class="apiMemberValue enumMemberValue">
-              2
+              (1 << 1)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Interpret the provided name as a reference pattern for a refspec (as used with remote repositories). If this option is enabled, the name is allowed to contain a single * ( &lt;star&gt;) in place of a one full pathname component (e.g., foo/ &lt;star&gt;/bar but not foo/bar &lt;star&gt;).</p> 
@@ -118,7 +118,7 @@ layout: default
               GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND
             </div>
             <div class="apiMemberValue enumMemberValue">
-              3
+              (1 << 2)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Interpret the name as part of a refspec in shorthand form so the <code><span class="codeWord">ONELEVEL</span></code> naming rules aren't enforced and 'master' becomes a valid name.</p> 
@@ -128,7 +128,7 @@ layout: default
         <h3 class="apiVersionsHeader enumVersionsHeader">Versions</h3>
         <div class="apiVersions enumVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged enumVersionDeltaChanged">
             <a href="/docs/reference/main/refs/git_reference_format_t.html" class="apiVersionLink enumVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">

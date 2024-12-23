@@ -151,7 +151,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_INCLUDE_UNTRACKED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              0
+              (1 << 0)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Says that callbacks should be made on untracked files. These will only be made if the workdir files are included in the status &quot;show&quot; option.</p> 
@@ -162,7 +162,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_INCLUDE_IGNORED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              1
+              (1 << 1)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Says that ignored files get callbacks. Again, these callbacks will only be made if the workdir files are included in the status &quot;show&quot; option.</p> 
@@ -173,7 +173,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_INCLUDE_UNMODIFIED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              2
+              (1 << 2)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Indicates that callback should be made even on unmodified files.</p> 
@@ -184,7 +184,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_EXCLUDE_SUBMODULES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              3
+              (1 << 3)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Indicates that submodules should be skipped. This only applies if there are no pending typechanges to the submodule (either from or to another type).</p> 
@@ -195,7 +195,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_RECURSE_UNTRACKED_DIRS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              4
+              (1 << 4)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Indicates that all files in untracked directories should be included. Normally if an entire directory is new, then just the top-level directory is included (with a trailing slash on the entry name). This flag says to include all of the individual files in the directory instead.</p> 
@@ -206,7 +206,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_DISABLE_PATHSPEC_MATCH
             </div>
             <div class="apiMemberValue enumMemberValue">
-              5
+              (1 << 5)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Indicates that the given path should be treated as a literal path, and not as a pathspec pattern.</p> 
@@ -217,7 +217,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_RECURSE_IGNORED_DIRS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              6
+              (1 << 6)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Indicates that the contents of ignored directories should be included in the status. This is like doing <code><span class="codeWord">git</span> <span class="codeWord">ls-files</span> <span class="codeWord">-o</span> <span class="codeWord">-i</span> <span class="codeWord">--exclude-standard</span></code> with core git.</p> 
@@ -228,7 +228,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_RENAMES_HEAD_TO_INDEX
             </div>
             <div class="apiMemberValue enumMemberValue">
-              7
+              (1 << 7)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Indicates that rename detection should be processed between the head and the index and enables the GIT_STATUS_INDEX_RENAMED as a possible status flag.</p> 
@@ -239,7 +239,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_RENAMES_INDEX_TO_WORKDIR
             </div>
             <div class="apiMemberValue enumMemberValue">
-              8
+              (1 << 8)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Indicates that rename detection should be run between the index and the working directory and enabled GIT_STATUS_WT_RENAMED as a possible status flag.</p> 
@@ -250,7 +250,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_SORT_CASE_SENSITIVELY
             </div>
             <div class="apiMemberValue enumMemberValue">
-              9
+              (1 << 9)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Overrides the native case sensitivity for the file system and forces the output to be in case-sensitive order.</p> 
@@ -261,7 +261,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_SORT_CASE_INSENSITIVELY
             </div>
             <div class="apiMemberValue enumMemberValue">
-              10
+              (1 << 10)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Overrides the native case sensitivity for the file system and forces the output to be in case-insensitive order.</p> 
@@ -272,7 +272,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_RENAMES_FROM_REWRITES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              11
+              (1 << 11)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Iindicates that rename detection should include rewritten files.</p> 
@@ -283,7 +283,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_NO_REFRESH
             </div>
             <div class="apiMemberValue enumMemberValue">
-              12
+              (1 << 12)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Bypasses the default status behavior of doing a &quot;soft&quot; index reload (i.e. reloading the index data if the file on disk has been modified outside libgit2).</p> 
@@ -294,7 +294,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_UPDATE_INDEX
             </div>
             <div class="apiMemberValue enumMemberValue">
-              13
+              (1 << 13)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Tells libgit2 to refresh the stat cache in the index for files that are unchanged but have out of date stat einformation in the index. It will result in less work being done on subsequent calls to get status. This is mutually exclusive with the NO_REFRESH option.</p> 
@@ -305,7 +305,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_INCLUDE_UNREADABLE
             </div>
             <div class="apiMemberValue enumMemberValue">
-              14
+              (1 << 14)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Normally files that cannot be opened or read are ignored as these are often transient files; this option will return unreadable files as <a href="/docs/reference/main/status/git_status_t.html#GIT_STATUS_WT_UNREADABLE" class="apiLink enumLink"><code><span class="codeWord">GIT_STATUS_WT_UNREADABLE</span></code></a>.</p> 
@@ -316,7 +316,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
               GIT_STATUS_OPT_INCLUDE_UNREADABLE_AS_UNTRACKED
             </div>
             <div class="apiMemberValue enumMemberValue">
-              15
+              (1 << 15)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Unreadable files will be detected and given the status untracked instead of unreadable.</p> 
@@ -326,7 +326,7 @@ together as <a href="/docs/reference/main/status/GIT_STATUS_OPT_DEFAULTS.html" c
         <h3 class="apiVersionsHeader enumVersionsHeader">Versions</h3>
         <div class="apiVersions enumVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged enumVersionDeltaChanged">
             <a href="/docs/reference/main/status/git_status_opt_t.html" class="apiVersionLink enumVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">

@@ -72,7 +72,7 @@ layout: default
               GIT_EMAIL_CREATE_DEFAULT
             </div>
             <div class="apiMemberValue enumMemberValue">
-              0
+              (1 << NaN)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Normal patch, the default</p> 
@@ -83,7 +83,7 @@ layout: default
               GIT_EMAIL_CREATE_OMIT_NUMBERS
             </div>
             <div class="apiMemberValue enumMemberValue">
-              1
+              (1 << 0)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Do not include patch numbers in the subject prefix.</p> 
@@ -94,7 +94,7 @@ layout: default
               GIT_EMAIL_CREATE_ALWAYS_NUMBER
             </div>
             <div class="apiMemberValue enumMemberValue">
-              2
+              (1 << 1)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Include numbers in the subject prefix even when the patch is for a single commit (1/1).</p> 
@@ -105,7 +105,7 @@ layout: default
               GIT_EMAIL_CREATE_NO_RENAMES
             </div>
             <div class="apiMemberValue enumMemberValue">
-              3
+              (1 << 2)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>Do not perform rename or similarity detection.</p> 
@@ -115,7 +115,7 @@ layout: default
         <h3 class="apiVersionsHeader enumVersionsHeader">Versions</h3>
         <div class="apiVersions enumVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged enumVersionDeltaChanged">
             <a href="/docs/reference/main/email/git_email_create_flags_t.html" class="apiVersionLink enumVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
