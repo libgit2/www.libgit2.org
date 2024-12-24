@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "536f868be637d674ab84fdf62eacda6b95b56497"
+    "commit": "ccc202802c792fbbc85cce9ce262b347fbc1755c"
   },
   "groups": {
     "sys/alloc": {
@@ -38307,12 +38307,43 @@
           ],
           "group": "refspec"
         },
+        "git_refspec_src_matches_negative": {
+          "kind": "function",
+          "name": "git_refspec_src_matches_negative",
+          "location": {
+            "file": "refspec.h",
+            "line": 88,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "1 if the refspec matches, 0 otherwise"
+          },
+          "params": [
+            {
+              "name": "refspec",
+              "type": "const git_refspec *",
+              "direction": "in",
+              "comment": "the refspec"
+            },
+            {
+              "name": "refname",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the name of the reference to check"
+            }
+          ],
+          "comment": [
+            "Check if a refspec's source descriptor matches a negative reference"
+          ],
+          "group": "refspec"
+        },
         "git_refspec_src_matches": {
           "kind": "function",
           "name": "git_refspec_src_matches",
           "location": {
             "file": "refspec.h",
-            "line": 88,
+            "line": 97,
             "column": 17
           },
           "returns": {
@@ -38343,7 +38374,7 @@
           "name": "git_refspec_dst_matches",
           "location": {
             "file": "refspec.h",
-            "line": 97,
+            "line": 106,
             "column": 17
           },
           "returns": {
@@ -38374,7 +38405,7 @@
           "name": "git_refspec_transform",
           "location": {
             "file": "refspec.h",
-            "line": 107,
+            "line": 116,
             "column": 17
           },
           "returns": {
@@ -38411,7 +38442,7 @@
           "name": "git_refspec_rtransform",
           "location": {
             "file": "refspec.h",
-            "line": 117,
+            "line": 126,
             "column": 17
           },
           "returns": {
@@ -38468,6 +38499,7 @@
             "git_refspec_string",
             "git_refspec_force",
             "git_refspec_direction",
+            "git_refspec_src_matches_negative",
             "git_refspec_src_matches",
             "git_refspec_dst_matches",
             "git_refspec_transform",
