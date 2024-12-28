@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "dc816591d5ee4a44d2f5cd1c7c2f07e190c66922"
+    "commit": "d85c1a1b79981b99d84d1b29576187390a9f9181"
   },
   "groups": {
     "sys/alloc": {
@@ -52748,7 +52748,7 @@
             "line": 49,
             "column": 9
           },
-          "value": "\"2.0\"",
+          "value": "\"1.9\"",
           "comment": "The library ABI soversion for this version of libgit2. This should only be changed when the library has a breaking ABI change, and so may not reflect the library's API version number.",
           "group": "version"
         },
