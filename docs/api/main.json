@@ -1,7 +1,7 @@
 {
   "info": {
-    "version": "main",
-    "commit": "76fe3978ae5f162950119651072625d1c724d179"
+    "version": "ethomson/ci",
+    "commit": "e447de936d4a0838f235e321cbb3dc3d50a9c3cf"
   },
   "groups": {
     "sys/alloc": {
