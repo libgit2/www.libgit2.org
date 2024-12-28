@@ -1,0 +1,87 @@
+---
+title: git_config_backend_entry (libgit2 v1.9.0)
+layout: default
+---
+
+      <div class="api struct">
+        <div class="apiBreadcrumb structBreadcrumb">
+          <ul>
+            <li><a href="/docs/reference/v1.9.0/index.html">API Documentation</a></li>
+            <li><a href="/docs/reference/v1.9.0/sys/config/index.html">config (advanced)</a></li>
+          </ul>
+        </div>
+        <div class="apiHeader structHeader">
+          <h2 class="apiName structName">git_config_backend_entry</h2>
+
+           <script src="/js/minisearch.js"></script>
+           <script src="/js/search.js"></script>
+           <div class="headerSearchArea structHeaderSearchArea" id="headersearcharea">
+             <input class="headerSearchBox structHeaderSearchBox" id="headersearchbox" placeholder="Search..." onInput="handleSearchSuggest({ version: 'v1.9.0' })" onFocusIn="handleSearchSuggest({ version: 'v1.9.0' })" onKeyUp="if (event.code === 'Enter') { submitSearch({ version: 'v1.9.0' }); }"/>
+             <div class="headerSearchResults structHeaderSearchResults" id="headersearchresults">
+             </div>
+           </div>
+
+          <div class="apiHeaderVersionSelect structHeaderVersionSelect">
+            <span>Version:</span>
+            <select onChange="window.location.href = this.value">
+              <option value="/docs/reference/main/sys/config/git_config_backend_entry.html">main</option>
+              <option value="/docs/reference/v1.9.0/sys/config/git_config_backend_entry.html" selected>v1.9.0</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="apiDescription structDescription">
+        <p>An entry in a configuration backend. This is provided so that
+backend implementors can have a mechanism to free their data.</p>
+
+        </div>
+
+        <h3 class="apiSignatureHeader structSignatureHeader">Signature</h3>
+        <div class="apiSignatureLink structSignatureLink">
+          <a href="https://github.com/libgit2/libgit2/blob/v1.9.0/include/git2/sys/config.h#L27" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="apiSignature structSignature">
+          typedef struct git_config_backend_entry {
+<span class="apiSignatureMember structSignatureMember">struct git_config_entry entry</span>
+<span class="apiSignatureMember structSignatureMember">void (*)(struct git_config_backend_entry *) free</span>
+          };
+        </div>
+
+        <h3 class="apiMembersHeader structMembersHeader">Members</h3>
+        <div class="apiMembers structMembers">
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              struct git_config_entry
+            </div>
+            <div class="apiMemberName structMemberName">
+              entry
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>The base configuration entry</p> 
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              void (*)(struct git_config_backend_entry *)
+            </div>
+            <div class="apiMemberName structMemberName">
+              free
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>Free function for this entry; for internal purposes. Callers should call <a href="/docs/reference/v1.9.0/config/git_config_entry_free.html" class="apiLink functionLink"><code><span class="codeWord">git_config_entry_free</span></code></a> to free data.</p> 
+            </div>
+          </div>
+        </div>
+        <h3 class="apiVersionsHeader structVersionsHeader">Versions</h3>
+        <div class="apiVersions structVersions">
+          <ul>
+          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+            <a href="/docs/reference/main/sys/config/git_config_backend_entry.html" class="apiVersionLink structVersionLink">main</a>
+          </li>
+          <li class="apiVersionDeltaIntroduced structVersionDeltaIntroduced">
+            <a href="/docs/reference/v1.9.0/sys/config/git_config_backend_entry.html" class="apiVersionLink structVersionLink">v1.9.0</a>
+          </li>
+          </ul>
+        </div>
+      </div>

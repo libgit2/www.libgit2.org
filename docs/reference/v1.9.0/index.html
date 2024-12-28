@@ -1,0 +1,939 @@
+---
+title: APIs (libgit2 v1.9.0)
+layout: default
+---
+
+      <div class="version">
+        <div class="versionHeader">
+          <h2 class="versionName">libgit2 v1.9.0</h2>
+
+           <script src="/js/minisearch.js"></script>
+           <script src="/js/search.js"></script>
+           <div class="headerSearchArea versionHeaderSearchArea" id="headersearcharea">
+             <input class="headerSearchBox versionHeaderSearchBox" id="headersearchbox" placeholder="Search..." onInput="handleSearchSuggest({ version: 'v1.9.0' })" onFocusIn="handleSearchSuggest({ version: 'v1.9.0' })" onKeyUp="if (event.code === 'Enter') { submitSearch({ version: 'v1.9.0' }); }"/>
+             <div class="headerSearchResults versionHeaderSearchResults" id="headersearchresults">
+             </div>
+           </div>
+
+          <div class="versionHeaderVersionSelect">
+            <span>Version:</span>
+            <select onChange="window.location.href = this.value">
+              <option value="/docs/reference/main/index.html">main</option>
+              <option value="/docs/reference/v1.9.0/index.html" selected>v1.9.0</option>
+              <option value="/docs/reference/v1.8.4/index.html">v1.8.4</option>
+              <option value="/docs/reference/v1.8.3/index.html">v1.8.3</option>
+              <option value="/docs/reference/v1.8.2/index.html">v1.8.2</option>
+              <option value="/docs/reference/v1.8.2-rc1/index.html">v1.8.2-rc1</option>
+              <option value="/docs/reference/v1.8.1/index.html">v1.8.1</option>
+              <option value="/docs/reference/v1.8.0/index.html">v1.8.0</option>
+              <option value="/docs/reference/v1.7.2/index.html">v1.7.2</option>
+              <option value="/docs/reference/v1.7.1/index.html">v1.7.1</option>
+              <option value="/docs/reference/v1.7.0/index.html">v1.7.0</option>
+              <option value="/docs/reference/v1.6.5/index.html">v1.6.5</option>
+              <option value="/docs/reference/v1.6.4/index.html">v1.6.4</option>
+              <option value="/docs/reference/v1.6.3/index.html">v1.6.3</option>
+              <option value="/docs/reference/v1.6.2/index.html">v1.6.2</option>
+              <option value="/docs/reference/v1.6.1/index.html">v1.6.1</option>
+              <option value="/docs/reference/v1.5.2/index.html">v1.5.2</option>
+              <option value="/docs/reference/v1.5.1/index.html">v1.5.1</option>
+              <option value="/docs/reference/v1.5.0/index.html">v1.5.0</option>
+              <option value="/docs/reference/v1.4.6/index.html">v1.4.6</option>
+              <option value="/docs/reference/v1.4.5/index.html">v1.4.5</option>
+              <option value="/docs/reference/v1.4.4/index.html">v1.4.4</option>
+              <option value="/docs/reference/v1.4.3/index.html">v1.4.3</option>
+              <option value="/docs/reference/v1.4.2/index.html">v1.4.2</option>
+              <option value="/docs/reference/v1.4.1/index.html">v1.4.1</option>
+              <option value="/docs/reference/v1.4.0/index.html">v1.4.0</option>
+              <option value="/docs/reference/v1.3.2/index.html">v1.3.2</option>
+              <option value="/docs/reference/v1.3.1/index.html">v1.3.1</option>
+              <option value="/docs/reference/v1.3.0/index.html">v1.3.0</option>
+              <option value="/docs/reference/v1.2.0/index.html">v1.2.0</option>
+              <option value="/docs/reference/v1.1.1/index.html">v1.1.1</option>
+              <option value="/docs/reference/v1.1.0/index.html">v1.1.0</option>
+              <option value="/docs/reference/v1.0.1/index.html">v1.0.1</option>
+              <option value="/docs/reference/v1.0.0/index.html">v1.0.0</option>
+              <option value="/docs/reference/v0.99.0/index.html">v0.99.0</option>
+              <option value="/docs/reference/v0.28.5/index.html">v0.28.5</option>
+              <option value="/docs/reference/v0.28.4/index.html">v0.28.4</option>
+              <option value="/docs/reference/v0.28.3/index.html">v0.28.3</option>
+              <option value="/docs/reference/v0.28.2/index.html">v0.28.2</option>
+              <option value="/docs/reference/v0.28.1/index.html">v0.28.1</option>
+              <option value="/docs/reference/v0.28.0/index.html">v0.28.0</option>
+              <option value="/docs/reference/v0.28.0-rc1/index.html">v0.28.0-rc1</option>
+              <option value="/docs/reference/v0.27.10/index.html">v0.27.10</option>
+              <option value="/docs/reference/v0.27.9/index.html">v0.27.9</option>
+              <option value="/docs/reference/v0.27.8/index.html">v0.27.8</option>
+              <option value="/docs/reference/v0.27.7/index.html">v0.27.7</option>
+              <option value="/docs/reference/v0.27.6/index.html">v0.27.6</option>
+              <option value="/docs/reference/v0.27.5/index.html">v0.27.5</option>
+              <option value="/docs/reference/v0.27.4/index.html">v0.27.4</option>
+              <option value="/docs/reference/v0.27.3/index.html">v0.27.3</option>
+              <option value="/docs/reference/v0.27.2/index.html">v0.27.2</option>
+              <option value="/docs/reference/v0.27.1/index.html">v0.27.1</option>
+              <option value="/docs/reference/v0.27.0/index.html">v0.27.0</option>
+              <option value="/docs/reference/v0.27.0-rc3/index.html">v0.27.0-rc3</option>
+              <option value="/docs/reference/v0.27.0-rc2/index.html">v0.27.0-rc2</option>
+              <option value="/docs/reference/v0.27.0-rc1/index.html">v0.27.0-rc1</option>
+              <option value="/docs/reference/v0.26.8/index.html">v0.26.8</option>
+              <option value="/docs/reference/v0.26.7/index.html">v0.26.7</option>
+              <option value="/docs/reference/v0.26.6/index.html">v0.26.6</option>
+              <option value="/docs/reference/v0.26.5/index.html">v0.26.5</option>
+              <option value="/docs/reference/v0.26.4/index.html">v0.26.4</option>
+              <option value="/docs/reference/v0.26.3/index.html">v0.26.3</option>
+              <option value="/docs/reference/v0.26.2/index.html">v0.26.2</option>
+              <option value="/docs/reference/v0.26.1/index.html">v0.26.1</option>
+              <option value="/docs/reference/v0.26.0/index.html">v0.26.0</option>
+              <option value="/docs/reference/v0.26.0-rc2/index.html">v0.26.0-rc2</option>
+              <option value="/docs/reference/v0.26.0-rc1/index.html">v0.26.0-rc1</option>
+              <option value="/docs/reference/v0.25.1/index.html">v0.25.1</option>
+              <option value="/docs/reference/v0.25.0/index.html">v0.25.0</option>
+              <option value="/docs/reference/v0.25.0-rc2/index.html">v0.25.0-rc2</option>
+              <option value="/docs/reference/v0.25.0-rc1/index.html">v0.25.0-rc1</option>
+              <option value="/docs/reference/v0.24.6/index.html">v0.24.6</option>
+              <option value="/docs/reference/v0.24.5/index.html">v0.24.5</option>
+              <option value="/docs/reference/v0.24.4/index.html">v0.24.4</option>
+              <option value="/docs/reference/v0.24.3/index.html">v0.24.3</option>
+              <option value="/docs/reference/v0.24.2/index.html">v0.24.2</option>
+              <option value="/docs/reference/v0.24.1/index.html">v0.24.1</option>
+              <option value="/docs/reference/v0.24.0/index.html">v0.24.0</option>
+              <option value="/docs/reference/v0.24.0-rc1/index.html">v0.24.0-rc1</option>
+              <option value="/docs/reference/v0.23.4/index.html">v0.23.4</option>
+              <option value="/docs/reference/v0.23.3/index.html">v0.23.3</option>
+              <option value="/docs/reference/v0.23.2/index.html">v0.23.2</option>
+              <option value="/docs/reference/v0.23.1/index.html">v0.23.1</option>
+              <option value="/docs/reference/v0.23.0/index.html">v0.23.0</option>
+              <option value="/docs/reference/v0.23.0-rc2/index.html">v0.23.0-rc2</option>
+              <option value="/docs/reference/v0.23.0-rc1/index.html">v0.23.0-rc1</option>
+              <option value="/docs/reference/v0.22.3/index.html">v0.22.3</option>
+              <option value="/docs/reference/v0.22.2/index.html">v0.22.2</option>
+              <option value="/docs/reference/v0.22.1/index.html">v0.22.1</option>
+              <option value="/docs/reference/v0.22.0/index.html">v0.22.0</option>
+              <option value="/docs/reference/v0.22.0-rc2/index.html">v0.22.0-rc2</option>
+              <option value="/docs/reference/v0.22.0-rc1/index.html">v0.22.0-rc1</option>
+              <option value="/docs/reference/v0.21.5/index.html">v0.21.5</option>
+              <option value="/docs/reference/v0.21.4/index.html">v0.21.4</option>
+              <option value="/docs/reference/v0.21.3/index.html">v0.21.3</option>
+              <option value="/docs/reference/v0.21.2/index.html">v0.21.2</option>
+              <option value="/docs/reference/v0.21.1/index.html">v0.21.1</option>
+              <option value="/docs/reference/v0.21.0/index.html">v0.21.0</option>
+              <option value="/docs/reference/v0.21.0-rc2/index.html">v0.21.0-rc2</option>
+              <option value="/docs/reference/v0.21.0-rc1/index.html">v0.21.0-rc1</option>
+              <option value="/docs/reference/v0.20.0/index.html">v0.20.0</option>
+              <option value="/docs/reference/v0.19.0/index.html">v0.19.0</option>
+              <option value="/docs/reference/v0.18.0/index.html">v0.18.0</option>
+              <option value="/docs/reference/v0.17.0/index.html">v0.17.0</option>
+              <option value="/docs/reference/v0.16.0/index.html">v0.16.0</option>
+              <option value="/docs/reference/v0.15.0/index.html">v0.15.0</option>
+              <option value="/docs/reference/v0.14.0/index.html">v0.14.0</option>
+              <option value="/docs/reference/v0.13.0/index.html">v0.13.0</option>
+              <option value="/docs/reference/v0.12.0/index.html">v0.12.0</option>
+              <option value="/docs/reference/v0.11.0/index.html">v0.11.0</option>
+              <option value="/docs/reference/v0.10.0/index.html">v0.10.0</option>
+              <option value="/docs/reference/v0.8.0/index.html">v0.8.0</option>
+              <option value="/docs/reference/v0.3.0/index.html">v0.3.0</option>
+              <option value="/docs/reference/v0.2.0/index.html">v0.2.0</option>
+              <option value="/docs/reference/v0.1.0/index.html">v0.1.0</option>
+            </select>
+          </div>
+        </div>
+
+        <h3>Groups</h3>
+        <ul class="versionIndexStandard">
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/annotated_commit/index.html">
+                annotated_commit
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              A commit and information about how it was looked up by the user.            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/apply/index.html">
+                apply
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Apply patches to the working directory or index            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/attr/index.html">
+                attr
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Attribute management routines            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/blame/index.html">
+                blame
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Specify a file's most recent changes per-line            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/blob/index.html">
+                blob
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              A blob represents a file in a git repository.            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/branch/index.html">
+                branch
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Branch creation and handling            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/buffer/index.html">
+                buffer
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              A data structure to return data to callers            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/cert/index.html">
+                cert
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              TLS and SSH certificate handling            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/checkout/index.html">
+                checkout
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Update the contents of the working directory            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/cherrypick/index.html">
+                cherrypick
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Cherry-pick the contents of an individual commit            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/clone/index.html">
+                clone
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Clone a remote repository to the local disk            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/commit/index.html">
+                commit
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              A representation of a set of changes in the repository            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/common/index.html">
+                common
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Base platform functionality            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/config/index.html">
+                config
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Per-repository, per-user or per-system configuration            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/credential/index.html">
+                credential
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Authentication and credential management            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/credential_helpers/index.html">
+                credential_helpers
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Utility functions for credential management            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/deprecated/index.html">
+                deprecated
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Deprecated functions and values            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/describe/index.html">
+                describe
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Describe a commit in reference to tags            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/diff/index.html">
+                diff
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Indicate the differences between two versions of the repository            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/email/index.html">
+                email
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Produce email-ready patches            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/errors/index.html">
+                errors
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Error handling routines and variables            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/filter/index.html">
+                filter
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Filters modify files during checkout or commit            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/global/index.html">
+                global
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              libgit2 library initializer and shutdown functionality            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/graph/index.html">
+                graph
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Graph traversal routines            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/ignore/index.html">
+                ignore
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Ignore particular untracked files            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/index/index.html">
+                index
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Index (aka "cache" aka "staging area")            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/indexer/index.html">
+                indexer
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Packfile indexing            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/mailmap/index.html">
+                mailmap
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Mailmaps provide alternate email addresses for users            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/merge/index.html">
+                merge
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Merge re-joins diverging branches of history            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/message/index.html">
+                message
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Commit messages            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/net/index.html">
+                net
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Low-level networking functionality            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/notes/index.html">
+                notes
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Notes are metadata attached to an object            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/object/index.html">
+                object
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Objects are blobs (files), trees (directories), commits, and annotated tags            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/odb/index.html">
+                odb
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              An object database manages the storage of git objects            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/odb_backend/index.html">
+                odb_backend
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Object database backends manage the storage of git objects            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/oid/index.html">
+                oid
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Object IDs            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/oidarray/index.html">
+                oidarray
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              An array of object IDs            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/pack/index.html">
+                pack
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Git pack management routines            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/patch/index.html">
+                patch
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Patches store the textual diffs in a delta            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/pathspec/index.html">
+                pathspec
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Specifiers for path matching            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/proxy/index.html">
+                proxy
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              TLS proxies            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/rebase/index.html">
+                rebase
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Rebase manipulates commits, placing them on a new parent            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/refdb/index.html">
+                refdb
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              A database for references (branches and tags)            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/reflog/index.html">
+                reflog
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Reference logs store how references change            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/refs/index.html">
+                refs
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              References point to a commit; generally these are branches and tags            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/refspec/index.html">
+                refspec
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Refspecs map local references to remote references            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/remote/index.html">
+                remote
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Remotes are where local repositories fetch from and push to            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/repository/index.html">
+                repository
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              The repository stores revisions for a source tree            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/reset/index.html">
+                reset
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Reset will update the local repository to a prior state            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/revert/index.html">
+                revert
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Cherry-pick the inverse of a change to "undo" its effects            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/revparse/index.html">
+                revparse
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Parse the textual revision information            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/revwalk/index.html">
+                revwalk
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Traverse (walk) the commit graph (revision history)            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/signature/index.html">
+                signature
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Signatures are the actor in a repository and when they acted            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/stash/index.html">
+                stash
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Stashes stores some uncommitted state in the repository            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/status/index.html">
+                status
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Status indicates how a user has changed the working directory and index            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/strarray/index.html">
+                strarray
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              An array of strings for the user to free            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/submodule/index.html">
+                submodule
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Submodules place another repository's contents within this one            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/tag/index.html">
+                tag
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              A (nearly) immutable pointer to a commit; useful for versioning            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/trace/index.html">
+                trace
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Tracing functionality to introspect libgit2 in your application            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/transaction/index.html">
+                transaction
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Transactional reference handling            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/transport/index.html">
+                transport
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Transports are the low-level mechanism to connect to a remote server            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/tree/index.html">
+                tree
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Trees are collections of files and folders to make up the repository hierarchy            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/types/index.html">
+                types
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              libgit2 base & compatibility types            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/version/index.html">
+                version
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              The version of libgit2            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/worktree/index.html">
+                worktree
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Additional working directories for a repository            </div>
+          </li>
+        </ul>
+
+        <h3>System Groups (Advanced)</h3>
+        <ul class="versionIndexSystem">
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/alloc/index.html">
+                alloc
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Custom memory allocators            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/commit/index.html">
+                commit
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Low-level Git commit creation            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/commit_graph/index.html">
+                commit_graph
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Commit graphs store information about commit relationships            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/config/index.html">
+                config
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Custom configuration database backends            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/credential/index.html">
+                credential
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Low-level credentials implementation            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/diff/index.html">
+                diff
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Low-level diff utilities            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/email/index.html">
+                email
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Advanced git email creation routines            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/errors/index.html">
+                errors
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Advanced error handling            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/filter/index.html">
+                filter
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Custom filter backends and plugins            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/hashsig/index.html">
+                hashsig
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Signatures for file similarity comparison            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/index/index.html">
+                index
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Low-level index manipulation routines            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/mempack/index.html">
+                mempack
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              A custom object database backend for storing objects in-memory            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/merge/index.html">
+                merge
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Custom merge drivers            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/midx/index.html">
+                midx
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Incremental multi-pack indexes            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/odb_backend/index.html">
+                odb_backend
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Object database backends for custom object storage            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/openssl/index.html">
+                openssl
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Custom OpenSSL functionality            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/path/index.html">
+                path
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Custom path handling            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/refdb_backend/index.html">
+                refdb_backend
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Custom reference database backends for refs storage            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/refs/index.html">
+                refs
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Low-level git reference creation            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/remote/index.html">
+                remote
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Low-level remote functionality for custom transports            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/repository/index.html">
+                repository
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Custom repository handling            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/stream/index.html">
+                stream
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Streaming file I/O functionality            </div>
+          </li>
+          <li>
+            <div class="versionIndexName">
+              <a href="/docs/reference/v1.9.0/sys/transport/index.html">
+                transport
+              </a>
+            </div>
+            <div class="versionIndexSummary">
+              Custom transport registration interfaces and functions            </div>
+          </li>
+        </ul>
+      </div>
