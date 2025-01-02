@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "c605f4281b0779d3749e8564ffbc9fff158e6520"
+    "commit": "270d8019cd436d4e425d05139977441470707a18"
   },
   "groups": {
     "sys/alloc": {
@@ -18480,6 +18480,9 @@
             {
               "name": "oid_type",
               "type": "git_oid_t",
+              "comment": [
+                "Object ID type used in the patch file."
+              ],
               "referenceType": "enum git_oid_t"
             }
           ],
@@ -18495,7 +18498,7 @@
           "name": "GIT_DIFF_PARSE_OPTIONS_VERSION",
           "location": {
             "file": "diff.h",
-            "line": 1328,
+            "line": 1330,
             "column": 9
           },
           "value": "1",
@@ -18507,10 +18510,10 @@
           "name": "GIT_DIFF_PARSE_OPTIONS_INIT",
           "location": {
             "file": "diff.h",
-            "line": 1334,
+            "line": 1335,
             "column": 9
           },
-          "value": " { GIT_DIFF_PARSE_OPTIONS_VERSION, GIT_OID_DEFAULT }",
+          "value": "{ GIT_DIFF_PARSE_OPTIONS_VERSION }",
           "comment": "Stack initializer for diff parse options.  Alternatively use `git_diff_parse_options_init` programmatic initialization.",
           "group": "diff"
         },
@@ -18519,7 +18522,7 @@
           "name": "git_diff_from_buffer",
           "location": {
             "file": "diff.h",
-            "line": 1355,
+            "line": 1359,
             "column": 17
           },
           "returns": {
@@ -18551,6 +18554,12 @@
             "The diff object produced is similar to the one that would be\n produced if you actually produced it computationally by comparing\n two trees, however there may be subtle differences.  For example,\n a patch file likely contains abbreviated object IDs, so the\n object IDs in a `git_diff_delta` produced by this function will\n also be abbreviated.",
             "This function will only read patch files created by a git\n implementation, it will not read unified diffs produced by\n the `diff` program, nor any other types of patch files."
           ],
+          "notes": [
+            "This API only supports SHA1 patch files"
+          ],
+          "see": [
+            "git_diff_from_buffer_ext"
+          ],
           "group": "diff"
         },
         "git_diff_stats": {
@@ -18563,7 +18572,7 @@
           ],
           "location": {
             "file": "diff.h",
-            "line": 1369,
+            "line": 1399,
             "column": 31
           },
           "group": "diff",
@@ -18622,7 +18631,7 @@
           ],
           "location": {
             "file": "diff.h",
-            "line": 1374,
+            "line": 1404,
             "column": 9
           },
           "group": "diff",
@@ -18635,7 +18644,7 @@
           "name": "git_diff_get_stats",
           "location": {
             "file": "diff.h",
-            "line": 1398,
+            "line": 1428,
             "column": 17
           },
           "returns": {
@@ -18666,7 +18675,7 @@
           "name": "git_diff_stats_files_changed",
           "location": {
             "file": "diff.h",
-            "line": 1408,
+            "line": 1438,
             "column": 20
           },
           "returns": {
@@ -18691,7 +18700,7 @@
           "name": "git_diff_stats_insertions",
           "location": {
             "file": "diff.h",
-            "line": 1417,
+            "line": 1447,
             "column": 20
           },
           "returns": {
@@ -18716,7 +18725,7 @@
           "name": "git_diff_stats_deletions",
           "location": {
             "file": "diff.h",
-            "line": 1426,
+            "line": 1456,
             "column": 20
           },
           "returns": {
@@ -18741,7 +18750,7 @@
           "name": "git_diff_stats_to_buf",
           "location": {
             "file": "diff.h",
-            "line": 1438,
+            "line": 1468,
             "column": 17
           },
           "returns": {
@@ -18785,7 +18794,7 @@
           "name": "git_diff_stats_free",
           "location": {
             "file": "diff.h",
-            "line": 1450,
+            "line": 1480,
             "column": 18
           },
           "returns": {
@@ -18820,7 +18829,7 @@
           ],
           "location": {
             "file": "diff.h",
-            "line": 1459,
+            "line": 1489,
             "column": 16
           },
           "group": "diff",
@@ -18835,7 +18844,7 @@
           "name": "GIT_DIFF_PATCHID_OPTIONS_VERSION",
           "location": {
             "file": "diff.h",
-            "line": 1464,
+            "line": 1494,
             "column": 9
           },
           "value": "1",
@@ -18847,7 +18856,7 @@
           "name": "GIT_DIFF_PATCHID_OPTIONS_INIT",
           "location": {
             "file": "diff.h",
-            "line": 1467,
+            "line": 1497,
             "column": 9
           },
           "value": "{ GIT_DIFF_PATCHID_OPTIONS_VERSION }",
@@ -18859,7 +18868,7 @@
           "name": "git_diff_patchid_options_init",
           "location": {
             "file": "diff.h",
-            "line": 1479,
+            "line": 1509,
             "column": 17
           },
           "returns": {
@@ -18891,7 +18900,7 @@
           "name": "git_diff_patchid",
           "location": {
             "file": "diff.h",
-            "line": 1502,
+            "line": 1532,
             "column": 17
           },
           "returns": {
@@ -22331,12 +22340,52 @@
           },
           "group": "index"
         },
+        "git_index_options": {
+          "kind": "struct",
+          "name": "git_index_options",
+          "referenceName": "git_index_options",
+          "comment": [
+            "The options for opening or creating an index.",
+            "Initialize with `GIT_INDEX_OPTIONS_INIT`. Alternatively, you can\n use `git_index_options_init`."
+          ],
+          "members": [
+            {
+              "name": "version",
+              "type": "unsigned int",
+              "comment": [
+                "The version"
+              ]
+            },
+            {
+              "name": "oid_type",
+              "type": "git_oid_t",
+              "comment": [
+                "The object ID type for the object IDs that exist in the index.",
+                "If this is not specified, this defaults to `GIT_OID_SHA1`."
+              ],
+              "referenceType": "enum git_oid_t"
+            }
+          ],
+          "location": {
+            "file": "index.h",
+            "line": 202,
+            "column": 16
+          },
+          "subkind": "options",
+          "versionMacro": "GIT_INDEX_OPTIONS_VERSION",
+          "initMacro": "GIT_INDEX_OPTIONS_INIT",
+          "initFunction": "git_index_options_init",
+          "group": "index",
+          "parameterTo": [
+            "git_index_options_init"
+          ]
+        },
         "GIT_INDEX_OPTIONS_VERSION": {
           "kind": "macro",
           "name": "GIT_INDEX_OPTIONS_VERSION",
           "location": {
             "file": "index.h",
-            "line": 216,
+            "line": 214,
             "column": 9
           },
           "value": "1",
@@ -22348,11 +22397,43 @@
           "name": "GIT_INDEX_OPTIONS_INIT",
           "location": {
             "file": "index.h",
-            "line": 219,
+            "line": 217,
             "column": 9
           },
           "value": "{ GIT_INDEX_OPTIONS_VERSION }",
           "comment": "Static constructor for `git_index_options`",
+          "group": "index"
+        },
+        "git_index_options_init": {
+          "kind": "function",
+          "name": "git_index_options_init",
+          "location": {
+            "file": "index.h",
+            "line": 229,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "Zero on success; -1 on failure."
+          },
+          "params": [
+            {
+              "name": "opts",
+              "type": "git_index_options *",
+              "direction": "in",
+              "comment": "The `git_index_options` struct to initialize."
+            },
+            {
+              "name": "version",
+              "type": "unsigned int",
+              "direction": "in",
+              "comment": "The struct version; pass `GIT_INDEX_OPTIONS_VERSION`."
+            }
+          ],
+          "comment": [
+            "Initialize git_index_options structure",
+            "Initializes a `git_index_options` with default values. Equivalent to creating\n an instance with GIT_INDEX_OPTIONS_INIT."
+          ],
           "group": "index"
         },
         "git_index_open": {
@@ -22360,7 +22441,7 @@
           "name": "git_index_open",
           "location": {
             "file": "index.h",
-            "line": 278,
+            "line": 254,
             "column": 17
           },
           "returns": {
@@ -22387,6 +22468,12 @@
             "If you need to access the index of an actual repository,\n use the `git_repository_index` wrapper.",
             "The index must be freed once it's no longer in use."
           ],
+          "notes": [
+            "This API only supports SHA1 indexes"
+          ],
+          "see": [
+            "git_index_open_ext"
+          ],
           "group": "index"
         },
         "git_index_new": {
@@ -22394,7 +22481,7 @@
           "name": "git_index_new",
           "location": {
             "file": "index.h",
-            "line": 291,
+            "line": 290,
             "column": 17
           },
           "returns": {
@@ -22414,6 +22501,12 @@
             "This index object cannot be read/written to the filesystem,\n but may be used to perform in-memory index operations.",
             "The index must be freed once it's no longer in use."
           ],
+          "notes": [
+            "This API only supports SHA1 indexes"
+          ],
+          "see": [
+            "git_index_new_ext"
+          ],
           "group": "index"
         },
         "git_index_free": {
@@ -22421,7 +22514,7 @@
           "name": "git_index_free",
           "location": {
             "file": "index.h",
-            "line": 300,
+            "line": 312,
             "column": 18
           },
           "returns": {
@@ -22445,7 +22538,7 @@
           "name": "git_index_owner",
           "location": {
             "file": "index.h",
-            "line": 308,
+            "line": 320,
             "column": 30
           },
           "returns": {
@@ -22470,7 +22563,7 @@
           "name": "git_index_caps",
           "location": {
             "file": "index.h",
-            "line": 316,
+            "line": 328,
             "column": 17
           },
           "returns": {
@@ -22495,7 +22588,7 @@
           "name": "git_index_set_caps",
           "location": {
             "file": "index.h",
-            "line": 329,
+            "line": 341,
             "column": 17
           },
           "returns": {
@@ -22527,7 +22620,7 @@
           "name": "git_index_version",
           "location": {
             "file": "index.h",
-            "line": 341,
+            "line": 353,
             "column": 26
           },
           "returns": {
@@ -22553,7 +22646,7 @@
           "name": "git_index_set_version",
           "location": {
             "file": "index.h",
-            "line": 354,
+            "line": 366,
             "column": 17
           },
           "returns": {
@@ -22585,7 +22678,7 @@
           "name": "git_index_read",
           "location": {
             "file": "index.h",
-            "line": 373,
+            "line": 385,
             "column": 17
           },
           "returns": {
@@ -22618,7 +22711,7 @@
           "name": "git_index_write",
           "location": {
             "file": "index.h",
-            "line": 382,
+            "line": 394,
             "column": 17
           },
           "returns": {
@@ -22643,7 +22736,7 @@
           "name": "git_index_path",
           "location": {
             "file": "index.h",
-            "line": 390,
+            "line": 402,
             "column": 26
           },
           "returns": {
@@ -22668,7 +22761,7 @@
           "name": "git_index_checksum",
           "location": {
             "file": "index.h",
-            "line": 404,
+            "line": 416,
             "column": 29
           },
           "returns": {
@@ -22697,7 +22790,7 @@
           "name": "git_index_read_tree",
           "location": {
             "file": "index.h",
-            "line": 416,
+            "line": 428,
             "column": 17
           },
           "returns": {
@@ -22729,7 +22822,7 @@
           "name": "git_index_write_tree",
           "location": {
             "file": "index.h",
-            "line": 437,
+            "line": 449,
             "column": 17
           },
           "returns": {
@@ -22763,7 +22856,7 @@
           "name": "git_index_write_tree_to",
           "location": {
             "file": "index.h",
-            "line": 454,
+            "line": 466,
             "column": 17
           },
           "returns": {
@@ -22802,7 +22895,7 @@
           "name": "git_index_entrycount",
           "location": {
             "file": "index.h",
-            "line": 473,
+            "line": 485,
             "column": 20
           },
           "returns": {
@@ -22827,7 +22920,7 @@
           "name": "git_index_clear",
           "location": {
             "file": "index.h",
-            "line": 484,
+            "line": 496,
             "column": 17
           },
           "returns": {
@@ -22853,7 +22946,7 @@
           "name": "git_index_get_byindex",
           "location": {
             "file": "index.h",
-            "line": 497,
+            "line": 509,
             "column": 37
           },
           "returns": {
@@ -22885,7 +22978,7 @@
           "name": "git_index_get_bypath",
           "location": {
             "file": "index.h",
-            "line": 512,
+            "line": 524,
             "column": 37
           },
           "returns": {
@@ -22923,7 +23016,7 @@
           "name": "git_index_remove",
           "location": {
             "file": "index.h",
-            "line": 523,
+            "line": 535,
             "column": 17
           },
           "returns": {
@@ -22960,7 +23053,7 @@
           "name": "git_index_remove_directory",
           "location": {
             "file": "index.h",
-            "line": 533,
+            "line": 545,
             "column": 17
           },
           "returns": {
@@ -22997,7 +23090,7 @@
           "name": "git_index_add",
           "location": {
             "file": "index.h",
-            "line": 550,
+            "line": 562,
             "column": 17
           },
           "returns": {
@@ -23030,7 +23123,7 @@
           "name": "git_index_entry_stage",
           "location": {
             "file": "index.h",
-            "line": 562,
+            "line": 574,
             "column": 17
           },
           "returns": {
@@ -23057,7 +23150,7 @@
           "name": "git_index_entry_is_conflict",
           "location": {
             "file": "index.h",
-            "line": 571,
+            "line": 583,
             "column": 17
           },
           "returns": {
@@ -23082,7 +23175,7 @@
           "name": "git_index_iterator_new",
           "location": {
             "file": "index.h",
-            "line": 592,
+            "line": 604,
             "column": 17
           },
           "returns": {
@@ -23113,7 +23206,7 @@
           "name": "git_index_iterator_next",
           "location": {
             "file": "index.h",
-            "line": 603,
+            "line": 615,
             "column": 17
           },
           "returns": {
@@ -23144,7 +23237,7 @@
           "name": "git_index_iterator_free",
           "location": {
             "file": "index.h",
-            "line": 612,
+            "line": 624,
             "column": 18
           },
           "returns": {
@@ -23168,7 +23261,7 @@
           "name": "git_index_add_bypath",
           "location": {
             "file": "index.h",
-            "line": 643,
+            "line": 655,
             "column": 17
           },
           "returns": {
@@ -23203,7 +23296,7 @@
           "name": "git_index_add_from_buffer",
           "location": {
             "file": "index.h",
-            "line": 671,
+            "line": 683,
             "column": 17
           },
           "returns": {
@@ -23250,7 +23343,7 @@
           "name": "git_index_remove_bypath",
           "location": {
             "file": "index.h",
-            "line": 690,
+            "line": 702,
             "column": 17
           },
           "returns": {
@@ -23283,7 +23376,7 @@
           "name": "git_index_add_all",
           "location": {
             "file": "index.h",
-            "line": 738,
+            "line": 750,
             "column": 17
           },
           "returns": {
@@ -23340,7 +23433,7 @@
           "name": "git_index_remove_all",
           "location": {
             "file": "index.h",
-            "line": 760,
+            "line": 772,
             "column": 17
           },
           "returns": {
@@ -23385,7 +23478,7 @@
           "name": "git_index_update_all",
           "location": {
             "file": "index.h",
-            "line": 789,
+            "line": 801,
             "column": 17
           },
           "returns": {
@@ -23432,7 +23525,7 @@
           "name": "git_index_find",
           "location": {
             "file": "index.h",
-            "line": 804,
+            "line": 816,
             "column": 17
           },
           "returns": {
@@ -23469,7 +23562,7 @@
           "name": "git_index_find_prefix",
           "location": {
             "file": "index.h",
-            "line": 815,
+            "line": 827,
             "column": 17
           },
           "returns": {
@@ -23506,7 +23599,7 @@
           "name": "git_index_conflict_add",
           "location": {
             "file": "index.h",
-            "line": 840,
+            "line": 852,
             "column": 17
           },
           "returns": {
@@ -23550,7 +23643,7 @@
           "name": "git_index_conflict_get",
           "location": {
             "file": "index.h",
-            "line": 860,
+            "line": 872,
             "column": 17
           },
           "returns": {
@@ -23600,7 +23693,7 @@
           "name": "git_index_conflict_remove",
           "location": {
             "file": "index.h",
-            "line": 874,
+            "line": 886,
             "column": 17
           },
           "returns": {
@@ -23631,7 +23724,7 @@
           "name": "git_index_conflict_cleanup",
           "location": {
             "file": "index.h",
-            "line": 882,
+            "line": 894,
             "column": 17
           },
           "returns": {
@@ -23656,7 +23749,7 @@
           "name": "git_index_has_conflicts",
           "location": {
             "file": "index.h",
-            "line": 890,
+            "line": 902,
             "column": 17
           },
           "returns": {
@@ -23681,7 +23774,7 @@
           "name": "git_index_conflict_iterator_new",
           "location": {
             "file": "index.h",
-            "line": 901,
+            "line": 913,
             "column": 17
           },
           "returns": {
@@ -23713,7 +23806,7 @@
           "name": "git_index_conflict_next",
           "location": {
             "file": "index.h",
-            "line": 916,
+            "line": 928,
             "column": 17
           },
           "returns": {
@@ -23756,7 +23849,7 @@
           "name": "git_index_conflict_iterator_free",
           "location": {
             "file": "index.h",
-            "line": 927,
+            "line": 939,
             "column": 18
           },
           "returns": {
@@ -29108,7 +29201,7 @@
           "name": "git_odb_new",
           "location": {
             "file": "odb.h",
-            "line": 102,
+            "line": 77,
             "column": 17
           },
           "returns": {
@@ -29127,6 +29220,12 @@
             "Create a new object database with no backends.",
             "Before the ODB can be used for read/writing, a custom database\n backend must be manually added using `git_odb_add_backend()`"
           ],
+          "notes": [
+            "This API only supports SHA1 object databases"
+          ],
+          "see": [
+            "git_odb_new_ext"
+          ],
           "group": "odb"
         },
         "git_odb_open": {
@@ -29134,7 +29233,7 @@
           "name": "git_odb_open",
           "location": {
             "file": "odb.h",
-            "line": 120,
+            "line": 113,
             "column": 17
           },
           "returns": {
@@ -29160,6 +29259,12 @@
             "- git_odb_backend_loose: read and write loose object files\n\t\tfrom disk, assuming `objects_dir` as the Objects folder",
             "- git_odb_backend_pack: read objects from packfiles,\n\t\tassuming `objects_dir` as the Objects folder which\n\t\tcontains a 'pack/' folder with the corresponding data"
           ],
+          "notes": [
+            "This API only supports SHA1 object databases"
+          ],
+          "see": [
+            "git_odb_open_ext"
+          ],
           "group": "odb"
         },
         "git_odb_add_disk_alternate": {
@@ -29167,7 +29272,7 @@
           "name": "git_odb_add_disk_alternate",
           "location": {
             "file": "odb.h",
-            "line": 138,
+            "line": 149,
             "column": 17
           },
           "returns": {
@@ -29201,7 +29306,7 @@
           "name": "git_odb_free",
           "location": {
             "file": "odb.h",
-            "line": 145,
+            "line": 156,
             "column": 18
           },
           "returns": {
@@ -29225,7 +29330,7 @@
           "name": "git_odb_read",
           "location": {
             "file": "odb.h",
-            "line": 163,
+            "line": 174,
             "column": 17
           },
           "returns": {
@@ -29264,7 +29369,7 @@
           "name": "git_odb_read_prefix",
           "location": {
             "file": "odb.h",
-            "line": 191,
+            "line": 202,
             "column": 17
           },
           "returns": {
@@ -29309,7 +29414,7 @@
           "name": "git_odb_read_header",
           "location": {
             "file": "odb.h",
-            "line": 210,
+            "line": 221,
             "column": 17
           },
           "returns": {
@@ -29354,7 +29459,7 @@
           "name": "git_odb_exists",
           "location": {
             "file": "odb.h",
-            "line": 219,
+            "line": 230,
             "column": 17
           },
           "returns": {
@@ -29385,7 +29490,7 @@
           "name": "git_odb_exists_ext",
           "location": {
             "file": "odb.h",
-            "line": 230,
+            "line": 241,
             "column": 17
           },
           "returns": {
@@ -29422,7 +29527,7 @@
           "name": "git_odb_exists_prefix",
           "location": {
             "file": "odb.h",
-            "line": 243,
+            "line": 254,
             "column": 17
           },
           "returns": {
@@ -29494,7 +29599,7 @@
           ],
           "location": {
             "file": "odb.h",
-            "line": 250,
+            "line": 261,
             "column": 16
           },
           "group": "odb",
@@ -29507,7 +29612,7 @@
           "name": "git_odb_expand_ids",
           "location": {
             "file": "odb.h",
-            "line": 286,
+            "line": 297,
             "column": 17
           },
           "returns": {
@@ -29546,7 +29651,7 @@
           "name": "git_odb_refresh",
           "location": {
             "file": "odb.h",
-            "line": 309,
+            "line": 320,
             "column": 17
           },
           "returns": {
@@ -29574,7 +29679,7 @@
           "name": "git_odb_foreach",
           "location": {
             "file": "odb.h",
-            "line": 324,
+            "line": 335,
             "column": 17
           },
           "returns": {
@@ -29613,7 +29718,7 @@
           "name": "git_odb_write",
           "location": {
             "file": "odb.h",
-            "line": 347,
+            "line": 358,
             "column": 17
           },
           "returns": {
@@ -29668,7 +29773,7 @@
           "name": "git_odb_open_wstream",
           "location": {
             "file": "odb.h",
-            "line": 370,
+            "line": 381,
             "column": 17
           },
           "returns": {
@@ -29719,7 +29824,7 @@
           "name": "git_odb_stream_write",
           "location": {
             "file": "odb.h",
-            "line": 383,
+            "line": 394,
             "column": 17
           },
           "returns": {
@@ -29757,7 +29862,7 @@
           "name": "git_odb_stream_finalize_write",
           "location": {
             "file": "odb.h",
-            "line": 398,
+            "line": 409,
             "column": 17
           },
           "returns": {
@@ -29790,7 +29895,7 @@
           "name": "git_odb_stream_read",
           "location": {
             "file": "odb.h",
-            "line": 410,
+            "line": 421,
             "column": 17
           },
           "returns": {
@@ -29828,7 +29933,7 @@
           "name": "git_odb_stream_free",
           "location": {
             "file": "odb.h",
-            "line": 417,
+            "line": 428,
             "column": 18
           },
           "returns": {
@@ -29852,7 +29957,7 @@
           "name": "git_odb_open_rstream",
           "location": {
             "file": "odb.h",
-            "line": 445,
+            "line": 456,
             "column": 17
           },
           "returns": {
@@ -29909,7 +30014,7 @@
           "name": "git_odb_write_pack",
           "location": {
             "file": "odb.h",
-            "line": 471,
+            "line": 482,
             "column": 17
           },
           "returns": {
@@ -29957,7 +30062,7 @@
           "name": "git_odb_write_multi_pack_index",
           "location": {
             "file": "odb.h",
-            "line": 489,
+            "line": 500,
             "column": 17
           },
           "returns": {
@@ -29983,7 +30088,7 @@
           "name": "git_odb_hash",
           "location": {
             "file": "odb.h",
-            "line": 539,
+            "line": 550,
             "column": 17
           },
           "returns": {
@@ -30028,7 +30133,7 @@
           "name": "git_odb_hashfile",
           "location": {
             "file": "odb.h",
-            "line": 554,
+            "line": 565,
             "column": 17
           },
           "returns": {
@@ -30066,7 +30171,7 @@
           "name": "git_odb_object_dup",
           "location": {
             "file": "odb.h",
-            "line": 570,
+            "line": 581,
             "column": 17
           },
           "returns": {
@@ -30098,7 +30203,7 @@
           "name": "git_odb_object_free",
           "location": {
             "file": "odb.h",
-            "line": 580,
+            "line": 591,
             "column": 18
           },
           "returns": {
@@ -30123,7 +30228,7 @@
           "name": "git_odb_object_id",
           "location": {
             "file": "odb.h",
-            "line": 590,
+            "line": 601,
             "column": 29
           },
           "returns": {
@@ -30149,7 +30254,7 @@
           "name": "git_odb_object_data",
           "location": {
             "file": "odb.h",
-            "line": 603,
+            "line": 614,
             "column": 26
           },
           "returns": {
@@ -30179,7 +30284,7 @@
           "name": "git_odb_object_size",
           "location": {
             "file": "odb.h",
-            "line": 614,
+            "line": 625,
             "column": 20
           },
           "returns": {
@@ -30205,7 +30310,7 @@
           "name": "git_odb_object_type",
           "location": {
             "file": "odb.h",
-            "line": 622,
+            "line": 633,
             "column": 26
           },
           "returns": {
@@ -30230,7 +30335,7 @@
           "name": "git_odb_add_backend",
           "location": {
             "file": "odb.h",
-            "line": 637,
+            "line": 648,
             "column": 17
           },
           "returns": {
@@ -30269,7 +30374,7 @@
           "name": "git_odb_add_alternate",
           "location": {
             "file": "odb.h",
-            "line": 658,
+            "line": 669,
             "column": 17
           },
           "returns": {
@@ -30310,7 +30415,7 @@
           "name": "git_odb_num_backends",
           "location": {
             "file": "odb.h",
-            "line": 666,
+            "line": 677,
             "column": 20
           },
           "returns": {
@@ -30335,7 +30440,7 @@
           "name": "git_odb_get_backend",
           "location": {
             "file": "odb.h",
-            "line": 676,
+            "line": 687,
             "column": 17
           },
           "returns": {
@@ -30372,7 +30477,7 @@
           "name": "git_odb_set_commit_graph",
           "location": {
             "file": "odb.h",
-            "line": 691,
+            "line": 702,
             "column": 17
           },
           "returns": {
@@ -31513,7 +31618,7 @@
           "name": "git_oid_fromstr",
           "location": {
             "file": "oid.h",
-            "line": 138,
+            "line": 188,
             "column": 17
           },
           "returns": {
@@ -31545,7 +31650,7 @@
           "name": "git_oid_fromstrp",
           "location": {
             "file": "oid.h",
-            "line": 147,
+            "line": 197,
             "column": 17
           },
           "returns": {
@@ -31576,7 +31681,7 @@
           "name": "git_oid_fromstrn",
           "location": {
             "file": "oid.h",
-            "line": 160,
+            "line": 210,
             "column": 17
           },
           "returns": {
@@ -31614,7 +31719,7 @@
           "name": "git_oid_fromraw",
           "location": {
             "file": "oid.h",
-            "line": 169,
+            "line": 219,
             "column": 17
           },
           "returns": {
@@ -31645,7 +31750,7 @@
           "name": "git_oid_fmt",
           "location": {
             "file": "oid.h",
-            "line": 185,
+            "line": 233,
             "column": 17
           },
           "returns": {
@@ -31676,7 +31781,7 @@
           "name": "git_oid_nfmt",
           "location": {
             "file": "oid.h",
-            "line": 197,
+            "line": 245,
             "column": 17
           },
           "returns": {
@@ -31713,7 +31818,7 @@
           "name": "git_oid_pathfmt",
           "location": {
             "file": "oid.h",
-            "line": 214,
+            "line": 262,
             "column": 17
           },
           "returns": {
@@ -31745,7 +31850,7 @@
           "name": "git_oid_tostr_s",
           "location": {
             "file": "oid.h",
-            "line": 227,
+            "line": 275,
             "column": 20
           },
           "returns": {
@@ -31771,7 +31876,7 @@
           "name": "git_oid_tostr",
           "location": {
             "file": "oid.h",
-            "line": 248,
+            "line": 296,
             "column": 20
           },
           "returns": {
@@ -31810,7 +31915,7 @@
           "name": "git_oid_cpy",
           "location": {
             "file": "oid.h",
-            "line": 257,
+            "line": 305,
             "column": 17
           },
           "returns": {
@@ -31841,7 +31946,7 @@
           "name": "git_oid_cmp",
           "location": {
             "file": "oid.h",
-            "line": 266,
+            "line": 314,
             "column": 17
           },
           "returns": {
@@ -31872,7 +31977,7 @@
           "name": "git_oid_equal",
           "location": {
             "file": "oid.h",
-            "line": 275,
+            "line": 323,
             "column": 17
           },
           "returns": {
@@ -31903,7 +32008,7 @@
           "name": "git_oid_ncmp",
           "location": {
             "file": "oid.h",
-            "line": 286,
+            "line": 334,
             "column": 17
           },
           "returns": {
@@ -31940,7 +32045,7 @@
           "name": "git_oid_streq",
           "location": {
             "file": "oid.h",
-            "line": 295,
+            "line": 343,
             "column": 17
           },
           "returns": {
@@ -31971,7 +32076,7 @@
           "name": "git_oid_strcmp",
           "location": {
             "file": "oid.h",
-            "line": 305,
+            "line": 353,
             "column": 17
           },
           "returns": {
@@ -32002,7 +32107,7 @@
           "name": "git_oid_is_zero",
           "location": {
             "file": "oid.h",
-            "line": 313,
+            "line": 361,
             "column": 17
           },
           "returns": {
@@ -32032,7 +32137,7 @@
           ],
           "location": {
             "file": "oid.h",
-            "line": 318,
+            "line": 366,
             "column": 32
           },
           "group": "oid",
@@ -32049,7 +32154,7 @@
           "name": "git_oid_shorten_new",
           "location": {
             "file": "oid.h",
-            "line": 334,
+            "line": 382,
             "column": 31
           },
           "returns": {
@@ -32076,7 +32181,7 @@
           "name": "git_oid_shorten_add",
           "location": {
             "file": "oid.h",
-            "line": 360,
+            "line": 408,
             "column": 17
           },
           "returns": {
@@ -32110,7 +32215,7 @@
           "name": "git_oid_shorten_free",
           "location": {
             "file": "oid.h",
-            "line": 367,
+            "line": 415,
             "column": 18
           },
           "returns": {
@@ -43588,12 +43693,52 @@
     },
     "sys/repository": {
       "apis": {
+        "git_repository_new_options": {
+          "kind": "struct",
+          "name": "git_repository_new_options",
+          "referenceName": "git_repository_new_options",
+          "comment": [
+            "The options for creating an repository from scratch.",
+            "Initialize with `GIT_REPOSITORY_NEW_OPTIONS_INIT`. Alternatively,\n you can use `git_repository_new_options_init`."
+          ],
+          "members": [
+            {
+              "name": "version",
+              "type": "unsigned int",
+              "comment": [
+                "The version"
+              ]
+            },
+            {
+              "name": "oid_type",
+              "type": "git_oid_t",
+              "comment": [
+                "The object ID type for the object IDs that exist in the index.",
+                "If this is not specified, this defaults to `GIT_OID_SHA1`."
+              ],
+              "referenceType": "enum git_oid_t"
+            }
+          ],
+          "location": {
+            "file": "sys/repository.h",
+            "line": 33,
+            "column": 16
+          },
+          "subkind": "options",
+          "versionMacro": "GIT_REPOSITORY_NEW_OPTIONS_VERSION",
+          "initMacro": "GIT_REPOSITORY_NEW_OPTIONS_INIT",
+          "initFunction": "git_repository_new_options_init",
+          "group": "sys/repository",
+          "parameterTo": [
+            "git_repository_new_options_init"
+          ]
+        },
         "GIT_REPOSITORY_NEW_OPTIONS_VERSION": {
           "kind": "macro",
           "name": "GIT_REPOSITORY_NEW_OPTIONS_VERSION",
           "location": {
             "file": "sys/repository.h",
-            "line": 47,
+            "line": 45,
             "column": 9
           },
           "value": "1",
@@ -43605,11 +43750,43 @@
           "name": "GIT_REPOSITORY_NEW_OPTIONS_INIT",
           "location": {
             "file": "sys/repository.h",
-            "line": 50,
+            "line": 48,
             "column": 9
           },
           "value": "{ GIT_REPOSITORY_NEW_OPTIONS_VERSION }",
           "comment": "Static constructor for `git_repository_new_options`",
+          "group": "sys/repository"
+        },
+        "git_repository_new_options_init": {
+          "kind": "function",
+          "name": "git_repository_new_options_init",
+          "location": {
+            "file": "sys/repository.h",
+            "line": 61,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "Zero on success; -1 on failure."
+          },
+          "params": [
+            {
+              "name": "opts",
+              "type": "git_repository_new_options *",
+              "direction": "in",
+              "comment": "The `git_repository_new_options` struct to initialize."
+            },
+            {
+              "name": "version",
+              "type": "unsigned int",
+              "direction": "in",
+              "comment": "The struct version; pass `GIT_REPOSITORY_NEW_OPTIONS_VERSION`."
+            }
+          ],
+          "comment": [
+            "Initialize git_repository_new_options structure",
+            "Initializes a `git_repository_new_options` with default values.\n Equivalent to creating an instance with\n `GIT_REPOSITORY_NEW_OPTIONS_INIT`."
+          ],
           "group": "sys/repository"
         },
         "git_repository_new": {
@@ -43617,7 +43794,7 @@
           "name": "git_repository_new",
           "location": {
             "file": "sys/repository.h",
-            "line": 90,
+            "line": 81,
             "column": 17
           },
           "returns": {
@@ -43637,6 +43814,12 @@
             "Note that this is only useful if you wish to associate the repository\n with a non-filesystem-backed object database and config store.",
             "Caveats: since this repository has no physical location, some systems\n can fail to function properly: locations under $GIT_DIR, $GIT_COMMON_DIR,\n or $GIT_INFO_DIR are impacted."
           ],
+          "notes": [
+            "This API only creates SHA1 repositories"
+          ],
+          "see": [
+            "git_repository_new_ext"
+          ],
           "group": "sys/repository"
         },
         "git_repository__cleanup": {
@@ -43644,7 +43827,7 @@
           "name": "git_repository__cleanup",
           "location": {
             "file": "sys/repository.h",
-            "line": 108,
+            "line": 112,
             "column": 17
           },
           "returns": {
@@ -43671,7 +43854,7 @@
           "name": "git_repository_reinit_filesystem",
           "location": {
             "file": "sys/repository.h",
-            "line": 125,
+            "line": 129,
             "column": 17
           },
           "returns": {
@@ -43703,7 +43886,7 @@
           "name": "git_repository_set_config",
           "location": {
             "file": "sys/repository.h",
-            "line": 143,
+            "line": 147,
             "column": 17
           },
           "returns": {
@@ -43736,7 +43919,7 @@
           "name": "git_repository_set_odb",
           "location": {
             "file": "sys/repository.h",
-            "line": 159,
+            "line": 163,
             "column": 17
           },
           "returns": {
@@ -43769,7 +43952,7 @@
           "name": "git_repository_set_refdb",
           "location": {
             "file": "sys/repository.h",
-            "line": 175,
+            "line": 179,
             "column": 17
           },
           "returns": {
@@ -43802,7 +43985,7 @@
           "name": "git_repository_set_index",
           "location": {
             "file": "sys/repository.h",
-            "line": 191,
+            "line": 195,
             "column": 17
           },
           "returns": {
@@ -43835,7 +44018,7 @@
           "name": "git_repository_set_bare",
           "location": {
             "file": "sys/repository.h",
-            "line": 204,
+            "line": 208,
             "column": 17
           },
           "returns": {
@@ -43861,7 +44044,7 @@
           "name": "git_repository_submodule_cache_all",
           "location": {
             "file": "sys/repository.h",
-            "line": 218,
+            "line": 222,
             "column": 17
           },
           "returns": {
@@ -43887,7 +44070,7 @@
           "name": "git_repository_submodule_cache_clear",
           "location": {
             "file": "sys/repository.h",
-            "line": 234,
+            "line": 238,
             "column": 17
           },
           "returns": {
