@@ -7,11 +7,12 @@ layout: default
         <div class="apiBreadcrumb functionBreadcrumb">
           <ul>
             <li><a href="/docs/reference/main/index.html">API Documentation</a></li>
-            <li><a href="/docs/reference/main/object/index.html">object</a></li>
+            <li><a href="/docs/reference/main/deprecated/index.html">deprecated</a></li>
           </ul>
         </div>
         <div class="apiHeader functionHeader">
           <h2 class="apiName functionName">git_object_typeisloose</h2>
+          <span class="apiAttribute functionAttribute apiAttributeDeprecated functionAttributeDeprecated">Deprecated</span>
 
            <script src="/js/minisearch.js"></script>
            <script src="/js/search.js"></script>
@@ -24,7 +25,7 @@ layout: default
           <div class="apiHeaderVersionSelect functionHeaderVersionSelect">
             <span>Version:</span>
             <select onChange="window.location.href = this.value">
-              <option value="/docs/reference/main/object/git_object_typeisloose.html" selected>main</option>
+              <option value="/docs/reference/main/deprecated/git_object_typeisloose.html" selected>main</option>
               <option value="/docs/reference/v1.9.0/object/git_object_typeisloose.html">v1.9.0</option>
               <option value="/docs/reference/v1.8.4/object/git_object_typeisloose.html">v1.8.4</option>
               <option value="/docs/reference/v1.8.3/object/git_object_typeisloose.html">v1.8.3</option>
@@ -144,13 +145,22 @@ layout: default
 
 
         <div class="apiDescription functionDescription">
-        <p>Determine if the given git_object_t is a valid loose object type.</p>
+        <p>Determine if the given git_object_t is a valid object type.</p>
 
+        </div>
+
+        <h3 class="apiDeprecationsHeader functionDeprecationsHeader">Deprecations</h3>
+        <div class="apiDeprecations functionDeprecations">
+          <ul>
+          <li>
+            use `git_object_type_is_valid`
+          </li>
+          </ul>
         </div>
 
         <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
         <div class="apiSignatureLink functionSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/object.h#L189" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/deprecated.h#L676" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature functionSignature">
           int git_object_typeisloose(<span class="apiSignatureParameter functionSignatureParameter">git_object_t type</span>);
@@ -180,14 +190,14 @@ layout: default
             int
           </div>
           <div class="apiReturnDescription functionReturnDescription">
-            <p>true if the type represents a valid loose object type, false otherwise.</p> 
+            <p>1 if the type represents a valid object type, 0 otherwise</p> 
           </div>
         </div>
         <h3 class="apiVersionsHeader functionVersionsHeader">Versions</h3>
         <div class="apiVersions functionVersions">
           <ul>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
-            <a href="/docs/reference/main/object/git_object_typeisloose.html" class="apiVersionLink functionVersionLink">main</a>
+            <a href="/docs/reference/main/deprecated/git_object_typeisloose.html" class="apiVersionLink functionVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
             <a href="/docs/reference/v1.9.0/object/git_object_typeisloose.html" class="apiVersionLink functionVersionLink">v1.9.0</a>
