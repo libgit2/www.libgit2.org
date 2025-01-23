@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "1b348a31349e847b1d8548281aa92f26b9783f2f"
+    "commit": "d34d905d11b8eb385c482dfc351beb48c981c9e9"
   },
   "groups": {
     "sys/alloc": {
@@ -52877,7 +52877,7 @@
           "name": "LIBGIT2_VERSION",
           "location": {
             "file": "version.h",
-            "line": 22,
+            "line": 24,
             "column": 9
           },
           "value": "\"1.9.0\"",
@@ -52889,7 +52889,7 @@
           "name": "LIBGIT2_VERSION_MAJOR",
           "location": {
             "file": "version.h",
-            "line": 25,
+            "line": 27,
             "column": 9
           },
           "value": "1",
@@ -52901,7 +52901,7 @@
           "name": "LIBGIT2_VERSION_MINOR",
           "location": {
             "file": "version.h",
-            "line": 28,
+            "line": 30,
             "column": 9
           },
           "value": "9",
@@ -52913,7 +52913,7 @@
           "name": "LIBGIT2_VERSION_REVISION",
           "location": {
             "file": "version.h",
-            "line": 31,
+            "line": 33,
             "column": 9
           },
           "value": "0",
@@ -52925,7 +52925,7 @@
           "name": "LIBGIT2_VERSION_PATCH",
           "location": {
             "file": "version.h",
-            "line": 34,
+            "line": 36,
             "column": 9
           },
           "value": "0",
@@ -52937,7 +52937,7 @@
           "name": "LIBGIT2_VERSION_PRERELEASE",
           "location": {
             "file": "version.h",
-            "line": 42,
+            "line": 44,
             "column": 9
           },
           "value": "NULL",
@@ -52949,7 +52949,7 @@
           "name": "LIBGIT2_SOVERSION",
           "location": {
             "file": "version.h",
-            "line": 49,
+            "line": 51,
             "column": 9
           },
           "value": "\"1.9\"",
@@ -52961,7 +52961,7 @@
           "name": "LIBGIT2_VERSION_NUMBER",
           "location": {
             "file": "version.h",
-            "line": 58,
+            "line": 60,
             "column": 9
           },
           "value": "( (LIBGIT2_VERSION_MAJOR * 1000000) + (LIBGIT2_VERSION_MINOR * 10000) + (LIBGIT2_VERSION_REVISION * 100))",
@@ -52973,7 +52973,7 @@
           "name": "LIBGIT2_VERSION_CHECK(major, minor, revision)",
           "location": {
             "file": "version.h",
-            "line": 70,
+            "line": 72,
             "column": 9
           },
           "value": " (LIBGIT2_VERSION_NUMBER >= ((major)*1000000)+((minor)*10000)+((revision)*100))",
