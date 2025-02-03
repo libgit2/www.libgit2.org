@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "bad4a0785fce2a256d3a3bb8e18ac1fa91fcdf78"
+    "commit": "1cd6872e8f446aecc13ab80af5c925fbaecc41d3"
   },
   "groups": {
     "sys/alloc": {
@@ -8188,6 +8188,64 @@
             "opts(GIT_OPT_SET_SERVER_CONNECT_TIMEOUT, int timeout)\n      > Sets the timeout (in milliseconds) to attempt connections to\n      > a remote server. Set to 0 to use the system default. Note that\n      > this may not be able to be configured longer than the system\n      > default, typically 75 seconds.",
             "opts(GIT_OPT_GET_SERVER_TIMEOUT, int *timeout)\n      > Gets the timeout (in milliseconds) for reading from and writing\n      > to a remote server.",
             "opts(GIT_OPT_SET_SERVER_TIMEOUT, int timeout)\n      > Sets the timeout (in milliseconds) for reading from and writing\n      > to a remote server. Set to 0 to use the system default."
+          ],
+          "group": "common"
+        },
+        "git_buildinfo_t": {
+          "kind": "enum",
+          "name": "git_buildinfo_t",
+          "referenceName": "git_buildinfo_t",
+          "members": [
+            {
+              "name": "GIT_BUILDINFO_CPU",
+              "value": "1",
+              "comment": [
+                "The CPU type that libgit2 was built for."
+              ]
+            },
+            {
+              "name": "GIT_BUILDINFO_COMMIT",
+              "comment": [
+                "The commit that libgit2 was built from."
+              ]
+            }
+          ],
+          "comment": [
+            "Build information items to query. This is the information type\n passed to `git_libgit2_buildinfo` to get particular information\n about the libgit2 build."
+          ],
+          "location": {
+            "file": "common.h",
+            "line": 576,
+            "column": 9
+          },
+          "group": "common",
+          "parameterTo": [
+            "git_libgit2_buildinfo"
+          ]
+        },
+        "git_libgit2_buildinfo": {
+          "kind": "function",
+          "name": "git_libgit2_buildinfo",
+          "location": {
+            "file": "common.h",
+            "line": 591,
+            "column": 26
+          },
+          "returns": {
+            "type": "const char *",
+            "comment": "the requested information, or `NULL` on error"
+          },
+          "params": [
+            {
+              "name": "info",
+              "type": "git_buildinfo_t",
+              "direction": "in",
+              "comment": "the build information to query",
+              "referenceType": "enum git_buildinfo_t"
+            }
+          ],
+          "comment": [
+            "Query information about the compile-time information about\n libgit2."
           ],
           "group": "common"
         }
