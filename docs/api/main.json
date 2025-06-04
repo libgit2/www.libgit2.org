@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "a95181aed6e3454bb1bd80763d876d7f60b22c87"
+    "commit": "c232aec6f337f57b22b46be0180ecbf945f9c969"
   },
   "groups": {
     "sys/alloc": {
@@ -39249,7 +39249,7 @@
           ],
           "comment": [
             "Get the remote's url",
-            "If url.*.insteadOf has been configured for this URL, it will\n return the modified URL.  If `git_remote_set_instance_pushurl`\n has been called for this remote, then that URL will be returned."
+            "If url.*.insteadOf has been configured for this URL, it will return\n the modified URL. This function does not consider if a push url has\n been configured for this remote (use `git_remote_pushurl` if needed)."
           ],
           "group": "remote"
         },
