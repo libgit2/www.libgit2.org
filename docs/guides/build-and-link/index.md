@@ -57,7 +57,7 @@ Here are some of the most useful:
 | `STDCALL` | *(MSVC Only)* By default, libgit2 builds with the `cdecl` calling convention.  If you're working with Win32 or the CLR, set this to `ON` to build with the `stdcall` convention. |
 | `STATIC_CRT` | *(MSVC Only)* libgit2 will link the static CRT libraries. This defaults to `ON`  |
 
-Take a look at the [`CMakeLists.txt`](https://github.com/libgit2/libgit2/blob/main/CMakeLists.txt) file for more information.
+This list may not be suitable for your version. For a full list of available options, see the [`CMakeLists.txt`](https://github.com/libgit2/libgit2/blob/main/CMakeLists.txt) file in the libgit2 repository (and its commit history).
 
 # Linking and Usage
 
