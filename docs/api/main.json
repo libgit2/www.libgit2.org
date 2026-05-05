@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "dbc19dc08e6d79fdac406a4d41afdb915bb607ea"
+    "commit": "f687244dc2eac501f11dc7a949a55132e7bbb507"
   },
   "groups": {
     "sys/alloc": {
@@ -13064,7 +13064,7 @@
             "type": "void"
           },
           "comment": [
-            "Clear the last error.  This is an alias of `git_error_last` and is\n preserved for backward compatibility.",
+            "Clear the last error.  This is an alias of `git_error_clear` and is\n preserved for backward compatibility.",
             "This function is deprecated, but there is no plan to remove this\n function at this time."
           ],
           "deprecations": [
@@ -13650,12 +13650,100 @@
           ],
           "group": "deprecated"
         },
+        "git_odb_hash": {
+          "kind": "function",
+          "name": "git_odb_hash",
+          "location": {
+            "file": "deprecated.h",
+            "line": 701,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 or an error code"
+          },
+          "params": [
+            {
+              "name": "oid",
+              "type": "git_oid *",
+              "direction": "out",
+              "comment": "the resulting object ID."
+            },
+            {
+              "name": "data",
+              "type": "const void *",
+              "direction": "in",
+              "comment": "data to hash"
+            },
+            {
+              "name": "len",
+              "type": "size_t",
+              "direction": "in",
+              "comment": "size of the data"
+            },
+            {
+              "name": "object_type",
+              "type": "git_object_t",
+              "direction": "in",
+              "comment": "of the data to hash",
+              "referenceType": "enum git_object_t"
+            }
+          ],
+          "comment": [
+            "Generate the SHA1 object ID for a given data buffer."
+          ],
+          "deprecations": [
+            "use `git_object_id_from_buffer`"
+          ],
+          "group": "deprecated"
+        },
+        "git_odb_hashfile": {
+          "kind": "function",
+          "name": "git_odb_hashfile",
+          "location": {
+            "file": "deprecated.h",
+            "line": 723,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 or an error code"
+          },
+          "params": [
+            {
+              "name": "oid",
+              "type": "git_oid *",
+              "direction": "out",
+              "comment": "oid structure the result is written into."
+            },
+            {
+              "name": "path",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "file to read and determine object id for"
+            },
+            {
+              "name": "object_type",
+              "type": "git_object_t",
+              "direction": "in",
+              "comment": "of the data to hash",
+              "referenceType": "enum git_object_t"
+            }
+          ],
+          "comment": [
+            "Read a file from disk and fill a git_oid with the object id\n that the file would have if it were written to the Object\n Database as an object of the given type (w/o applying filters).\n Similar functionality to git.git's `git hash-object` without\n the `-w` flag, however, with the --no-filters flag.\n If you need filters, see `git_repository_hashfile` or\n `git_object_id_from_file."
+          ],
+          "deprecations": [
+            "use `git_object_id_from_file`"
+          ],
+          "group": "deprecated"
+        },
         "git_remote_is_valid_name": {
           "kind": "function",
           "name": "git_remote_is_valid_name",
           "location": {
             "file": "deprecated.h",
-            "line": 697,
+            "line": 747,
             "column": 17
           },
           "returns": {
@@ -13683,7 +13771,7 @@
           "name": "git_ref_t",
           "location": {
             "file": "deprecated.h",
-            "line": 714,
+            "line": 764,
             "column": 9
           },
           "value": "git_reference_t",
@@ -13695,7 +13783,7 @@
           "name": "git_reference_normalize_t",
           "location": {
             "file": "deprecated.h",
-            "line": 716,
+            "line": 766,
             "column": 9
           },
           "value": "git_reference_format_t",
@@ -13707,7 +13795,7 @@
           "name": "GIT_REF_INVALID",
           "location": {
             "file": "deprecated.h",
-            "line": 719,
+            "line": 769,
             "column": 9
           },
           "value": "GIT_REFERENCE_INVALID",
@@ -13719,7 +13807,7 @@
           "name": "GIT_REF_OID",
           "location": {
             "file": "deprecated.h",
-            "line": 721,
+            "line": 771,
             "column": 9
           },
           "value": "GIT_REFERENCE_DIRECT",
@@ -13731,7 +13819,7 @@
           "name": "GIT_REF_SYMBOLIC",
           "location": {
             "file": "deprecated.h",
-            "line": 723,
+            "line": 773,
             "column": 9
           },
           "value": "GIT_REFERENCE_SYMBOLIC",
@@ -13743,7 +13831,7 @@
           "name": "GIT_REF_LISTALL",
           "location": {
             "file": "deprecated.h",
-            "line": 725,
+            "line": 775,
             "column": 9
           },
           "value": "GIT_REFERENCE_ALL",
@@ -13755,7 +13843,7 @@
           "name": "GIT_REF_FORMAT_NORMAL",
           "location": {
             "file": "deprecated.h",
-            "line": 728,
+            "line": 778,
             "column": 9
           },
           "value": "GIT_REFERENCE_FORMAT_NORMAL",
@@ -13767,7 +13855,7 @@
           "name": "GIT_REF_FORMAT_ALLOW_ONELEVEL",
           "location": {
             "file": "deprecated.h",
-            "line": 730,
+            "line": 780,
             "column": 9
           },
           "value": "GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL",
@@ -13779,7 +13867,7 @@
           "name": "GIT_REF_FORMAT_REFSPEC_PATTERN",
           "location": {
             "file": "deprecated.h",
-            "line": 732,
+            "line": 782,
             "column": 9
           },
           "value": "GIT_REFERENCE_FORMAT_REFSPEC_PATTERN",
@@ -13791,7 +13879,7 @@
           "name": "GIT_REF_FORMAT_REFSPEC_SHORTHAND",
           "location": {
             "file": "deprecated.h",
-            "line": 734,
+            "line": 784,
             "column": 9
           },
           "value": "GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND",
@@ -13803,7 +13891,7 @@
           "name": "git_reference_is_valid_name",
           "location": {
             "file": "deprecated.h",
-            "line": 751,
+            "line": 801,
             "column": 17
           },
           "returns": {
@@ -13833,7 +13921,7 @@
           "name": "git_tag_create_frombuffer",
           "location": {
             "file": "deprecated.h",
-            "line": 753,
+            "line": 803,
             "column": 17
           },
           "returns": {
@@ -13864,7 +13952,7 @@
           "name": "GIT_REPOSITORY_INIT_NO_DOTGIT_DIR",
           "location": {
             "file": "deprecated.h",
-            "line": 770,
+            "line": 820,
             "column": 9
           },
           "value": "0",
@@ -13883,7 +13971,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 783,
+            "line": 833,
             "column": 23
           },
           "typedef": true,
@@ -13894,7 +13982,7 @@
           "name": "GIT_REVPARSE_SINGLE",
           "location": {
             "file": "deprecated.h",
-            "line": 786,
+            "line": 836,
             "column": 9
           },
           "value": "GIT_REVSPEC_SINGLE",
@@ -13906,7 +13994,7 @@
           "name": "GIT_REVPARSE_RANGE",
           "location": {
             "file": "deprecated.h",
-            "line": 788,
+            "line": 838,
             "column": 9
           },
           "value": "GIT_REVSPEC_RANGE",
@@ -13918,7 +14006,7 @@
           "name": "GIT_REVPARSE_MERGE_BASE",
           "location": {
             "file": "deprecated.h",
-            "line": 790,
+            "line": 840,
             "column": 9
           },
           "value": "GIT_REVSPEC_MERGE_BASE",
@@ -13937,7 +14025,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 804,
+            "line": 854,
             "column": 24
           },
           "typedef": true,
@@ -13949,7 +14037,7 @@
           "type": "git_credential_userpass_plaintext",
           "location": {
             "file": "deprecated.h",
-            "line": 805,
+            "line": 855,
             "column": 43
           },
           "typedef": true,
@@ -13961,7 +14049,7 @@
           "type": "git_credential_username",
           "location": {
             "file": "deprecated.h",
-            "line": 806,
+            "line": 856,
             "column": 33
           },
           "typedef": true,
@@ -13973,7 +14061,7 @@
           "type": "git_credential_default",
           "location": {
             "file": "deprecated.h",
-            "line": 807,
+            "line": 857,
             "column": 32
           },
           "typedef": true,
@@ -13985,7 +14073,7 @@
           "type": "git_credential_ssh_key",
           "location": {
             "file": "deprecated.h",
-            "line": 808,
+            "line": 858,
             "column": 32
           },
           "typedef": true,
@@ -13997,7 +14085,7 @@
           "type": "git_credential_ssh_interactive",
           "location": {
             "file": "deprecated.h",
-            "line": 809,
+            "line": 859,
             "column": 40
           },
           "typedef": true,
@@ -14009,7 +14097,7 @@
           "type": "git_credential_ssh_custom",
           "location": {
             "file": "deprecated.h",
-            "line": 810,
+            "line": 860,
             "column": 35
           },
           "typedef": true,
@@ -14021,7 +14109,7 @@
           "type": "git_credential_acquire_cb",
           "location": {
             "file": "deprecated.h",
-            "line": 812,
+            "line": 862,
             "column": 35
           },
           "typedef": true,
@@ -14033,7 +14121,7 @@
           "type": "git_credential_sign_cb",
           "location": {
             "file": "deprecated.h",
-            "line": 813,
+            "line": 863,
             "column": 32
           },
           "typedef": true,
@@ -14045,7 +14133,7 @@
           "type": "git_credential_sign_cb",
           "location": {
             "file": "deprecated.h",
-            "line": 814,
+            "line": 864,
             "column": 32
           },
           "typedef": true,
@@ -14057,7 +14145,7 @@
           "type": "git_credential_ssh_interactive_cb",
           "location": {
             "file": "deprecated.h",
-            "line": 815,
+            "line": 865,
             "column": 43
           },
           "typedef": true,
@@ -14069,7 +14157,7 @@
           "type": "git_credential_ssh_interactive_cb",
           "location": {
             "file": "deprecated.h",
-            "line": 816,
+            "line": 866,
             "column": 43
           },
           "typedef": true,
@@ -14080,7 +14168,7 @@
           "name": "git_credtype_t",
           "location": {
             "file": "deprecated.h",
-            "line": 819,
+            "line": 869,
             "column": 9
           },
           "value": "git_credential_t",
@@ -14092,7 +14180,7 @@
           "name": "GIT_CREDTYPE_USERPASS_PLAINTEXT",
           "location": {
             "file": "deprecated.h",
-            "line": 822,
+            "line": 872,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_USERPASS_PLAINTEXT",
@@ -14104,7 +14192,7 @@
           "name": "GIT_CREDTYPE_SSH_KEY",
           "location": {
             "file": "deprecated.h",
-            "line": 824,
+            "line": 874,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_SSH_KEY",
@@ -14116,7 +14204,7 @@
           "name": "GIT_CREDTYPE_SSH_CUSTOM",
           "location": {
             "file": "deprecated.h",
-            "line": 826,
+            "line": 876,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_SSH_CUSTOM",
@@ -14128,7 +14216,7 @@
           "name": "GIT_CREDTYPE_DEFAULT",
           "location": {
             "file": "deprecated.h",
-            "line": 828,
+            "line": 878,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_DEFAULT",
@@ -14140,7 +14228,7 @@
           "name": "GIT_CREDTYPE_SSH_INTERACTIVE",
           "location": {
             "file": "deprecated.h",
-            "line": 830,
+            "line": 880,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_SSH_INTERACTIVE",
@@ -14152,7 +14240,7 @@
           "name": "GIT_CREDTYPE_USERNAME",
           "location": {
             "file": "deprecated.h",
-            "line": 832,
+            "line": 882,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_USERNAME",
@@ -14164,7 +14252,7 @@
           "name": "GIT_CREDTYPE_SSH_MEMORY",
           "location": {
             "file": "deprecated.h",
-            "line": 834,
+            "line": 884,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_SSH_MEMORY",
@@ -14176,7 +14264,7 @@
           "name": "git_cred_free",
           "location": {
             "file": "deprecated.h",
-            "line": 836,
+            "line": 886,
             "column": 18
           },
           "returns": {
@@ -14195,7 +14283,7 @@
           "name": "git_cred_has_username",
           "location": {
             "file": "deprecated.h",
-            "line": 837,
+            "line": 887,
             "column": 17
           },
           "returns": {
@@ -14214,7 +14302,7 @@
           "name": "git_cred_get_username",
           "location": {
             "file": "deprecated.h",
-            "line": 838,
+            "line": 888,
             "column": 26
           },
           "returns": {
@@ -14233,7 +14321,7 @@
           "name": "git_cred_userpass_plaintext_new",
           "location": {
             "file": "deprecated.h",
-            "line": 839,
+            "line": 889,
             "column": 17
           },
           "returns": {
@@ -14260,7 +14348,7 @@
           "name": "git_cred_default_new",
           "location": {
             "file": "deprecated.h",
-            "line": 843,
+            "line": 893,
             "column": 17
           },
           "returns": {
@@ -14279,7 +14367,7 @@
           "name": "git_cred_username_new",
           "location": {
             "file": "deprecated.h",
-            "line": 844,
+            "line": 894,
             "column": 17
           },
           "returns": {
@@ -14302,7 +14390,7 @@
           "name": "git_cred_ssh_key_new",
           "location": {
             "file": "deprecated.h",
-            "line": 845,
+            "line": 895,
             "column": 17
           },
           "returns": {
@@ -14337,7 +14425,7 @@
           "name": "git_cred_ssh_key_memory_new",
           "location": {
             "file": "deprecated.h",
-            "line": 851,
+            "line": 901,
             "column": 17
           },
           "returns": {
@@ -14372,7 +14460,7 @@
           "name": "git_cred_ssh_interactive_new",
           "location": {
             "file": "deprecated.h",
-            "line": 857,
+            "line": 907,
             "column": 17
           },
           "returns": {
@@ -14404,7 +14492,7 @@
           "name": "git_cred_ssh_key_from_agent",
           "location": {
             "file": "deprecated.h",
-            "line": 862,
+            "line": 912,
             "column": 17
           },
           "returns": {
@@ -14427,7 +14515,7 @@
           "name": "git_cred_ssh_custom_new",
           "location": {
             "file": "deprecated.h",
-            "line": 865,
+            "line": 915,
             "column": 17
           },
           "returns": {
@@ -14468,7 +14556,7 @@
           "type": "git_credential_userpass_payload",
           "location": {
             "file": "deprecated.h",
-            "line": 875,
+            "line": 925,
             "column": 41
           },
           "typedef": true,
@@ -14479,7 +14567,7 @@
           "name": "git_cred_userpass",
           "location": {
             "file": "deprecated.h",
-            "line": 877,
+            "line": 927,
             "column": 17
           },
           "returns": {
@@ -14521,7 +14609,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 896,
+            "line": 946,
             "column": 22
           },
           "typedef": true,
@@ -14532,7 +14620,7 @@
           "name": "GIT_OID_RAWSZ",
           "location": {
             "file": "deprecated.h",
-            "line": 912,
+            "line": 962,
             "column": 10
           },
           "value": "GIT_OID_SHA1_SIZE",
@@ -14544,7 +14632,7 @@
           "name": "GIT_OID_HEXSZ",
           "location": {
             "file": "deprecated.h",
-            "line": 914,
+            "line": 964,
             "column": 10
           },
           "value": "GIT_OID_SHA1_HEXSIZE",
@@ -14556,7 +14644,7 @@
           "name": "GIT_OID_HEX_ZERO",
           "location": {
             "file": "deprecated.h",
-            "line": 916,
+            "line": 966,
             "column": 10
           },
           "value": "GIT_OID_SHA1_HEXZERO",
@@ -14568,7 +14656,7 @@
           "name": "git_oid_iszero",
           "location": {
             "file": "deprecated.h",
-            "line": 919,
+            "line": 969,
             "column": 17
           },
           "returns": {
@@ -14587,7 +14675,7 @@
           "name": "git_oidarray_free",
           "location": {
             "file": "deprecated.h",
-            "line": 943,
+            "line": 993,
             "column": 18
           },
           "returns": {
@@ -14621,7 +14709,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 964,
+            "line": 1014,
             "column": 30
           },
           "typedef": true,
@@ -14637,7 +14725,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 972,
+            "line": 1022,
             "column": 33
           },
           "typedef": true,
@@ -14653,7 +14741,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 980,
+            "line": 1030,
             "column": 39
           },
           "typedef": true,
@@ -14664,7 +14752,7 @@
           "name": "git_remote_completion_type",
           "location": {
             "file": "deprecated.h",
-            "line": 983,
+            "line": 1033,
             "column": 9
           },
           "value": "git_remote_completion_t",
@@ -14680,7 +14768,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 988,
+            "line": 1038,
             "column": 26
           },
           "params": [
@@ -14699,7 +14787,7 @@
           "name": "git_strarray_copy",
           "location": {
             "file": "deprecated.h",
-            "line": 1012,
+            "line": 1062,
             "column": 17
           },
           "returns": {
@@ -14731,7 +14819,7 @@
           "name": "git_strarray_free",
           "location": {
             "file": "deprecated.h",
-            "line": 1024,
+            "line": 1074,
             "column": 18
           },
           "returns": {
@@ -14760,7 +14848,7 @@
           "name": "LIBGIT2_VER_MAJOR",
           "location": {
             "file": "deprecated.h",
-            "line": 1038,
+            "line": 1088,
             "column": 9
           },
           "value": "LIBGIT2_VERSION_MAJOR",
@@ -14772,7 +14860,7 @@
           "name": "LIBGIT2_VER_MINOR",
           "location": {
             "file": "deprecated.h",
-            "line": 1039,
+            "line": 1089,
             "column": 9
           },
           "value": "LIBGIT2_VERSION_MINOR",
@@ -14784,7 +14872,7 @@
           "name": "LIBGIT2_VER_REVISION",
           "location": {
             "file": "deprecated.h",
-            "line": 1040,
+            "line": 1090,
             "column": 9
           },
           "value": "LIBGIT2_VERSION_REVISION",
@@ -14796,7 +14884,7 @@
           "name": "LIBGIT2_VER_PATCH",
           "location": {
             "file": "deprecated.h",
-            "line": 1041,
+            "line": 1091,
             "column": 9
           },
           "value": "LIBGIT2_VERSION_PATCH",
@@ -14808,7 +14896,7 @@
           "name": "LIBGIT2_VER_PRERELEASE",
           "location": {
             "file": "deprecated.h",
-            "line": 1042,
+            "line": 1092,
             "column": 9
           },
           "value": "LIBGIT2_VERSION_PRERELEASE",
@@ -14820,7 +14908,7 @@
           "name": "git_blame_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1056,
+            "line": 1106,
             "column": 17
           },
           "returns": {
@@ -14849,7 +14937,7 @@
           "name": "git_checkout_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1057,
+            "line": 1107,
             "column": 17
           },
           "returns": {
@@ -14872,7 +14960,7 @@
           "name": "git_cherrypick_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1058,
+            "line": 1108,
             "column": 17
           },
           "returns": {
@@ -14895,7 +14983,7 @@
           "name": "git_clone_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1059,
+            "line": 1109,
             "column": 17
           },
           "returns": {
@@ -14918,7 +15006,7 @@
           "name": "git_describe_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1060,
+            "line": 1110,
             "column": 17
           },
           "returns": {
@@ -14941,7 +15029,7 @@
           "name": "git_describe_init_format_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1061,
+            "line": 1111,
             "column": 17
           },
           "returns": {
@@ -14964,7 +15052,7 @@
           "name": "git_diff_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1062,
+            "line": 1112,
             "column": 17
           },
           "returns": {
@@ -14987,7 +15075,7 @@
           "name": "git_diff_find_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1063,
+            "line": 1113,
             "column": 17
           },
           "returns": {
@@ -15010,7 +15098,7 @@
           "name": "git_diff_format_email_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1064,
+            "line": 1114,
             "column": 17
           },
           "returns": {
@@ -15033,7 +15121,7 @@
           "name": "git_diff_patchid_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1065,
+            "line": 1115,
             "column": 17
           },
           "returns": {
@@ -15056,7 +15144,7 @@
           "name": "git_fetch_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1066,
+            "line": 1116,
             "column": 17
           },
           "returns": {
@@ -15079,7 +15167,7 @@
           "name": "git_indexer_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1067,
+            "line": 1117,
             "column": 17
           },
           "returns": {
@@ -15102,7 +15190,7 @@
           "name": "git_merge_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1068,
+            "line": 1118,
             "column": 17
           },
           "returns": {
@@ -15125,7 +15213,7 @@
           "name": "git_merge_file_init_input",
           "location": {
             "file": "deprecated.h",
-            "line": 1069,
+            "line": 1119,
             "column": 17
           },
           "returns": {
@@ -15148,7 +15236,7 @@
           "name": "git_merge_file_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1070,
+            "line": 1120,
             "column": 17
           },
           "returns": {
@@ -15171,7 +15259,7 @@
           "name": "git_proxy_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1071,
+            "line": 1121,
             "column": 17
           },
           "returns": {
@@ -15194,7 +15282,7 @@
           "name": "git_push_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1072,
+            "line": 1122,
             "column": 17
           },
           "returns": {
@@ -15217,7 +15305,7 @@
           "name": "git_rebase_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1073,
+            "line": 1123,
             "column": 17
           },
           "returns": {
@@ -15240,7 +15328,7 @@
           "name": "git_remote_create_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1074,
+            "line": 1124,
             "column": 17
           },
           "returns": {
@@ -15263,7 +15351,7 @@
           "name": "git_repository_init_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1075,
+            "line": 1125,
             "column": 17
           },
           "returns": {
@@ -15286,7 +15374,7 @@
           "name": "git_revert_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1076,
+            "line": 1126,
             "column": 17
           },
           "returns": {
@@ -15309,7 +15397,7 @@
           "name": "git_stash_apply_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1077,
+            "line": 1127,
             "column": 17
           },
           "returns": {
@@ -15332,7 +15420,7 @@
           "name": "git_status_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1078,
+            "line": 1128,
             "column": 17
           },
           "returns": {
@@ -15355,7 +15443,7 @@
           "name": "git_submodule_update_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1079,
+            "line": 1129,
             "column": 17
           },
           "returns": {
@@ -15378,7 +15466,7 @@
           "name": "git_worktree_add_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1080,
+            "line": 1130,
             "column": 17
           },
           "returns": {
@@ -15401,7 +15489,7 @@
           "name": "git_worktree_prune_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1081,
+            "line": 1131,
             "column": 17
           },
           "returns": {
@@ -22064,7 +22152,7 @@
           "referenceName": "git_index_entry",
           "comment": [
             "In-memory representation of a file entry in the index.",
-            "This is a public structure that represents a file entry in the index.\n The meaning of the fields corresponds to core Git's documentation (in\n \"Documentation/technical/index-format.txt\").",
+            "This is a public structure that represents a file entry in the index.\n The meaning of the fields corresponds to core Git's documentation (in\n \"Documentation/gitformat-index.adoc\").",
             "The `flags` field consists of a number of bit fields which can be\n accessed via the first set of `GIT_INDEX_ENTRY_...` bitmasks below.\n These flags are all read from and persisted to disk.",
             "The `flags_extended` field also has a number of bit fields which can be\n accessed via the later `GIT_INDEX_ENTRY_...` bitmasks below.  Some of\n these flags are read from and written to disk, but some are set aside\n for in-memory only reference.",
             "Note that the time and size fields are truncated to 32 bits. This\n is enough to detect changes, which is enough for the index to\n function as a cache, but it should not be taken as an authoritative\n source for that data."
@@ -26546,7 +26634,7 @@
           "name": "git_merge_file_from_index",
           "location": {
             "file": "merge.h",
-            "line": 582,
+            "line": 584,
             "column": 17
           },
           "returns": {
@@ -26592,7 +26680,8 @@
             }
           ],
           "comment": [
-            "Merge two files as they exist in the index, using the given common\n ancestor as the baseline, producing a `git_merge_file_result` that\n reflects the merge result.  The `git_merge_file_result` must be freed with\n `git_merge_file_result_free`."
+            "Merge two files as they exist in the index, using the given common\n ancestor as the baseline, producing a `git_merge_file_result` that\n reflects the merge result.  The `git_merge_file_result` must be\n freed with `git_merge_file_result_free`.",
+            "At least one of `ancestor`, `ours`, or `theirs` must be non-null."
           ],
           "group": "merge"
         },
@@ -26601,7 +26690,7 @@
           "name": "git_merge_file_result_free",
           "location": {
             "file": "merge.h",
-            "line": 595,
+            "line": 597,
             "column": 18
           },
           "returns": {
@@ -26625,7 +26714,7 @@
           "name": "git_merge_trees",
           "location": {
             "file": "merge.h",
-            "line": 613,
+            "line": 615,
             "column": 17
           },
           "returns": {
@@ -26681,7 +26770,7 @@
           "name": "git_merge_commits",
           "location": {
             "file": "merge.h",
-            "line": 636,
+            "line": 638,
             "column": 17
           },
           "returns": {
@@ -26731,7 +26820,7 @@
           "name": "git_merge",
           "location": {
             "file": "merge.h",
-            "line": 661,
+            "line": 663,
             "column": 17
           },
           "returns": {
@@ -28519,7 +28608,7 @@
           "name": "GIT_OBJECT_SIZE_MAX",
           "location": {
             "file": "object.h",
-            "line": 25,
+            "line": 26,
             "column": 9
           },
           "value": "UINT64_MAX",
@@ -28531,7 +28620,7 @@
           "name": "git_object_lookup",
           "location": {
             "file": "object.h",
-            "line": 45,
+            "line": 46,
             "column": 17
           },
           "returns": {
@@ -28577,7 +28666,7 @@
           "name": "git_object_lookup_prefix",
           "location": {
             "file": "object.h",
-            "line": 78,
+            "line": 79,
             "column": 17
           },
           "returns": {
@@ -28630,7 +28719,7 @@
           "name": "git_object_lookup_bypath",
           "location": {
             "file": "object.h",
-            "line": 96,
+            "line": 97,
             "column": 17
           },
           "returns": {
@@ -28674,7 +28763,7 @@
           "name": "git_object_id",
           "location": {
             "file": "object.h",
-            "line": 108,
+            "line": 109,
             "column": 29
           },
           "returns": {
@@ -28699,7 +28788,7 @@
           "name": "git_object_short_id",
           "location": {
             "file": "object.h",
-            "line": 122,
+            "line": 123,
             "column": 17
           },
           "returns": {
@@ -28731,7 +28820,7 @@
           "name": "git_object_type",
           "location": {
             "file": "object.h",
-            "line": 130,
+            "line": 131,
             "column": 26
           },
           "returns": {
@@ -28756,7 +28845,7 @@
           "name": "git_object_owner",
           "location": {
             "file": "object.h",
-            "line": 144,
+            "line": 145,
             "column": 30
           },
           "returns": {
@@ -28783,7 +28872,7 @@
           "name": "git_object_free",
           "location": {
             "file": "object.h",
-            "line": 161,
+            "line": 162,
             "column": 18
           },
           "returns": {
@@ -28809,7 +28898,7 @@
           "name": "git_object_type2string",
           "location": {
             "file": "object.h",
-            "line": 172,
+            "line": 173,
             "column": 26
           },
           "returns": {
@@ -28836,7 +28925,7 @@
           "name": "git_object_string2type",
           "location": {
             "file": "object.h",
-            "line": 180,
+            "line": 181,
             "column": 26
           },
           "returns": {
@@ -28861,7 +28950,7 @@
           "name": "git_object_type_is_valid",
           "location": {
             "file": "object.h",
-            "line": 188,
+            "line": 189,
             "column": 17
           },
           "returns": {
@@ -28887,7 +28976,7 @@
           "name": "git_object_peel",
           "location": {
             "file": "object.h",
-            "line": 213,
+            "line": 214,
             "column": 17
           },
           "returns": {
@@ -28929,7 +29018,7 @@
           "name": "git_object_dup",
           "location": {
             "file": "object.h",
-            "line": 226,
+            "line": 227,
             "column": 17
           },
           "returns": {
@@ -28955,12 +29044,203 @@
           ],
           "group": "object"
         },
+        "git_object_id_options": {
+          "kind": "struct",
+          "name": "git_object_id_options",
+          "referenceName": "git_object_id_options",
+          "comment": [
+            "Options for calculating object IDs from raw content.",
+            "Initialize with `GIT_OBJECT_ID_OPTIONS_INIT`. Alternatively, you can\n use `git_object_id_options_init`."
+          ],
+          "members": [
+            {
+              "name": "version",
+              "type": "unsigned int",
+              "comment": [
+                "version for the struct"
+              ]
+            },
+            {
+              "name": "object_type",
+              "type": "git_object_t",
+              "comment": [
+                "Object type of the raw content; if not specified, this\n defaults to `GIT_OBJECT_BLOB`."
+              ],
+              "referenceType": "enum git_object_t"
+            },
+            {
+              "name": "oid_type",
+              "type": "git_oid_t",
+              "comment": [
+                "Object ID type to generate; if not specified, this defaults\n to `GIT_OID_DEFAULT`."
+              ],
+              "referenceType": "enum git_oid_t"
+            },
+            {
+              "name": "filters",
+              "type": "git_filter_list *",
+              "comment": [
+                "Filters to mutate the raw data with; these are ignored\n unless the given raw object data is a blob."
+              ]
+            }
+          ],
+          "location": {
+            "file": "object.h",
+            "line": 235,
+            "column": 9
+          },
+          "group": "object",
+          "parameterTo": [
+            "git_object_id_options_init",
+            "git_object_id_from_buffer",
+            "git_object_id_from_file"
+          ]
+        },
+        "GIT_OBJECT_ID_OPTIONS_VERSION": {
+          "kind": "macro",
+          "name": "GIT_OBJECT_ID_OPTIONS_VERSION",
+          "location": {
+            "file": "object.h",
+            "line": 258,
+            "column": 9
+          },
+          "value": "1",
+          "comment": "Current version for the `git_object_id_options` structure",
+          "group": "object"
+        },
+        "GIT_OBJECT_ID_OPTIONS_INIT": {
+          "kind": "macro",
+          "name": "GIT_OBJECT_ID_OPTIONS_INIT",
+          "location": {
+            "file": "object.h",
+            "line": 261,
+            "column": 9
+          },
+          "value": "{GIT_OBJECT_ID_OPTIONS_VERSION}",
+          "comment": "Static constructor for `object_id_options`",
+          "group": "object"
+        },
+        "git_object_id_options_init": {
+          "kind": "function",
+          "name": "git_object_id_options_init",
+          "location": {
+            "file": "object.h",
+            "line": 271,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 on success; -1 on failure."
+          },
+          "params": [
+            {
+              "name": "opts",
+              "type": "git_object_id_options *",
+              "direction": "in",
+              "comment": "The `git_object_id_options` struct to initialize."
+            },
+            {
+              "name": "version",
+              "type": "unsigned int",
+              "direction": "in",
+              "comment": "The struct version; pass `GIT_OBJECT_ID_OPTIONS_INIT`."
+            }
+          ],
+          "comment": [
+            "Initialize `git_object_id_options` structure with default values.\n Equivalent to creating an instance with `GIT_WORKTREE_ADD_OPTIONS_INIT`."
+          ],
+          "group": "object"
+        },
+        "git_object_id_from_buffer": {
+          "kind": "function",
+          "name": "git_object_id_from_buffer",
+          "location": {
+            "file": "object.h",
+            "line": 285,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 on success, or an error code"
+          },
+          "params": [
+            {
+              "name": "oid_out",
+              "type": "git_oid *",
+              "direction": "out",
+              "comment": "the resulting object id"
+            },
+            {
+              "name": "buf",
+              "type": "const void *",
+              "direction": "in",
+              "comment": "the raw object content"
+            },
+            {
+              "name": "len",
+              "type": "size_t",
+              "direction": "in",
+              "comment": "the length of the given buffer"
+            },
+            {
+              "name": "opts",
+              "type": "const git_object_id_options *",
+              "direction": "in",
+              "comment": "the options for id calculation"
+            }
+          ],
+          "comment": [
+            "Given the raw content of an object, determine the object ID.\n This prepends the object header to the given data, and hashes\n the results with the hash corresponding to the given oid_type."
+          ],
+          "group": "object"
+        },
+        "git_object_id_from_file": {
+          "kind": "function",
+          "name": "git_object_id_from_file",
+          "location": {
+            "file": "object.h",
+            "line": 309,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 on success, or an error code"
+          },
+          "params": [
+            {
+              "name": "oid_out",
+              "type": "git_oid *",
+              "direction": "out",
+              "comment": "the resulting object id"
+            },
+            {
+              "name": "path",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the on-disk path to the raw object content"
+            },
+            {
+              "name": "opts",
+              "type": "const git_object_id_options *",
+              "direction": "in",
+              "comment": "the options for id calculation"
+            }
+          ],
+          "comment": [
+            "Given an on-disk file that contains the raw content of an object,\n determine the object ID. This prepends the object header to the given\n data, and hashes the results with the hash corresponding to the given\n oid_type.",
+            "Note that this does not look at attributes or do any on-disk filtering\n (like line ending translation), so when used with blobs, it may not\n match the results for adding to the repository. To compute the object\n ID for a blob with filters, use `git_repository_hashfile`."
+          ],
+          "see": [
+            "git_repository_hashfile"
+          ],
+          "group": "object"
+        },
         "git_object_rawcontent_is_valid": {
           "kind": "function",
           "name": "git_object_rawcontent_is_valid",
           "location": {
             "file": "object.h",
-            "line": 269,
+            "line": 355,
             "column": 17
           },
           "returns": {
@@ -29091,6 +29371,8 @@
           "parameterTo": [
             "git_object__size",
             "git_object_typeisloose",
+            "git_odb_hash",
+            "git_odb_hashfile",
             "git_object_lookup",
             "git_object_lookup_prefix",
             "git_object_lookup_bypath",
@@ -29101,8 +29383,6 @@
             "git_odb_write",
             "git_odb_open_wstream",
             "git_odb_open_rstream",
-            "git_odb_hash",
-            "git_odb_hashfile",
             "git_reference_peel",
             "git_repository_hashfile"
           ]
@@ -30157,95 +30437,12 @@
           ],
           "group": "odb"
         },
-        "git_odb_hash": {
-          "kind": "function",
-          "name": "git_odb_hash",
-          "location": {
-            "file": "odb.h",
-            "line": 550,
-            "column": 17
-          },
-          "returns": {
-            "type": "int",
-            "comment": "0 or an error code"
-          },
-          "params": [
-            {
-              "name": "oid",
-              "type": "git_oid *",
-              "direction": "out",
-              "comment": "the resulting object-ID."
-            },
-            {
-              "name": "data",
-              "type": "const void *",
-              "direction": "in",
-              "comment": "data to hash"
-            },
-            {
-              "name": "len",
-              "type": "size_t",
-              "direction": "in",
-              "comment": "size of the data"
-            },
-            {
-              "name": "object_type",
-              "type": "git_object_t",
-              "direction": "in",
-              "comment": "of the data to hash",
-              "referenceType": "enum git_object_t"
-            }
-          ],
-          "comment": [
-            "Determine the object-ID (sha1 or sha256 hash) of a data buffer",
-            "The resulting OID will be the identifier for the data buffer as if\n the data buffer it were to written to the ODB."
-          ],
-          "group": "odb"
-        },
-        "git_odb_hashfile": {
-          "kind": "function",
-          "name": "git_odb_hashfile",
-          "location": {
-            "file": "odb.h",
-            "line": 565,
-            "column": 17
-          },
-          "returns": {
-            "type": "int",
-            "comment": "0 or an error code"
-          },
-          "params": [
-            {
-              "name": "oid",
-              "type": "git_oid *",
-              "direction": "out",
-              "comment": "oid structure the result is written into."
-            },
-            {
-              "name": "path",
-              "type": "const char *",
-              "direction": "in",
-              "comment": "file to read and determine object id for"
-            },
-            {
-              "name": "object_type",
-              "type": "git_object_t",
-              "direction": "in",
-              "comment": "of the data to hash",
-              "referenceType": "enum git_object_t"
-            }
-          ],
-          "comment": [
-            "Read a file from disk and fill a git_oid with the object id\n that the file would have if it were written to the Object\n Database as an object of the given type (w/o applying filters).\n Similar functionality to git.git's `git hash-object` without\n the `-w` flag, however, with the --no-filters flag.\n If you need filters, see git_repository_hashfile."
-          ],
-          "group": "odb"
-        },
         "git_odb_object_dup": {
           "kind": "function",
           "name": "git_odb_object_dup",
           "location": {
             "file": "odb.h",
-            "line": 581,
+            "line": 515,
             "column": 17
           },
           "returns": {
@@ -30277,7 +30474,7 @@
           "name": "git_odb_object_free",
           "location": {
             "file": "odb.h",
-            "line": 591,
+            "line": 525,
             "column": 18
           },
           "returns": {
@@ -30302,7 +30499,7 @@
           "name": "git_odb_object_id",
           "location": {
             "file": "odb.h",
-            "line": 601,
+            "line": 535,
             "column": 29
           },
           "returns": {
@@ -30328,7 +30525,7 @@
           "name": "git_odb_object_data",
           "location": {
             "file": "odb.h",
-            "line": 614,
+            "line": 548,
             "column": 26
           },
           "returns": {
@@ -30358,7 +30555,7 @@
           "name": "git_odb_object_size",
           "location": {
             "file": "odb.h",
-            "line": 625,
+            "line": 559,
             "column": 20
           },
           "returns": {
@@ -30384,7 +30581,7 @@
           "name": "git_odb_object_type",
           "location": {
             "file": "odb.h",
-            "line": 633,
+            "line": 567,
             "column": 26
           },
           "returns": {
@@ -30409,7 +30606,7 @@
           "name": "git_odb_add_backend",
           "location": {
             "file": "odb.h",
-            "line": 648,
+            "line": 582,
             "column": 17
           },
           "returns": {
@@ -30448,7 +30645,7 @@
           "name": "git_odb_add_alternate",
           "location": {
             "file": "odb.h",
-            "line": 669,
+            "line": 603,
             "column": 17
           },
           "returns": {
@@ -30489,7 +30686,7 @@
           "name": "git_odb_num_backends",
           "location": {
             "file": "odb.h",
-            "line": 677,
+            "line": 611,
             "column": 20
           },
           "returns": {
@@ -30514,7 +30711,7 @@
           "name": "git_odb_get_backend",
           "location": {
             "file": "odb.h",
-            "line": 687,
+            "line": 621,
             "column": 17
           },
           "returns": {
@@ -30551,7 +30748,7 @@
           "name": "git_odb_set_commit_graph",
           "location": {
             "file": "odb.h",
-            "line": 702,
+            "line": 636,
             "column": 17
           },
           "returns": {
@@ -31375,6 +31572,9 @@
           "group": "oid",
           "returnedBy": [
             "git_repository_oid_type"
+          ],
+          "parameterTo": [
+            "git_remote_oid_type"
           ]
         },
         "GIT_OID_DEFAULT": {
@@ -31553,12 +31753,14 @@
             "git_commit_id",
             "git_commit_tree_id",
             "git_commit_parent_id",
+            "git_odb_hash",
+            "git_odb_hashfile",
             "git_index_checksum",
             "git_indexer_hash",
             "git_note_id",
             "git_object_id",
-            "git_odb_hash",
-            "git_odb_hashfile",
+            "git_object_id_from_buffer",
+            "git_object_id_from_file",
             "git_odb_object_id",
             "git_packbuilder_hash",
             "git_rebase_orig_head_id",
@@ -34500,7 +34702,7 @@
               "name": "certificate_check",
               "type": "git_transport_certificate_check_cb",
               "comment": [
-                "If cert verification fails, this will be called to let the\n user make the final decision of whether to allow the\n connection to proceed. Returns 0 to allow the connection\n or a negative value to indicate an error."
+                "This will be called to let the user make the final decision of whether\n to allow the connection to proceed. Returns 0 to allow the connection\n or a negative value to indicate an error."
               ],
               "referenceType": "int (*)(git_cert *, int, const char *, void *)"
             },
@@ -34529,7 +34731,7 @@
           "name": "GIT_PROXY_OPTIONS_VERSION",
           "location": {
             "file": "proxy.h",
-            "line": 88,
+            "line": 87,
             "column": 9
           },
           "value": "1",
@@ -34541,7 +34743,7 @@
           "name": "GIT_PROXY_OPTIONS_INIT",
           "location": {
             "file": "proxy.h",
-            "line": 91,
+            "line": 90,
             "column": 9
           },
           "value": "{GIT_PROXY_OPTIONS_VERSION}",
@@ -34553,7 +34755,7 @@
           "name": "git_proxy_options_init",
           "location": {
             "file": "proxy.h",
-            "line": 103,
+            "line": 102,
             "column": 17
           },
           "returns": {
@@ -35353,12 +35555,35 @@
     },
     "refdb": {
       "apis": {
+        "git_refdb_t": {
+          "kind": "enum",
+          "name": "git_refdb_t",
+          "referenceName": "git_refdb_t",
+          "members": [
+            {
+              "name": "GIT_REFDB_FILES",
+              "value": "1",
+              "comment": [
+                "Files backend using loose and packed refs."
+              ]
+            }
+          ],
+          "comment": [
+            "The type of the refdb as determined by \"extensions.refStorage\"."
+          ],
+          "location": {
+            "file": "refdb.h",
+            "line": 25,
+            "column": 9
+          },
+          "group": "refdb"
+        },
         "git_refdb_new": {
           "kind": "function",
           "name": "git_refdb_new",
           "location": {
             "file": "refdb.h",
-            "line": 35,
+            "line": 40,
             "column": 17
           },
           "returns": {
@@ -35390,7 +35615,7 @@
           "name": "git_refdb_open",
           "location": {
             "file": "refdb.h",
-            "line": 49,
+            "line": 54,
             "column": 17
           },
           "returns": {
@@ -35422,7 +35647,7 @@
           "name": "git_refdb_compress",
           "location": {
             "file": "refdb.h",
-            "line": 59,
+            "line": 64,
             "column": 17
           },
           "returns": {
@@ -35447,7 +35672,7 @@
           "name": "git_refdb_free",
           "location": {
             "file": "refdb.h",
-            "line": 66,
+            "line": 71,
             "column": 18
           },
           "returns": {
@@ -35551,6 +35776,33 @@
             "git_reference_iterator_free"
           ]
         },
+        "git_refdb_backend_init_flag_t": {
+          "kind": "enum",
+          "name": "git_refdb_backend_init_flag_t",
+          "referenceName": "git_refdb_backend_init_flag_t",
+          "members": [
+            {
+              "name": "GIT_REFDB_BACKEND_INIT_IS_WORKTREE",
+              "value": "1",
+              "comment": [
+                "The refdb that is to be initialized is for a worktree."
+              ]
+            },
+            {
+              "name": "GIT_REFDB_BACKEND_INIT_FORCE_HEAD",
+              "value": "2",
+              "comment": [
+                "The refdb that is to be initialized is for a worktree."
+              ]
+            }
+          ],
+          "location": {
+            "file": "sys/refdb_backend.h",
+            "line": 59,
+            "column": 9
+          },
+          "group": "sys/refdb_backend"
+        },
         "git_refdb_backend": {
           "kind": "struct",
           "name": "git_refdb_backend",
@@ -35565,6 +35817,39 @@
               "comment": [
                 "The backend API version"
               ]
+            },
+            {
+              "name": "init",
+              "type": "int (*)(git_refdb_backend *, const char *, mode_t, uint32_t)",
+              "comment": [
+                "Create a new refdb and initialize its structures.",
+                "A refdb implementation may provide this function; if it is not\n provided, no data structures will be initialized for the refdb when\n a new repository is created."
+              ],
+              "params": [
+                {
+                  "name": "path",
+                  "direction": "in",
+                  "comment": "The path of the Git directory that shall be initialized."
+                },
+                {
+                  "name": "initial_head",
+                  "direction": "in",
+                  "comment": "The target that HEAD should point to. This value\n             should only be applied when there isn't yet a HEAD\n             reference, or when `GIT_REFDB_BACKEND_INIT_FORCE_HEAD`\n             is passed. Optional, if unset the backend should not set\n             up HEAD, either."
+                },
+                {
+                  "name": "mode",
+                  "direction": "in",
+                  "comment": "The mode that shall be used to create files and\n             directories. May be one of `git_repository_init_mode_t`\n             or normal Unix permission bits."
+                },
+                {
+                  "name": "flags",
+                  "direction": "in",
+                  "comment": "A combination of `git_refdb_backend_init_flag_t` flags."
+                }
+              ],
+              "returns": {
+                "comment": "`0` on success, a negative error value code."
+              }
             },
             {
               "name": "exists",
@@ -35933,7 +36218,7 @@
           ],
           "location": {
             "file": "sys/refdb_backend.h",
-            "line": 60,
+            "line": 73,
             "column": 8
           },
           "group": "sys/refdb_backend",
@@ -35948,7 +36233,7 @@
           "name": "GIT_REFDB_BACKEND_VERSION",
           "location": {
             "file": "sys/refdb_backend.h",
-            "line": 316,
+            "line": 354,
             "column": 9
           },
           "value": "1",
@@ -35960,7 +36245,7 @@
           "name": "GIT_REFDB_BACKEND_INIT",
           "location": {
             "file": "sys/refdb_backend.h",
-            "line": 319,
+            "line": 357,
             "column": 9
           },
           "value": "{GIT_REFDB_BACKEND_VERSION}",
@@ -35972,7 +36257,7 @@
           "name": "git_refdb_init_backend",
           "location": {
             "file": "sys/refdb_backend.h",
-            "line": 329,
+            "line": 367,
             "column": 17
           },
           "returns": {
@@ -36003,7 +36288,7 @@
           "name": "git_refdb_backend_fs",
           "location": {
             "file": "sys/refdb_backend.h",
-            "line": 344,
+            "line": 382,
             "column": 17
           },
           "returns": {
@@ -36035,7 +36320,7 @@
           "name": "git_refdb_set_backend",
           "location": {
             "file": "sys/refdb_backend.h",
-            "line": 358,
+            "line": 396,
             "column": 17
           },
           "returns": {
@@ -39679,12 +39964,44 @@
           ],
           "group": "remote"
         },
+        "git_remote_oid_type": {
+          "kind": "function",
+          "name": "git_remote_oid_type",
+          "location": {
+            "file": "remote.h",
+            "line": 431,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 on success, or an error code"
+          },
+          "params": [
+            {
+              "name": "out",
+              "type": "git_oid_t *",
+              "direction": "in",
+              "comment": "the resulting object format type"
+            },
+            {
+              "name": "remote",
+              "type": "git_remote *",
+              "direction": "in",
+              "comment": "the remote"
+            }
+          ],
+          "comment": [
+            "Get the remote repository's object format.",
+            "The remote (or more exactly its transport) must have connected to\n the remote repository. This format is available as soon as the\n connection to the remote is initiated and stays connected."
+          ],
+          "group": "remote"
+        },
         "git_remote_stop": {
           "kind": "function",
           "name": "git_remote_stop",
           "location": {
             "file": "remote.h",
-            "line": 429,
+            "line": 442,
             "column": 17
           },
           "returns": {
@@ -39710,7 +40027,7 @@
           "name": "git_remote_disconnect",
           "location": {
             "file": "remote.h",
-            "line": 439,
+            "line": 452,
             "column": 17
           },
           "returns": {
@@ -39736,7 +40053,7 @@
           "name": "git_remote_free",
           "location": {
             "file": "remote.h",
-            "line": 449,
+            "line": 462,
             "column": 18
           },
           "returns": {
@@ -39761,7 +40078,7 @@
           "name": "git_remote_list",
           "location": {
             "file": "remote.h",
-            "line": 460,
+            "line": 473,
             "column": 17
           },
           "returns": {
@@ -39808,7 +40125,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 466,
+            "line": 479,
             "column": 14
           },
           "group": "remote"
@@ -39822,7 +40139,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 481,
+            "line": 494,
             "column": 26
           },
           "params": [
@@ -39899,7 +40216,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 490,
+            "line": 503,
             "column": 9
           },
           "group": "remote",
@@ -39916,7 +40233,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 518,
+            "line": 531,
             "column": 26
           },
           "params": [
@@ -39956,7 +40273,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 535,
+            "line": 548,
             "column": 26
           },
           "params": [
@@ -39996,7 +40313,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 551,
+            "line": 564,
             "column": 26
           },
           "params": [
@@ -40044,7 +40361,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 564,
+            "line": 577,
             "column": 26
           },
           "params": [
@@ -40118,7 +40435,7 @@
               "name": "certificate_check",
               "type": "git_transport_certificate_check_cb",
               "comment": [
-                "If cert verification fails, this will be called to let the\n user make the final decision of whether to allow the\n connection to proceed. Returns 0 to allow the connection\n or a negative value to indicate an error."
+                "This will be called to let the user make the final decision of whether\n to allow the connection to proceed. Returns 0 to allow the connection\n or a negative value to indicate an error."
               ],
               "referenceType": "int (*)(git_cert *, int, const char *, void *)"
             },
@@ -40214,7 +40531,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 572,
+            "line": 585,
             "column": 8
           },
           "group": "remote",
@@ -40230,7 +40547,7 @@
           "name": "GIT_REMOTE_CALLBACKS_VERSION",
           "location": {
             "file": "remote.h",
-            "line": 701,
+            "line": 713,
             "column": 9
           },
           "value": "1",
@@ -40242,7 +40559,7 @@
           "name": "GIT_REMOTE_CALLBACKS_INIT",
           "location": {
             "file": "remote.h",
-            "line": 704,
+            "line": 716,
             "column": 9
           },
           "value": "{GIT_REMOTE_CALLBACKS_VERSION}",
@@ -40254,7 +40571,7 @@
           "name": "git_remote_init_callbacks",
           "location": {
             "file": "remote.h",
-            "line": 714,
+            "line": 726,
             "column": 17
           },
           "returns": {
@@ -40309,7 +40626,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 719,
+            "line": 731,
             "column": 9
           },
           "group": "remote"
@@ -40341,7 +40658,7 @@
             {
               "name": "GIT_REMOTE_DOWNLOAD_TAGS_ALL",
               "comment": [
-                "Ask for the all the tags."
+                "Ask for all the tags."
               ]
             }
           ],
@@ -40351,7 +40668,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 739,
+            "line": 751,
             "column": 9
           },
           "group": "remote",
@@ -40388,7 +40705,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 760,
+            "line": 772,
             "column": 9
           },
           "group": "remote"
@@ -40474,7 +40791,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 776,
+            "line": 788,
             "column": 9
           },
           "group": "remote",
@@ -40490,7 +40807,7 @@
           "name": "GIT_FETCH_OPTIONS_VERSION",
           "location": {
             "file": "remote.h",
-            "line": 831,
+            "line": 843,
             "column": 9
           },
           "value": "1",
@@ -40502,7 +40819,7 @@
           "name": "GIT_FETCH_OPTIONS_INIT",
           "location": {
             "file": "remote.h",
-            "line": 840,
+            "line": 852,
             "column": 9
           },
           "value": "{ GIT_FETCH_OPTIONS_VERSION, GIT_REMOTE_CALLBACKS_INIT, GIT_FETCH_PRUNE_UNSPECIFIED, GIT_REMOTE_UPDATE_FETCHHEAD, GIT_REMOTE_DOWNLOAD_TAGS_UNSPECIFIED, GIT_PROXY_OPTIONS_INIT }",
@@ -40514,7 +40831,7 @@
           "name": "git_fetch_options_init",
           "location": {
             "file": "remote.h",
-            "line": 852,
+            "line": 864,
             "column": 17
           },
           "returns": {
@@ -40604,7 +40921,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 860,
+            "line": 872,
             "column": 9
           },
           "group": "remote",
@@ -40620,7 +40937,7 @@
           "name": "GIT_PUSH_OPTIONS_VERSION",
           "location": {
             "file": "remote.h",
-            "line": 902,
+            "line": 914,
             "column": 9
           },
           "value": "1",
@@ -40632,7 +40949,7 @@
           "name": "GIT_PUSH_OPTIONS_INIT",
           "location": {
             "file": "remote.h",
-            "line": 905,
+            "line": 917,
             "column": 9
           },
           "value": "{ GIT_PUSH_OPTIONS_VERSION, 1, GIT_REMOTE_CALLBACKS_INIT, GIT_PROXY_OPTIONS_INIT }",
@@ -40644,7 +40961,7 @@
           "name": "git_push_options_init",
           "location": {
             "file": "remote.h",
-            "line": 917,
+            "line": 929,
             "column": 17
           },
           "returns": {
@@ -40719,7 +41036,7 @@
           ],
           "location": {
             "file": "remote.h",
-            "line": 928,
+            "line": 940,
             "column": 9
           },
           "group": "remote",
@@ -40735,7 +41052,7 @@
           "name": "GIT_REMOTE_CONNECT_OPTIONS_VERSION",
           "location": {
             "file": "remote.h",
-            "line": 949,
+            "line": 961,
             "column": 9
           },
           "value": "1",
@@ -40747,7 +41064,7 @@
           "name": "GIT_REMOTE_CONNECT_OPTIONS_INIT",
           "location": {
             "file": "remote.h",
-            "line": 955,
+            "line": 967,
             "column": 9
           },
           "value": "{ GIT_REMOTE_CONNECT_OPTIONS_VERSION, GIT_REMOTE_CALLBACKS_INIT, GIT_PROXY_OPTIONS_INIT }",
@@ -40759,7 +41076,7 @@
           "name": "git_remote_connect_options_init",
           "location": {
             "file": "remote.h",
-            "line": 968,
+            "line": 980,
             "column": 17
           },
           "returns": {
@@ -40791,7 +41108,7 @@
           "name": "git_remote_connect",
           "location": {
             "file": "remote.h",
-            "line": 987,
+            "line": 999,
             "column": 17
           },
           "returns": {
@@ -40842,7 +41159,7 @@
           "name": "git_remote_connect_ext",
           "location": {
             "file": "remote.h",
-            "line": 1012,
+            "line": 1024,
             "column": 17
           },
           "returns": {
@@ -40882,7 +41199,7 @@
           "name": "git_remote_download",
           "location": {
             "file": "remote.h",
-            "line": 1037,
+            "line": 1049,
             "column": 18
           },
           "returns": {
@@ -40922,7 +41239,7 @@
           "name": "git_remote_upload",
           "location": {
             "file": "remote.h",
-            "line": 1059,
+            "line": 1071,
             "column": 17
           },
           "returns": {
@@ -40961,7 +41278,7 @@
           "name": "git_remote_update_tips",
           "location": {
             "file": "remote.h",
-            "line": 1081,
+            "line": 1093,
             "column": 17
           },
           "returns": {
@@ -41012,7 +41329,7 @@
           "name": "git_remote_fetch",
           "location": {
             "file": "remote.h",
-            "line": 1106,
+            "line": 1118,
             "column": 17
           },
           "returns": {
@@ -41057,7 +41374,7 @@
           "name": "git_remote_prune",
           "location": {
             "file": "remote.h",
-            "line": 1122,
+            "line": 1134,
             "column": 17
           },
           "returns": {
@@ -41089,7 +41406,7 @@
           "name": "git_remote_push",
           "location": {
             "file": "remote.h",
-            "line": 1139,
+            "line": 1151,
             "column": 17
           },
           "returns": {
@@ -41127,7 +41444,7 @@
           "name": "git_remote_stats",
           "location": {
             "file": "remote.h",
-            "line": 1150,
+            "line": 1162,
             "column": 42
           },
           "returns": {
@@ -41152,7 +41469,7 @@
           "name": "git_remote_autotag",
           "location": {
             "file": "remote.h",
-            "line": 1158,
+            "line": 1170,
             "column": 41
           },
           "returns": {
@@ -41177,7 +41494,7 @@
           "name": "git_remote_set_autotag",
           "location": {
             "file": "remote.h",
-            "line": 1171,
+            "line": 1183,
             "column": 17
           },
           "returns": {
@@ -41216,7 +41533,7 @@
           "name": "git_remote_prune_refs",
           "location": {
             "file": "remote.h",
-            "line": 1179,
+            "line": 1191,
             "column": 17
           },
           "returns": {
@@ -41241,7 +41558,7 @@
           "name": "git_remote_rename",
           "location": {
             "file": "remote.h",
-            "line": 1201,
+            "line": 1213,
             "column": 17
           },
           "returns": {
@@ -41287,7 +41604,7 @@
           "name": "git_remote_name_is_valid",
           "location": {
             "file": "remote.h",
-            "line": 1214,
+            "line": 1226,
             "column": 17
           },
           "returns": {
@@ -41318,7 +41635,7 @@
           "name": "git_remote_delete",
           "location": {
             "file": "remote.h",
-            "line": 1226,
+            "line": 1238,
             "column": 17
           },
           "returns": {
@@ -41350,7 +41667,7 @@
           "name": "git_remote_default_branch",
           "location": {
             "file": "remote.h",
-            "line": 1244,
+            "line": 1256,
             "column": 17
           },
           "returns": {
@@ -41415,6 +41732,7 @@
             "git_remote_get_refspec",
             "git_remote_ls",
             "git_remote_connected",
+            "git_remote_oid_type",
             "git_remote_stop",
             "git_remote_disconnect",
             "git_remote_free",
@@ -41535,7 +41853,7 @@
           "name": "git_repository_open",
           "location": {
             "file": "repository.h",
-            "line": 43,
+            "line": 44,
             "column": 17
           },
           "returns": {
@@ -41569,7 +41887,7 @@
           "name": "git_repository_open_from_worktree",
           "location": {
             "file": "repository.h",
-            "line": 54,
+            "line": 55,
             "column": 17
           },
           "returns": {
@@ -41601,7 +41919,7 @@
           "name": "git_repository_wrap_odb",
           "location": {
             "file": "repository.h",
-            "line": 67,
+            "line": 68,
             "column": 17
           },
           "returns": {
@@ -41633,7 +41951,7 @@
           "name": "git_repository_discover",
           "location": {
             "file": "repository.h",
-            "line": 101,
+            "line": 102,
             "column": 17
           },
           "returns": {
@@ -41719,7 +42037,7 @@
           ],
           "location": {
             "file": "repository.h",
-            "line": 110,
+            "line": 111,
             "column": 9
           },
           "group": "repository"
@@ -41729,7 +42047,7 @@
           "name": "git_repository_open_ext",
           "location": {
             "file": "repository.h",
-            "line": 181,
+            "line": 182,
             "column": 17
           },
           "returns": {
@@ -41773,7 +42091,7 @@
           "name": "git_repository_open_bare",
           "location": {
             "file": "repository.h",
-            "line": 202,
+            "line": 203,
             "column": 17
           },
           "returns": {
@@ -41806,7 +42124,7 @@
           "name": "git_repository_free",
           "location": {
             "file": "repository.h",
-            "line": 215,
+            "line": 216,
             "column": 18
           },
           "returns": {
@@ -41831,7 +42149,7 @@
           "name": "git_repository_init",
           "location": {
             "file": "repository.h",
-            "line": 236,
+            "line": 237,
             "column": 17
           },
           "returns": {
@@ -41919,7 +42237,7 @@
           ],
           "location": {
             "file": "repository.h",
-            "line": 249,
+            "line": 250,
             "column": 9
           },
           "group": "repository"
@@ -41957,7 +42275,7 @@
           ],
           "location": {
             "file": "repository.h",
-            "line": 297,
+            "line": 298,
             "column": 9
           },
           "group": "repository"
@@ -42023,11 +42341,19 @@
               "comment": [
                 "If this is non-NULL, then after the rest of the repository\n initialization is completed, an \"origin\" remote will be added\n pointing to this URL."
               ]
+            },
+            {
+              "name": "refdb_type",
+              "type": "git_refdb_t",
+              "comment": [
+                "Type of the reference database to use for this repository, or 0 for\n default (currently \"files\")."
+              ],
+              "referenceType": "enum git_refdb_t"
             }
           ],
           "location": {
             "file": "repository.h",
-            "line": 321,
+            "line": 322,
             "column": 9
           },
           "group": "repository",
@@ -42042,7 +42368,7 @@
           "name": "GIT_REPOSITORY_INIT_OPTIONS_VERSION",
           "location": {
             "file": "repository.h",
-            "line": 383,
+            "line": 390,
             "column": 9
           },
           "value": "1",
@@ -42054,7 +42380,7 @@
           "name": "GIT_REPOSITORY_INIT_OPTIONS_INIT",
           "location": {
             "file": "repository.h",
-            "line": 386,
+            "line": 393,
             "column": 9
           },
           "value": "{GIT_REPOSITORY_INIT_OPTIONS_VERSION}",
@@ -42066,7 +42392,7 @@
           "name": "git_repository_init_options_init",
           "location": {
             "file": "repository.h",
-            "line": 398,
+            "line": 405,
             "column": 17
           },
           "returns": {
@@ -42098,7 +42424,7 @@
           "name": "git_repository_init_ext",
           "location": {
             "file": "repository.h",
-            "line": 419,
+            "line": 426,
             "column": 17
           },
           "returns": {
@@ -42137,7 +42463,7 @@
           "name": "git_repository_head",
           "location": {
             "file": "repository.h",
-            "line": 437,
+            "line": 444,
             "column": 17
           },
           "returns": {
@@ -42169,7 +42495,7 @@
           "name": "git_repository_head_for_worktree",
           "location": {
             "file": "repository.h",
-            "line": 447,
+            "line": 454,
             "column": 17
           },
           "returns": {
@@ -42206,7 +42532,7 @@
           "name": "git_repository_head_detached",
           "location": {
             "file": "repository.h",
-            "line": 460,
+            "line": 467,
             "column": 17
           },
           "returns": {
@@ -42232,7 +42558,7 @@
           "name": "git_repository_head_detached_for_worktree",
           "location": {
             "file": "repository.h",
-            "line": 473,
+            "line": 480,
             "column": 17
           },
           "returns": {
@@ -42264,7 +42590,7 @@
           "name": "git_repository_head_unborn",
           "location": {
             "file": "repository.h",
-            "line": 486,
+            "line": 493,
             "column": 17
           },
           "returns": {
@@ -42290,7 +42616,7 @@
           "name": "git_repository_is_empty",
           "location": {
             "file": "repository.h",
-            "line": 500,
+            "line": 507,
             "column": 17
           },
           "returns": {
@@ -42370,7 +42696,7 @@
           ],
           "location": {
             "file": "repository.h",
-            "line": 505,
+            "line": 512,
             "column": 9
           },
           "group": "repository",
@@ -42383,7 +42709,7 @@
           "name": "git_repository_item_path",
           "location": {
             "file": "repository.h",
-            "line": 538,
+            "line": 545,
             "column": 17
           },
           "returns": {
@@ -42422,7 +42748,7 @@
           "name": "git_repository_path",
           "location": {
             "file": "repository.h",
-            "line": 549,
+            "line": 556,
             "column": 26
           },
           "returns": {
@@ -42448,7 +42774,7 @@
           "name": "git_repository_workdir",
           "location": {
             "file": "repository.h",
-            "line": 560,
+            "line": 567,
             "column": 26
           },
           "returns": {
@@ -42474,7 +42800,7 @@
           "name": "git_repository_commondir",
           "location": {
             "file": "repository.h",
-            "line": 572,
+            "line": 579,
             "column": 26
           },
           "returns": {
@@ -42500,7 +42826,7 @@
           "name": "git_repository_set_workdir",
           "location": {
             "file": "repository.h",
-            "line": 591,
+            "line": 598,
             "column": 17
           },
           "returns": {
@@ -42539,7 +42865,7 @@
           "name": "git_repository_is_bare",
           "location": {
             "file": "repository.h",
-            "line": 600,
+            "line": 607,
             "column": 17
           },
           "returns": {
@@ -42564,7 +42890,7 @@
           "name": "git_repository_is_worktree",
           "location": {
             "file": "repository.h",
-            "line": 608,
+            "line": 615,
             "column": 17
           },
           "returns": {
@@ -42589,7 +42915,7 @@
           "name": "git_repository_config",
           "location": {
             "file": "repository.h",
-            "line": 624,
+            "line": 631,
             "column": 17
           },
           "returns": {
@@ -42622,7 +42948,7 @@
           "name": "git_repository_config_snapshot",
           "location": {
             "file": "repository.h",
-            "line": 640,
+            "line": 647,
             "column": 17
           },
           "returns": {
@@ -42655,7 +42981,7 @@
           "name": "git_repository_odb",
           "location": {
             "file": "repository.h",
-            "line": 656,
+            "line": 663,
             "column": 17
           },
           "returns": {
@@ -42688,7 +43014,7 @@
           "name": "git_repository_refdb",
           "location": {
             "file": "repository.h",
-            "line": 672,
+            "line": 679,
             "column": 17
           },
           "returns": {
@@ -42721,7 +43047,7 @@
           "name": "git_repository_index",
           "location": {
             "file": "repository.h",
-            "line": 688,
+            "line": 695,
             "column": 17
           },
           "returns": {
@@ -42754,7 +43080,7 @@
           "name": "git_repository_message",
           "location": {
             "file": "repository.h",
-            "line": 706,
+            "line": 713,
             "column": 17
           },
           "returns": {
@@ -42787,7 +43113,7 @@
           "name": "git_repository_message_remove",
           "location": {
             "file": "repository.h",
-            "line": 716,
+            "line": 723,
             "column": 17
           },
           "returns": {
@@ -42813,7 +43139,7 @@
           "name": "git_repository_state_cleanup",
           "location": {
             "file": "repository.h",
-            "line": 725,
+            "line": 732,
             "column": 17
           },
           "returns": {
@@ -42842,7 +43168,7 @@
           ],
           "location": {
             "file": "repository.h",
-            "line": 739,
+            "line": 746,
             "column": 26
           },
           "see": [
@@ -42895,7 +43221,7 @@
           "name": "git_repository_fetchhead_foreach",
           "location": {
             "file": "repository.h",
-            "line": 756,
+            "line": 763,
             "column": 17
           },
           "returns": {
@@ -42938,7 +43264,7 @@
           ],
           "location": {
             "file": "repository.h",
-            "line": 770,
+            "line": 777,
             "column": 26
           },
           "see": [
@@ -42973,7 +43299,7 @@
           "name": "git_repository_mergehead_foreach",
           "location": {
             "file": "repository.h",
-            "line": 785,
+            "line": 792,
             "column": 17
           },
           "returns": {
@@ -43012,7 +43338,7 @@
           "name": "git_repository_hashfile",
           "location": {
             "file": "repository.h",
-            "line": 815,
+            "line": 822,
             "column": 17
           },
           "returns": {
@@ -43064,7 +43390,7 @@
           "name": "git_repository_set_head",
           "location": {
             "file": "repository.h",
-            "line": 840,
+            "line": 847,
             "column": 17
           },
           "returns": {
@@ -43098,7 +43424,7 @@
           "name": "git_repository_set_head_detached",
           "location": {
             "file": "repository.h",
-            "line": 860,
+            "line": 867,
             "column": 17
           },
           "returns": {
@@ -43132,7 +43458,7 @@
           "name": "git_repository_set_head_detached_from_annotated",
           "location": {
             "file": "repository.h",
-            "line": 878,
+            "line": 885,
             "column": 17
           },
           "returns": {
@@ -43165,7 +43491,7 @@
           "name": "git_repository_detach_head",
           "location": {
             "file": "repository.h",
-            "line": 899,
+            "line": 906,
             "column": 17
           },
           "returns": {
@@ -43237,7 +43563,7 @@
           ],
           "location": {
             "file": "repository.h",
-            "line": 908,
+            "line": 915,
             "column": 9
           },
           "group": "repository"
@@ -43247,7 +43573,7 @@
           "name": "git_repository_state",
           "location": {
             "file": "repository.h",
-            "line": 930,
+            "line": 937,
             "column": 17
           },
           "returns": {
@@ -43272,7 +43598,7 @@
           "name": "git_repository_set_namespace",
           "location": {
             "file": "repository.h",
-            "line": 944,
+            "line": 951,
             "column": 17
           },
           "returns": {
@@ -43304,7 +43630,7 @@
           "name": "git_repository_get_namespace",
           "location": {
             "file": "repository.h",
-            "line": 952,
+            "line": 959,
             "column": 26
           },
           "returns": {
@@ -43329,7 +43655,7 @@
           "name": "git_repository_is_shallow",
           "location": {
             "file": "repository.h",
-            "line": 961,
+            "line": 968,
             "column": 17
           },
           "returns": {
@@ -43354,7 +43680,7 @@
           "name": "git_repository_ident",
           "location": {
             "file": "repository.h",
-            "line": 974,
+            "line": 981,
             "column": 17
           },
           "returns": {
@@ -43392,7 +43718,7 @@
           "name": "git_repository_set_ident",
           "location": {
             "file": "repository.h",
-            "line": 988,
+            "line": 995,
             "column": 17
           },
           "returns": {
@@ -43430,7 +43756,7 @@
           "name": "git_repository_oid_type",
           "location": {
             "file": "repository.h",
-            "line": 996,
+            "line": 1003,
             "column": 23
           },
           "returns": {
@@ -43455,7 +43781,7 @@
           "name": "git_repository_commit_parents",
           "location": {
             "file": "repository.h",
-            "line": 1007,
+            "line": 1014,
             "column": 17
           },
           "returns": {
@@ -50861,7 +51187,7 @@
               "name": "prefix",
               "type": "const char *",
               "direction": "in",
-              "comment": "The scheme (ending in \"://\") to match, i.e. \"git://\""
+              "comment": "The scheme to match, eg \"git\" or \"https\""
             },
             {
               "name": "cb",

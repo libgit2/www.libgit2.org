@@ -24,7 +24,11 @@ layout: default
             <span>Version:</span>
             <select onChange="window.location.href = this.value">
               <option value="/docs/reference/main/object/index.html" selected>main</option>
+              <option value="/docs/reference/v1.9.3/object/index.html">v1.9.3</option>
+              <option value="/docs/reference/v1.9.2/object/index.html">v1.9.2</option>
+              <option value="/docs/reference/v1.9.1/object/index.html">v1.9.1</option>
               <option value="/docs/reference/v1.9.0/object/index.html">v1.9.0</option>
+              <option value="/docs/reference/v1.8.5/object/index.html">v1.8.5</option>
               <option value="/docs/reference/v1.8.4/object/index.html">v1.8.4</option>
               <option value="/docs/reference/v1.8.3/object/index.html">v1.8.3</option>
               <option value="/docs/reference/v1.8.2/object/index.html">v1.8.2</option>
@@ -158,6 +162,20 @@ layout: default
           </div>
         </div>
 
+        <h3 class="apiListHeader structListHeader">Structs</h3>
+        <div class="apiList structList">
+          <div class="apiListItem structListItem">
+            <div class="apiListName structListName">
+              <a href="/docs/reference/main/object/git_object_id_options.html">
+                git_object_id_options
+              </a>
+            </div>
+            <div class="apiListItemDescription structListItemDescription">
+              <p>Options for calculating object IDs from raw content</p> 
+            </div>
+          </div>
+        </div>
+
         <h3 class="apiListHeader macroListHeader">Macros</h3>
         <div class="apiList macroList">
           <div class="apiListItem macroListItem">
@@ -168,6 +186,26 @@ layout: default
             </div>
             <div class="apiListItemDescription macroListItemDescription">
               <p>Maximum size of a git object</p> 
+            </div>
+          </div>
+          <div class="apiListItem macroListItem">
+            <div class="apiListName macroListName">
+              <a href="/docs/reference/main/object/GIT_OBJECT_ID_OPTIONS_VERSION.html">
+                GIT_OBJECT_ID_OPTIONS_VERSION
+              </a>
+            </div>
+            <div class="apiListItemDescription macroListItemDescription">
+              <p>Current version for the <a href="/docs/reference/main/object/git_object_id_options.html" class="apiLink structLink"><code><span class="codeWord">git_object_id_options</span></code></a> structure</p> 
+            </div>
+          </div>
+          <div class="apiListItem macroListItem">
+            <div class="apiListName macroListName">
+              <a href="/docs/reference/main/object/GIT_OBJECT_ID_OPTIONS_INIT.html">
+                GIT_OBJECT_ID_OPTIONS_INIT
+              </a>
+            </div>
+            <div class="apiListItemDescription macroListItemDescription">
+              <p>Static constructor for <code><span class="codeWord">object_id_options</span></code></p> 
             </div>
           </div>
         </div>
@@ -330,6 +368,36 @@ layout: default
             </div>
             <div class="apiListItemDescription functionListItemDescription">
               <p>Create an in-memory copy of a Git object explicitly free'd or it will leak.</p> 
+            </div>
+          </div>
+          <div class="apiListItem functionListItem">
+            <div class="apiListName functionListName">
+              <a href="/docs/reference/main/object/git_object_id_options_init.html">
+                git_object_id_options_init
+              </a>
+            </div>
+            <div class="apiListItemDescription functionListItemDescription">
+              <p>Initialize <a href="/docs/reference/main/object/git_object_id_options.html" class="apiLink structLink"><code><span class="codeWord">git_object_id_options</span></code></a> structure with default values Equivalent to creating an instance with <a href="/docs/reference/main/worktree/GIT_WORKTREE_ADD_OPTIONS_INIT.html" class="apiLink macroLink"><code><span class="codeWord">GIT_WORKTREE_ADD_OPTIONS_INIT</span></code></a>.</p> 
+            </div>
+          </div>
+          <div class="apiListItem functionListItem">
+            <div class="apiListName functionListName">
+              <a href="/docs/reference/main/object/git_object_id_from_buffer.html">
+                git_object_id_from_buffer
+              </a>
+            </div>
+            <div class="apiListItemDescription functionListItemDescription">
+              <p>Given the raw content of an object, determine the object ID This prepends the object header to the given data, and hashes the results with the hash corresponding to the given oid_type.</p> 
+            </div>
+          </div>
+          <div class="apiListItem functionListItem">
+            <div class="apiListName functionListName">
+              <a href="/docs/reference/main/object/git_object_id_from_file.html">
+                git_object_id_from_file
+              </a>
+            </div>
+            <div class="apiListItemDescription functionListItemDescription">
+              <p>Given an on-disk file that contains the raw content of an object, determine the object ID data, and hashes the results with the hash corresponding to the given oid_type.</p> 
             </div>
           </div>
           <div class="apiListItem functionListItem">

@@ -25,7 +25,11 @@ layout: default
             <span>Version:</span>
             <select onChange="window.location.href = this.value">
               <option value="/docs/reference/main/repository/git_repository_init_options.html" selected>main</option>
+              <option value="/docs/reference/v1.9.3/repository/git_repository_init_options.html">v1.9.3</option>
+              <option value="/docs/reference/v1.9.2/repository/git_repository_init_options.html">v1.9.2</option>
+              <option value="/docs/reference/v1.9.1/repository/git_repository_init_options.html">v1.9.1</option>
               <option value="/docs/reference/v1.9.0/repository/git_repository_init_options.html">v1.9.0</option>
+              <option value="/docs/reference/v1.8.5/repository/git_repository_init_options.html">v1.8.5</option>
               <option value="/docs/reference/v1.8.4/repository/git_repository_init_options.html">v1.8.4</option>
               <option value="/docs/reference/v1.8.3/repository/git_repository_init_options.html">v1.8.3</option>
               <option value="/docs/reference/v1.8.2/repository/git_repository_init_options.html">v1.8.2</option>
@@ -142,7 +146,7 @@ additional initialization features.</p>
 
         <h3 class="apiSignatureHeader structSignatureHeader">Signature</h3>
         <div class="apiSignatureLink structSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/repository.h#L321" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/repository.h#L322" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature structSignature">
           typedef struct git_repository_init_options {
@@ -154,6 +158,7 @@ additional initialization features.</p>
 <span class="apiSignatureMember structSignatureMember">const char *template_path</span>
 <span class="apiSignatureMember structSignatureMember">const char *initial_head</span>
 <span class="apiSignatureMember structSignatureMember">const char *origin_url</span>
+<span class="apiSignatureMember structSignatureMember">git_refdb_t refdb_type</span>
           };
         </div>
 
@@ -247,6 +252,17 @@ additional initialization features.</p>
               <p>If this is non-NULL, then after the rest of the repository initialization is completed, an &quot;origin&quot; remote will be added pointing to this URL.</p> 
             </div>
           </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              <a href="/docs/reference/main/refdb/git_refdb_t.html" class="apiLink enumLink">git_refdb_t</a>
+            </div>
+            <div class="apiMemberName structMemberName">
+              refdb_type
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>Type of the reference database to use for this repository, or 0 for default (currently &quot;files&quot;).</p> 
+            </div>
+          </div>
         </div>
 
         <h3 class="apiParameterToHeader structParameterToHeader">Parameter To</h3>
@@ -266,11 +282,23 @@ additional initialization features.</p>
         <h3 class="apiVersionsHeader structVersionsHeader">Versions</h3>
         <div class="apiVersions structVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged structVersionDeltaChanged">
             <a href="/docs/reference/main/repository/git_repository_init_options.html" class="apiVersionLink structVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+            <a href="/docs/reference/v1.9.3/repository/git_repository_init_options.html" class="apiVersionLink structVersionLink">v1.9.3</a>
+          </li>
+          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+            <a href="/docs/reference/v1.9.2/repository/git_repository_init_options.html" class="apiVersionLink structVersionLink">v1.9.2</a>
+          </li>
+          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+            <a href="/docs/reference/v1.9.1/repository/git_repository_init_options.html" class="apiVersionLink structVersionLink">v1.9.1</a>
+          </li>
+          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
             <a href="/docs/reference/v1.9.0/repository/git_repository_init_options.html" class="apiVersionLink structVersionLink">v1.9.0</a>
+          </li>
+          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+            <a href="/docs/reference/v1.8.5/repository/git_repository_init_options.html" class="apiVersionLink structVersionLink">v1.8.5</a>
           </li>
           <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
             <a href="/docs/reference/v1.8.4/repository/git_repository_init_options.html" class="apiVersionLink structVersionLink">v1.8.4</a>

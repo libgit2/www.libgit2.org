@@ -25,7 +25,11 @@ layout: default
             <span>Version:</span>
             <select onChange="window.location.href = this.value">
               <option value="/docs/reference/main/merge/git_merge_file_from_index.html" selected>main</option>
+              <option value="/docs/reference/v1.9.3/merge/git_merge_file_from_index.html">v1.9.3</option>
+              <option value="/docs/reference/v1.9.2/merge/git_merge_file_from_index.html">v1.9.2</option>
+              <option value="/docs/reference/v1.9.1/merge/git_merge_file_from_index.html">v1.9.1</option>
               <option value="/docs/reference/v1.9.0/merge/git_merge_file_from_index.html">v1.9.0</option>
+              <option value="/docs/reference/v1.8.5/merge/git_merge_file_from_index.html">v1.8.5</option>
               <option value="/docs/reference/v1.8.4/merge/git_merge_file_from_index.html">v1.8.4</option>
               <option value="/docs/reference/v1.8.3/merge/git_merge_file_from_index.html">v1.8.3</option>
               <option value="/docs/reference/v1.8.2/merge/git_merge_file_from_index.html">v1.8.2</option>
@@ -132,14 +136,16 @@ layout: default
         <div class="apiDescription functionDescription">
         <p>Merge two files as they exist in the index, using the given common
 ancestor as the baseline, producing a <a href="/docs/reference/main/merge/git_merge_file_result.html" class="apiLink structLink"><code><span class="codeWord">git_merge_file_result</span></code></a> that
-reflects the merge result.  The <a href="/docs/reference/main/merge/git_merge_file_result.html" class="apiLink structLink"><code><span class="codeWord">git_merge_file_result</span></code></a> must be freed with
-<a href="/docs/reference/main/merge/git_merge_file_result_free.html" class="apiLink functionLink"><code><span class="codeWord">git_merge_file_result_free</span></code></a>.</p>
+reflects the merge result.  The <a href="/docs/reference/main/merge/git_merge_file_result.html" class="apiLink structLink"><code><span class="codeWord">git_merge_file_result</span></code></a> must be
+freed with <a href="/docs/reference/main/merge/git_merge_file_result_free.html" class="apiLink functionLink"><code><span class="codeWord">git_merge_file_result_free</span></code></a>.</p>
+
+        <p>At least one of <code><span class="codeWord">ancestor</span></code>, <code><span class="codeWord">ours</span></code>, or <code><span class="codeWord">theirs</span></code> must be non-null.</p>
 
         </div>
 
         <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
         <div class="apiSignatureLink functionSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/merge.h#L582" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/merge.h#L584" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature functionSignature">
           int git_merge_file_from_index(<span class="apiSignatureParameter functionSignatureParameter">git_merge_file_result *out</span>, <span class="apiSignatureParameter functionSignatureParameter">git_repository *repo</span>, <span class="apiSignatureParameter functionSignatureParameter">const git_index_entry *ancestor</span>, <span class="apiSignatureParameter functionSignatureParameter">const git_index_entry *ours</span>, <span class="apiSignatureParameter functionSignatureParameter">const git_index_entry *theirs</span>, <span class="apiSignatureParameter functionSignatureParameter">const git_merge_file_options *opts</span>);
@@ -249,7 +255,19 @@ reflects the merge result.  The <a href="/docs/reference/main/merge/git_merge_fi
             <a href="/docs/reference/main/merge/git_merge_file_from_index.html" class="apiVersionLink functionVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
+            <a href="/docs/reference/v1.9.3/merge/git_merge_file_from_index.html" class="apiVersionLink functionVersionLink">v1.9.3</a>
+          </li>
+          <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
+            <a href="/docs/reference/v1.9.2/merge/git_merge_file_from_index.html" class="apiVersionLink functionVersionLink">v1.9.2</a>
+          </li>
+          <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
+            <a href="/docs/reference/v1.9.1/merge/git_merge_file_from_index.html" class="apiVersionLink functionVersionLink">v1.9.1</a>
+          </li>
+          <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
             <a href="/docs/reference/v1.9.0/merge/git_merge_file_from_index.html" class="apiVersionLink functionVersionLink">v1.9.0</a>
+          </li>
+          <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
+            <a href="/docs/reference/v1.8.5/merge/git_merge_file_from_index.html" class="apiVersionLink functionVersionLink">v1.8.5</a>
           </li>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
             <a href="/docs/reference/v1.8.4/merge/git_merge_file_from_index.html" class="apiVersionLink functionVersionLink">v1.8.4</a>

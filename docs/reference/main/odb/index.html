@@ -24,7 +24,11 @@ layout: default
             <span>Version:</span>
             <select onChange="window.location.href = this.value">
               <option value="/docs/reference/main/odb/index.html" selected>main</option>
+              <option value="/docs/reference/v1.9.3/odb/index.html">v1.9.3</option>
+              <option value="/docs/reference/v1.9.2/odb/index.html">v1.9.2</option>
+              <option value="/docs/reference/v1.9.1/odb/index.html">v1.9.1</option>
               <option value="/docs/reference/v1.9.0/odb/index.html">v1.9.0</option>
+              <option value="/docs/reference/v1.8.5/odb/index.html">v1.8.5</option>
               <option value="/docs/reference/v1.8.4/odb/index.html">v1.8.4</option>
               <option value="/docs/reference/v1.8.3/odb/index.html">v1.8.3</option>
               <option value="/docs/reference/v1.8.2/odb/index.html">v1.8.2</option>
@@ -465,26 +469,6 @@ layout: default
             </div>
             <div class="apiListItemDescription functionListItemDescription">
               <p>Write a <code><span class="codeWord">multi-pack-index</span></code> file from all the `</p> 
-            </div>
-          </div>
-          <div class="apiListItem functionListItem">
-            <div class="apiListName functionListName">
-              <a href="/docs/reference/main/odb/git_odb_hash.html">
-                git_odb_hash
-              </a>
-            </div>
-            <div class="apiListItemDescription functionListItemDescription">
-              <p>Determine the object-ID (sha1 or sha256 hash) of a data buffer</p> 
-            </div>
-          </div>
-          <div class="apiListItem functionListItem">
-            <div class="apiListName functionListName">
-              <a href="/docs/reference/main/odb/git_odb_hashfile.html">
-                git_odb_hashfile
-              </a>
-            </div>
-            <div class="apiListItemDescription functionListItemDescription">
-              <p>Read a file from disk and fill a git_oid with the object id that the file would have if it were written to the Object Database as an object of the given type (w/o applying filters) Similar functionality to git.git's <code><span class="codeWord">git</span> <span class="codeWord">hash-object</span></code> without the <code><span class="codeWord">-w</span></code> flag, however, with the --no-filters flag. If you need filters, see git_repository_hashfile.</p> 
             </div>
           </div>
           <div class="apiListItem functionListItem">
