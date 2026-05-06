@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "7a12070f5a31d685826dad1b1c08a7ea3fb94fb1"
+    "commit": "af1e2fa3d0451935188c51b1616c9b9ed188f4bc"
   },
   "groups": {
     "sys/alloc": {
@@ -35566,6 +35566,13 @@
               "comment": [
                 "Files backend using loose and packed refs."
               ]
+            },
+            {
+              "name": "GIT_REFDB_REFTABLE",
+              "value": "2",
+              "comment": [
+                "Reftable backend."
+              ]
             }
           ],
           "comment": [
@@ -35583,7 +35590,7 @@
           "name": "git_refdb_new",
           "location": {
             "file": "refdb.h",
-            "line": 40,
+            "line": 41,
             "column": 17
           },
           "returns": {
@@ -35615,7 +35622,7 @@
           "name": "git_refdb_open",
           "location": {
             "file": "refdb.h",
-            "line": 54,
+            "line": 55,
             "column": 17
           },
           "returns": {
@@ -35647,7 +35654,7 @@
           "name": "git_refdb_compress",
           "location": {
             "file": "refdb.h",
-            "line": 64,
+            "line": 65,
             "column": 17
           },
           "returns": {
@@ -35672,7 +35679,7 @@
           "name": "git_refdb_free",
           "location": {
             "file": "refdb.h",
-            "line": 71,
+            "line": 72,
             "column": 18
           },
           "returns": {
@@ -36225,6 +36232,7 @@
           "parameterTo": [
             "git_refdb_init_backend",
             "git_refdb_backend_fs",
+            "git_refdb_backend_reftable",
             "git_refdb_set_backend"
           ]
         },
@@ -36315,12 +36323,44 @@
           ],
           "group": "sys/refdb_backend"
         },
+        "git_refdb_backend_reftable": {
+          "kind": "function",
+          "name": "git_refdb_backend_reftable",
+          "location": {
+            "file": "sys/refdb_backend.h",
+            "line": 397,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 on success, \n<\n0 error code on failure"
+          },
+          "params": [
+            {
+              "name": "backend_out",
+              "type": "git_refdb_backend **",
+              "direction": "in",
+              "comment": "Output pointer to the git_refdb_backend object"
+            },
+            {
+              "name": "repo",
+              "type": "git_repository *",
+              "direction": "in",
+              "comment": "Git repository to access"
+            }
+          ],
+          "comment": [
+            "Constructor for the reftable-based refdb backend",
+            "Under normal usage, this is called for you when the repository is\n opened / created that uses the reftable format, but you can use this to\n explicitly construct a reftable refdb backend for a repository."
+          ],
+          "group": "sys/refdb_backend"
+        },
         "git_refdb_set_backend": {
           "kind": "function",
           "name": "git_refdb_set_backend",
           "location": {
             "file": "sys/refdb_backend.h",
-            "line": 396,
+            "line": 411,
             "column": 17
           },
           "returns": {
@@ -44075,6 +44115,7 @@
             "git_filter_list_new",
             "git_mempack_dump",
             "git_refdb_backend_fs",
+            "git_refdb_backend_reftable",
             "git_repository__cleanup",
             "git_repository_reinit_filesystem",
             "git_repository_set_config",
