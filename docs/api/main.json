@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "8a94cd54ee1c3af533da86866b1abcd400acdc82"
+    "commit": "a7e1eb26382dfaad75cc160e73b9cc451b1e3b00"
   },
   "groups": {
     "sys/alloc": {
@@ -7871,6 +7871,13 @@
               "comment": [
                 "SHA256 object support"
               ]
+            },
+            {
+              "name": "GIT_FEATURE_HTTP",
+              "value": "4096",
+              "comment": [
+                "HTTP remotes"
+              ]
             }
           ],
           "comment": [
@@ -7891,7 +7898,7 @@
           "name": "git_libgit2_features",
           "location": {
             "file": "common.h",
-            "line": 184,
+            "line": 187,
             "column": 17
           },
           "returns": {
@@ -7908,7 +7915,7 @@
           "name": "git_libgit2_feature_backend",
           "location": {
             "file": "common.h",
-            "line": 205,
+            "line": 208,
             "column": 26
           },
           "returns": {
@@ -8082,7 +8089,7 @@
           ],
           "location": {
             "file": "common.h",
-            "line": 214,
+            "line": 217,
             "column": 9
           },
           "group": "common"
@@ -8092,7 +8099,7 @@
           "name": "git_libgit2_opts",
           "location": {
             "file": "common.h",
-            "line": 569,
+            "line": 572,
             "column": 17
           },
           "returns": {
@@ -8215,7 +8222,7 @@
           ],
           "location": {
             "file": "common.h",
-            "line": 576,
+            "line": 579,
             "column": 9
           },
           "group": "common",
@@ -8228,7 +8235,7 @@
           "name": "git_libgit2_buildinfo",
           "location": {
             "file": "common.h",
-            "line": 591,
+            "line": 594,
             "column": 26
           },
           "returns": {
