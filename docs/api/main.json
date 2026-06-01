@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "a7e1eb26382dfaad75cc160e73b9cc451b1e3b00"
+    "commit": "353e7059dc5769054b030b993b5eb207d01c1aaa"
   },
   "groups": {
     "sys/alloc": {
@@ -6217,7 +6217,7 @@
           "name": "git_commit_extract_signature",
           "location": {
             "file": "commit.h",
-            "line": 317,
+            "line": 318,
             "column": 17
           },
           "returns": {
@@ -6262,12 +6262,448 @@
           ],
           "group": "commit"
         },
+        "git_commit_header": {
+          "kind": "struct",
+          "name": "git_commit_header",
+          "referenceName": "git_commit_header",
+          "comment": [
+            "The field name and value for a custom commit header entry."
+          ],
+          "members": [
+            {
+              "name": "field",
+              "type": "const char *"
+            },
+            {
+              "name": "value",
+              "type": "const char *"
+            }
+          ],
+          "location": {
+            "file": "commit.h",
+            "line": 322,
+            "column": 9
+          },
+          "group": "commit"
+        },
+        "git_commitbuilder": {
+          "kind": "struct",
+          "name": "git_commitbuilder",
+          "referenceName": "struct git_commitbuilder",
+          "opaque": true,
+          "comment": [
+            "An accessor object for setting commit signature data."
+          ],
+          "location": {
+            "file": "commit.h",
+            "line": 328,
+            "column": 34
+          },
+          "group": "commit",
+          "parameterTo": [
+            "git_commitbuilder_add_header",
+            "git_commit_signature_cb"
+          ]
+        },
+        "git_commitbuilder_add_header": {
+          "kind": "function",
+          "name": "git_commitbuilder_add_header",
+          "location": {
+            "file": "commit.h",
+            "line": 338,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 on success or an error code"
+          },
+          "params": [
+            {
+              "name": "builder",
+              "type": "git_commitbuilder *",
+              "direction": "in",
+              "comment": "in-progress commitbuilder object"
+            },
+            {
+              "name": "field",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the header field to add"
+            },
+            {
+              "name": "value",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the header value to add"
+            }
+          ],
+          "comment": [
+            "Add a header on a commit being created."
+          ],
+          "group": "commit"
+        },
+        "git_commit_signature_cb": {
+          "kind": "callback",
+          "name": "git_commit_signature_cb",
+          "type": "int (*)(git_commitbuilder *, git_repository *, const char *, void *)",
+          "comment": [
+            "Commit signing callback: used when a function is going to write\n a commit (for example, in `git_commit_create_ext`) to allow callers\n to sign the commit."
+          ],
+          "location": {
+            "file": "commit.h",
+            "line": 357,
+            "column": 26
+          },
+          "params": [
+            {
+              "name": "builder",
+              "direction": "in",
+              "comment": "commit builder object to populate with the signature",
+              "type": "git_commitbuilder *"
+            },
+            {
+              "name": "repo",
+              "direction": "in",
+              "comment": "the repository being committed in",
+              "type": "git_repository *"
+            },
+            {
+              "name": "commit_content",
+              "direction": "in",
+              "comment": "the raw contents of the commit (to be signed)",
+              "type": "const char *"
+            },
+            {
+              "name": "payload",
+              "direction": "in",
+              "comment": "the caller-specified callback payload",
+              "type": "void *"
+            }
+          ],
+          "returns": {
+            "comment": "0 if this callback has created a signature and populated the\n         field and signature buffers, `GIT_PASSTHROUGH` if the callback\n         does not want to sign the commit, any other value to stop and\n         return a failure",
+            "type": "int"
+          },
+          "group": "commit",
+          "typedef": true
+        },
+        "git_commit_create_options": {
+          "kind": "struct",
+          "name": "git_commit_create_options",
+          "referenceName": "git_commit_create_options",
+          "members": [
+            {
+              "name": "version",
+              "type": "unsigned int"
+            },
+            {
+              "name": "allow_empty_commit",
+              "type": "unsigned int",
+              "comment": [
+                "Flags for creating the commit.",
+                "If `allow_empty_commit` is specified, a commit with no changes\n from the prior commit (an \"empty\" commit) is allowed. Otherwise,\n commit creation will be stopped."
+              ]
+            },
+            {
+              "name": "author",
+              "type": "const git_signature *",
+              "comment": [
+                "The commit author, or NULL for the default."
+              ]
+            },
+            {
+              "name": "committer",
+              "type": "const git_signature *",
+              "comment": [
+                "The committer, or NULL for the default."
+              ]
+            },
+            {
+              "name": "message_encoding",
+              "type": "const char *",
+              "comment": [
+                "Encoding for the commit message; leave NULL for default."
+              ]
+            },
+            {
+              "name": "extra_headers",
+              "type": "const git_commit_header *",
+              "comment": [
+                "Extra headers can be specified as an array of field name and\n value pairs."
+              ]
+            },
+            {
+              "name": "extra_headers_len",
+              "type": "size_t",
+              "comment": [
+                "Number of extra headers"
+              ]
+            },
+            {
+              "name": "sign",
+              "type": "git_commit_signature_cb",
+              "comment": [
+                "Signing callback; leave NULL for no commit signing."
+              ],
+              "referenceType": "int (*)(git_commitbuilder *, git_repository *, const char *, void *)"
+            },
+            {
+              "name": "payload",
+              "type": "void *",
+              "comment": [
+                "Callback payload (optional)"
+              ]
+            }
+          ],
+          "location": {
+            "file": "commit.h",
+            "line": 363,
+            "column": 9
+          },
+          "group": "commit",
+          "parameterTo": [
+            "git_commit_create_from_stage",
+            "git_commit_create_from_tree",
+            "git_commit_amend_from_stage",
+            "git_commit_amend_from_tree"
+          ]
+        },
+        "GIT_COMMIT_CREATE_OPTIONS_VERSION": {
+          "kind": "macro",
+          "name": "GIT_COMMIT_CREATE_OPTIONS_VERSION",
+          "location": {
+            "file": "commit.h",
+            "line": 399,
+            "column": 9
+          },
+          "value": "1",
+          "comment": "Current version for the `git_commit_create_options` structure",
+          "group": "commit"
+        },
+        "GIT_COMMIT_CREATE_OPTIONS_INIT": {
+          "kind": "macro",
+          "name": "GIT_COMMIT_CREATE_OPTIONS_INIT",
+          "location": {
+            "file": "commit.h",
+            "line": 402,
+            "column": 9
+          },
+          "value": "{ GIT_COMMIT_CREATE_OPTIONS_VERSION }",
+          "comment": "Static constructor for `git_commit_create_options`",
+          "group": "commit"
+        },
+        "git_commit_create_from_stage": {
+          "kind": "function",
+          "name": "git_commit_create_from_stage",
+          "location": {
+            "file": "commit.h",
+            "line": 416,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 on success, GIT_EUNCHANGED if there were no changes to commit, or an error code"
+          },
+          "params": [
+            {
+              "name": "id",
+              "type": "git_oid *",
+              "direction": "in",
+              "comment": "pointer to store the new commit's object id"
+            },
+            {
+              "name": "repo",
+              "type": "git_repository *",
+              "direction": "in",
+              "comment": "repository to commit changes in"
+            },
+            {
+              "name": "message",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the commit message"
+            },
+            {
+              "name": "opts",
+              "type": "const git_commit_create_options *",
+              "direction": "in",
+              "comment": "options for creating the commit"
+            }
+          ],
+          "comment": [
+            "Commits the staged changes in the repository; this is a near analog to\n `git commit -m message`.",
+            "By default, empty commits are not allowed."
+          ],
+          "group": "commit"
+        },
+        "git_commit_create_ext_options": {
+          "kind": "struct",
+          "name": "git_commit_create_ext_options",
+          "referenceName": "git_commit_create_ext_options",
+          "members": [
+            {
+              "name": "version",
+              "type": "unsigned int"
+            },
+            {
+              "name": "update_ref",
+              "type": "const char *",
+              "comment": [
+                "If not NULL, the name of the reference that will be updated\n to point to this commit. If the reference is not direct, it\n will be resolved to a direct reference. Use `HEAD` to update\n the `HEAD` of the current branch and\tmake it point to this\n commit. If the reference doesn't exist yet, it will be created.\n If it does exist, the first parent must be the tip of this\n branch."
+              ]
+            },
+            {
+              "name": "message_encoding",
+              "type": "const char *",
+              "comment": [
+                "Encoding for the commit message; leave NULL for default."
+              ]
+            },
+            {
+              "name": "extra_headers",
+              "type": "const git_commit_header *",
+              "comment": [
+                "Extra headers can be specified as an array of field name and\n value pairs."
+              ]
+            },
+            {
+              "name": "extra_headers_len",
+              "type": "size_t",
+              "comment": [
+                "Number of extra headers"
+              ]
+            },
+            {
+              "name": "sign",
+              "type": "git_commit_signature_cb",
+              "comment": [
+                "Signing callback; leave NULL for no commit signing."
+              ],
+              "referenceType": "int (*)(git_commitbuilder *, git_repository *, const char *, void *)"
+            },
+            {
+              "name": "payload",
+              "type": "void *",
+              "comment": [
+                "Callback payload (optional)"
+              ]
+            }
+          ],
+          "location": {
+            "file": "commit.h",
+            "line": 422,
+            "column": 9
+          },
+          "group": "commit",
+          "parameterTo": [
+            "git_commit_create_ext"
+          ]
+        },
+        "GIT_COMMIT_CREATE_EXT_OPTIONS_VERSION": {
+          "kind": "macro",
+          "name": "GIT_COMMIT_CREATE_EXT_OPTIONS_VERSION",
+          "location": {
+            "file": "commit.h",
+            "line": 454,
+            "column": 9
+          },
+          "value": "1",
+          "comment": "Current version for the `git_commit_create_ext_options` structure",
+          "group": "commit"
+        },
+        "GIT_COMMIT_CREATE_EXT_OPTIONS_INIT": {
+          "kind": "macro",
+          "name": "GIT_COMMIT_CREATE_EXT_OPTIONS_INIT",
+          "location": {
+            "file": "commit.h",
+            "line": 457,
+            "column": 9
+          },
+          "value": "{ GIT_COMMIT_CREATE_EXT_OPTIONS_VERSION }",
+          "comment": "Static constructor for `git_commit_create_ext_options`",
+          "group": "commit"
+        },
+        "git_commit_create_ext": {
+          "kind": "function",
+          "name": "git_commit_create_ext",
+          "location": {
+            "file": "commit.h",
+            "line": 484,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 on success or an error code"
+          },
+          "params": [
+            {
+              "name": "id_out",
+              "type": "git_oid *",
+              "direction": "in",
+              "comment": "pointer to store the new commit's object id"
+            },
+            {
+              "name": "repo",
+              "type": "git_repository *",
+              "direction": "in",
+              "comment": "repository to store the commit in"
+            },
+            {
+              "name": "author",
+              "type": "const git_signature *",
+              "direction": "in",
+              "comment": "The name of the author and time of authorship"
+            },
+            {
+              "name": "committer",
+              "type": "const git_signature *",
+              "direction": "in",
+              "comment": "The name of the committer and time of commit"
+            },
+            {
+              "name": "message",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "Full message for this commit"
+            },
+            {
+              "name": "tree",
+              "type": "const git_tree *",
+              "direction": "in",
+              "comment": "The `git_tree` that will be used as the tree for this commit"
+            },
+            {
+              "name": "parent_count",
+              "type": "size_t",
+              "direction": "in",
+              "comment": "Number of parents for this commit"
+            },
+            {
+              "name": "parents",
+              "type": "git_commit *const *",
+              "direction": "in",
+              "comment": "Array pointers to `git_commit` objects that will be used\n  as parents for this commit."
+            },
+            {
+              "name": "opts",
+              "type": "const git_commit_create_ext_options *",
+              "direction": "in",
+              "comment": "Additional options for creating this commit,\n  or `NULL` for defaults"
+            }
+          ],
+          "comment": [
+            "Create a new commit object and write it to the object database.",
+            "Note that the message will _not_ be cleaned up automatically. You\n may wish to use the `git_message_prettify` API to clean it up.",
+            "This API provides the most control for generating commit objects;\n this is useful if (for example) you have a tree object already.\n If you have staged changes, and just want to emulate `git commit`\n on the command line, then `git_commit_create_from_stage` may be a\n simpler option."
+          ],
+          "group": "commit"
+        },
         "git_commit_create": {
           "kind": "function",
           "name": "git_commit_create",
           "location": {
             "file": "commit.h",
-            "line": 363,
+            "line": 540,
             "column": 17
           },
           "returns": {
@@ -6347,7 +6783,7 @@
           "name": "git_commit_create_v",
           "location": {
             "file": "commit.h",
-            "line": 420,
+            "line": 597,
             "column": 17
           },
           "returns": {
@@ -6418,90 +6854,67 @@
           ],
           "group": "commit"
         },
-        "git_commit_create_options": {
-          "kind": "struct",
-          "name": "git_commit_create_options",
-          "referenceName": "git_commit_create_options",
-          "members": [
-            {
-              "name": "version",
-              "type": "unsigned int"
-            },
-            {
-              "name": "allow_empty_commit",
-              "type": "unsigned int",
-              "comment": [
-                "Flags for creating the commit.",
-                "If `allow_empty_commit` is specified, a commit with no changes\n from the prior commit (and \"empty\" commit) is allowed. Otherwise,\n commit creation will be stopped."
-              ]
-            },
-            {
-              "name": "author",
-              "type": "const git_signature *",
-              "comment": [
-                "The commit author, or NULL for the default."
-              ]
-            },
-            {
-              "name": "committer",
-              "type": "const git_signature *",
-              "comment": [
-                "The committer, or NULL for the default."
-              ]
-            },
-            {
-              "name": "message_encoding",
-              "type": "const char *",
-              "comment": [
-                "Encoding for the commit message; leave NULL for default."
-              ]
-            }
-          ],
-          "location": {
-            "file": "commit.h",
-            "line": 432,
-            "column": 9
-          },
-          "group": "commit",
-          "parameterTo": [
-            "git_commit_create_from_stage"
-          ]
-        },
-        "GIT_COMMIT_CREATE_OPTIONS_VERSION": {
-          "kind": "macro",
-          "name": "GIT_COMMIT_CREATE_OPTIONS_VERSION",
-          "location": {
-            "file": "commit.h",
-            "line": 455,
-            "column": 9
-          },
-          "value": "1",
-          "comment": "Current version for the `git_commit_create_options` structure",
-          "group": "commit"
-        },
-        "GIT_COMMIT_CREATE_OPTIONS_INIT": {
-          "kind": "macro",
-          "name": "GIT_COMMIT_CREATE_OPTIONS_INIT",
-          "location": {
-            "file": "commit.h",
-            "line": 458,
-            "column": 9
-          },
-          "value": "{ GIT_COMMIT_CREATE_OPTIONS_VERSION }",
-          "comment": "Static constructor for `git_commit_create_options`",
-          "group": "commit"
-        },
-        "git_commit_create_from_stage": {
+        "git_commit_create_from_tree": {
           "kind": "function",
-          "name": "git_commit_create_from_stage",
+          "name": "git_commit_create_from_tree",
           "location": {
             "file": "commit.h",
-            "line": 472,
+            "line": 621,
             "column": 17
           },
           "returns": {
             "type": "int",
             "comment": "0 on success, GIT_EUNCHANGED if there were no changes to commit, or an error code"
+          },
+          "params": [
+            {
+              "name": "id",
+              "type": "git_oid *",
+              "direction": "in",
+              "comment": "pointer to store the new commit's object id"
+            },
+            {
+              "name": "repo",
+              "type": "git_repository *",
+              "direction": "in",
+              "comment": "repository to commit changes in"
+            },
+            {
+              "name": "tree",
+              "type": "const git_tree *",
+              "direction": "in",
+              "comment": "tree to point the commit to"
+            },
+            {
+              "name": "message",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the commit message"
+            },
+            {
+              "name": "opts",
+              "type": "const git_commit_create_options *",
+              "direction": "in",
+              "comment": "options for creating the commit"
+            }
+          ],
+          "comment": [
+            "A \"batteries included\" commit creation from a tree using defaults.",
+            "By default, empty commits are not allowed."
+          ],
+          "group": "commit"
+        },
+        "git_commit_amend_from_stage": {
+          "kind": "function",
+          "name": "git_commit_amend_from_stage",
+          "location": {
+            "file": "commit.h",
+            "line": 638,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 on success or an error code"
           },
           "params": [
             {
@@ -6530,8 +6943,56 @@
             }
           ],
           "comment": [
-            "Commits the staged changes in the repository; this is a near analog to\n `git commit -m message`.",
-            "By default, empty commits are not allowed."
+            "Amends the HEAD commit in the repository using the staged changes;\n this is a near analog to `git commit --amend -m message`."
+          ],
+          "group": "commit"
+        },
+        "git_commit_amend_from_tree": {
+          "kind": "function",
+          "name": "git_commit_amend_from_tree",
+          "location": {
+            "file": "commit.h",
+            "line": 654,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 on success or an error code"
+          },
+          "params": [
+            {
+              "name": "id",
+              "type": "git_oid *",
+              "direction": "in",
+              "comment": "pointer to store the new commit's object id"
+            },
+            {
+              "name": "repo",
+              "type": "git_repository *",
+              "direction": "in",
+              "comment": "repository to commit changes in"
+            },
+            {
+              "name": "tree",
+              "type": "const git_tree *",
+              "direction": "in",
+              "comment": "tree to point the commit to"
+            },
+            {
+              "name": "message",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the commit message"
+            },
+            {
+              "name": "opts",
+              "type": "const git_commit_create_options *",
+              "direction": "in",
+              "comment": "options for creating the commit"
+            }
+          ],
+          "comment": [
+            "Amends the HEAD commit in the repository using the given tree."
           ],
           "group": "commit"
         },
@@ -6540,7 +7001,7 @@
           "name": "git_commit_amend",
           "location": {
             "file": "commit.h",
-            "line": 528,
+            "line": 711,
             "column": 17
           },
           "returns": {
@@ -6611,7 +7072,7 @@
           "name": "git_commit_create_buffer",
           "location": {
             "file": "commit.h",
-            "line": 573,
+            "line": 756,
             "column": 17
           },
           "returns": {
@@ -6685,7 +7146,7 @@
           "name": "git_commit_create_with_signature",
           "location": {
             "file": "commit.h",
-            "line": 600,
+            "line": 783,
             "column": 17
           },
           "returns": {
@@ -6735,7 +7196,7 @@
           "name": "git_commit_dup",
           "location": {
             "file": "commit.h",
-            "line": 615,
+            "line": 798,
             "column": 17
           },
           "returns": {
@@ -6770,7 +7231,7 @@
           ],
           "location": {
             "file": "commit.h",
-            "line": 643,
+            "line": 826,
             "column": 15
           },
           "params": [
@@ -6855,7 +7316,7 @@
           ],
           "location": {
             "file": "commit.h",
-            "line": 655,
+            "line": 838,
             "column": 16
           },
           "group": "commit",
@@ -6869,7 +7330,7 @@
           "name": "git_commitarray_dispose",
           "location": {
             "file": "commit.h",
-            "line": 670,
+            "line": 853,
             "column": 18
           },
           "returns": {
@@ -31794,9 +32255,13 @@
             "git_commit_lookup",
             "git_commit_lookup_prefix",
             "git_commit_extract_signature",
+            "git_commit_create_from_stage",
+            "git_commit_create_ext",
             "git_commit_create",
             "git_commit_create_v",
-            "git_commit_create_from_stage",
+            "git_commit_create_from_tree",
+            "git_commit_amend_from_stage",
+            "git_commit_amend_from_tree",
             "git_commit_amend",
             "git_commit_create_with_signature",
             "git_commit_create_cb",
@@ -43930,9 +44395,14 @@
             "git_commit_lookup",
             "git_commit_lookup_prefix",
             "git_commit_extract_signature",
+            "git_commit_signature_cb",
+            "git_commit_create_from_stage",
+            "git_commit_create_ext",
             "git_commit_create",
             "git_commit_create_v",
-            "git_commit_create_from_stage",
+            "git_commit_create_from_tree",
+            "git_commit_amend_from_stage",
+            "git_commit_amend_from_tree",
             "git_commit_create_buffer",
             "git_commit_create_with_signature",
             "git_config_add_file_ondisk",
@@ -46083,6 +46553,7 @@
           "parameterTo": [
             "git_commit_committer_with_mailmap",
             "git_commit_author_with_mailmap",
+            "git_commit_create_ext",
             "git_commit_create",
             "git_commit_create_v",
             "git_commit_amend",
@@ -53080,8 +53551,11 @@
           "parameterTo": [
             "git_apply_to_tree",
             "git_commit_tree",
+            "git_commit_create_ext",
             "git_commit_create",
             "git_commit_create_v",
+            "git_commit_create_from_tree",
+            "git_commit_amend_from_tree",
             "git_commit_amend",
             "git_commit_create_buffer",
             "git_commit_create_cb",

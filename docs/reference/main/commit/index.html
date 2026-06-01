@@ -157,6 +157,16 @@ changes were made.</p>
         <div class="apiList objectList">
           <div class="apiListItem objectListItem">
             <div class="apiListName objectListName">
+              <a href="/docs/reference/main/commit/git_commitbuilder.html">
+                git_commitbuilder
+              </a>
+            </div>
+            <div class="apiListItemDescription objectListItemDescription">
+              <p>An accessor object for setting commit signature data</p> 
+            </div>
+          </div>
+          <div class="apiListItem objectListItem">
+            <div class="apiListName objectListName">
               <a href="/docs/reference/main/commit/git_commit.html">
                 git_commit
               </a>
@@ -171,8 +181,28 @@ changes were made.</p>
         <div class="apiList structList">
           <div class="apiListItem structListItem">
             <div class="apiListName structListName">
+              <a href="/docs/reference/main/commit/git_commit_header.html">
+                git_commit_header
+              </a>
+            </div>
+            <div class="apiListItemDescription structListItemDescription">
+              <p>The field name and value for a custom commit header entry</p> 
+            </div>
+          </div>
+          <div class="apiListItem structListItem">
+            <div class="apiListName structListName">
               <a href="/docs/reference/main/commit/git_commit_create_options.html">
                 git_commit_create_options
+              </a>
+            </div>
+            <div class="apiListItemDescription structListItemDescription">
+              
+            </div>
+          </div>
+          <div class="apiListItem structListItem">
+            <div class="apiListName structListName">
+              <a href="/docs/reference/main/commit/git_commit_create_ext_options.html">
+                git_commit_create_ext_options
               </a>
             </div>
             <div class="apiListItemDescription structListItemDescription">
@@ -213,10 +243,40 @@ changes were made.</p>
               <p>Static constructor for <a href="/docs/reference/main/commit/git_commit_create_options.html" class="apiLink structLink"><code><span class="codeWord">git_commit_create_options</span></code></a></p> 
             </div>
           </div>
+          <div class="apiListItem macroListItem">
+            <div class="apiListName macroListName">
+              <a href="/docs/reference/main/commit/GIT_COMMIT_CREATE_EXT_OPTIONS_VERSION.html">
+                GIT_COMMIT_CREATE_EXT_OPTIONS_VERSION
+              </a>
+            </div>
+            <div class="apiListItemDescription macroListItemDescription">
+              <p>Current version for the <a href="/docs/reference/main/commit/git_commit_create_ext_options.html" class="apiLink structLink"><code><span class="codeWord">git_commit_create_ext_options</span></code></a> structure</p> 
+            </div>
+          </div>
+          <div class="apiListItem macroListItem">
+            <div class="apiListName macroListName">
+              <a href="/docs/reference/main/commit/GIT_COMMIT_CREATE_EXT_OPTIONS_INIT.html">
+                GIT_COMMIT_CREATE_EXT_OPTIONS_INIT
+              </a>
+            </div>
+            <div class="apiListItemDescription macroListItemDescription">
+              <p>Static constructor for <a href="/docs/reference/main/commit/git_commit_create_ext_options.html" class="apiLink structLink"><code><span class="codeWord">git_commit_create_ext_options</span></code></a></p> 
+            </div>
+          </div>
         </div>
 
         <h3 class="apiListHeader callbackListHeader">Callbacks</h3>
         <div class="apiList callbackList">
+          <div class="apiListItem callbackListItem">
+            <div class="apiListName callbackListName">
+              <a href="/docs/reference/main/commit/git_commit_signature_cb.html">
+                git_commit_signature_cb
+              </a>
+            </div>
+            <div class="apiListItemDescription callbackListItemDescription">
+              <p>Commit signing callback: used when a function is going to write a commit (for example, in <a href="/docs/reference/main/commit/git_commit_create_ext.html" class="apiLink functionLink"><code><span class="codeWord">git_commit_create_ext</span></code></a>) to allow callers to sign the commit</p> 
+            </div>
+          </div>
           <div class="apiListItem callbackListItem">
             <div class="apiListName callbackListName">
               <a href="/docs/reference/main/commit/git_commit_create_cb.html">
@@ -483,6 +543,36 @@ changes were made.</p>
           </div>
           <div class="apiListItem functionListItem">
             <div class="apiListName functionListName">
+              <a href="/docs/reference/main/commit/git_commitbuilder_add_header.html">
+                git_commitbuilder_add_header
+              </a>
+            </div>
+            <div class="apiListItemDescription functionListItemDescription">
+              <p>Add a header on a commit being created</p> 
+            </div>
+          </div>
+          <div class="apiListItem functionListItem">
+            <div class="apiListName functionListName">
+              <a href="/docs/reference/main/commit/git_commit_create_from_stage.html">
+                git_commit_create_from_stage
+              </a>
+            </div>
+            <div class="apiListItemDescription functionListItemDescription">
+              <p>Commits the staged changes in the repository; this is a near analog to <code><span class="codeWord">git</span> <span class="codeWord">commit</span> <span class="codeWord">-m</span> <span class="codeWord">message</span></code></p> 
+            </div>
+          </div>
+          <div class="apiListItem functionListItem">
+            <div class="apiListName functionListName">
+              <a href="/docs/reference/main/commit/git_commit_create_ext.html">
+                git_commit_create_ext
+              </a>
+            </div>
+            <div class="apiListItemDescription functionListItemDescription">
+              <p>Create a new commit object and write it to the object database</p> 
+            </div>
+          </div>
+          <div class="apiListItem functionListItem">
+            <div class="apiListName functionListName">
               <a href="/docs/reference/main/commit/git_commit_create.html">
                 git_commit_create
               </a>
@@ -503,12 +593,32 @@ changes were made.</p>
           </div>
           <div class="apiListItem functionListItem">
             <div class="apiListName functionListName">
-              <a href="/docs/reference/main/commit/git_commit_create_from_stage.html">
-                git_commit_create_from_stage
+              <a href="/docs/reference/main/commit/git_commit_create_from_tree.html">
+                git_commit_create_from_tree
               </a>
             </div>
             <div class="apiListItemDescription functionListItemDescription">
-              <p>Commits the staged changes in the repository; this is a near analog to <code><span class="codeWord">git</span> <span class="codeWord">commit</span> <span class="codeWord">-m</span> <span class="codeWord">message</span></code></p> 
+              <p>A &quot;batteries included&quot; commit creation from a tree using defaults</p> 
+            </div>
+          </div>
+          <div class="apiListItem functionListItem">
+            <div class="apiListName functionListName">
+              <a href="/docs/reference/main/commit/git_commit_amend_from_stage.html">
+                git_commit_amend_from_stage
+              </a>
+            </div>
+            <div class="apiListItemDescription functionListItemDescription">
+              <p>Amends the HEAD commit in the repository using the staged changes; this is a near analog to <code><span class="codeWord">git</span> <span class="codeWord">commit</span> <span class="codeWord">--amend</span> <span class="codeWord">-m</span> <span class="codeWord">message</span></code></p> 
+            </div>
+          </div>
+          <div class="apiListItem functionListItem">
+            <div class="apiListName functionListName">
+              <a href="/docs/reference/main/commit/git_commit_amend_from_tree.html">
+                git_commit_amend_from_tree
+              </a>
+            </div>
+            <div class="apiListItemDescription functionListItemDescription">
+              <p>Amends the HEAD commit in the repository using the given tree</p> 
             </div>
           </div>
           <div class="apiListItem functionListItem">

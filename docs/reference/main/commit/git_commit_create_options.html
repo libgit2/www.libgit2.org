@@ -44,7 +44,7 @@ layout: default
 
         <h3 class="apiSignatureHeader structSignatureHeader">Signature</h3>
         <div class="apiSignatureLink structSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/commit.h#L432" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/commit.h#L363" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature structSignature">
           typedef struct git_commit_create_options {
@@ -53,6 +53,10 @@ layout: default
 <span class="apiSignatureMember structSignatureMember">const git_signature *author</span>
 <span class="apiSignatureMember structSignatureMember">const git_signature *committer</span>
 <span class="apiSignatureMember structSignatureMember">const char *message_encoding</span>
+<span class="apiSignatureMember structSignatureMember">const git_commit_header *extra_headers</span>
+<span class="apiSignatureMember structSignatureMember">size_t extra_headers_len</span>
+<span class="apiSignatureMember structSignatureMember">git_commit_signature_cb sign</span>
+<span class="apiSignatureMember structSignatureMember">void *payload</span>
           };
         </div>
 
@@ -77,7 +81,7 @@ layout: default
               allow_empty_commit
             </div>
             <div class="apiMemberDescription structMemberDescription">
-              <p>Flags for creating the commit.</p>  <p>If <code><span class="codeWord">allow_empty_commit</span></code> is specified, a commit with no changes from the prior commit (and &quot;empty&quot; commit) is allowed. Otherwise, commit creation will be stopped.</p> 
+              <p>Flags for creating the commit.</p>  <p>If <code><span class="codeWord">allow_empty_commit</span></code> is specified, a commit with no changes from the prior commit (an &quot;empty&quot; commit) is allowed. Otherwise, commit creation will be stopped.</p> 
             </div>
           </div>
           <div class="apiMember structMember">
@@ -113,6 +117,50 @@ layout: default
               <p>Encoding for the commit message; leave NULL for default.</p> 
             </div>
           </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              <a href="/docs/reference/main/commit/git_commit_header.html" class="apiLink structLink">const git_commit_header *</a>
+            </div>
+            <div class="apiMemberName structMemberName">
+              extra_headers
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>Extra headers can be specified as an array of field name and value pairs.</p> 
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              size_t
+            </div>
+            <div class="apiMemberName structMemberName">
+              extra_headers_len
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>Number of extra headers</p> 
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              <a href="/docs/reference/main/commit/git_commit_signature_cb.html" class="apiLink callbackLink">git_commit_signature_cb</a>
+            </div>
+            <div class="apiMemberName structMemberName">
+              sign
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>Signing callback; leave NULL for no commit signing.</p> 
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              void *
+            </div>
+            <div class="apiMemberName structMemberName">
+              payload
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>Callback payload (optional)</p> 
+            </div>
+          </div>
         </div>
 
         <h3 class="apiParameterToHeader structParameterToHeader">Parameter To</h3>
@@ -121,12 +169,21 @@ layout: default
           <li>
             <a href="/docs/reference/main/commit/git_commit_create_from_stage.html" className="apiLink functionLink">git_commit_create_from_stage</a>
           </li>
+          <li>
+            <a href="/docs/reference/main/commit/git_commit_create_from_tree.html" className="apiLink functionLink">git_commit_create_from_tree</a>
+          </li>
+          <li>
+            <a href="/docs/reference/main/commit/git_commit_amend_from_stage.html" className="apiLink functionLink">git_commit_amend_from_stage</a>
+          </li>
+          <li>
+            <a href="/docs/reference/main/commit/git_commit_amend_from_tree.html" className="apiLink functionLink">git_commit_amend_from_tree</a>
+          </li>
           </ul>
         </div>
         <h3 class="apiVersionsHeader structVersionsHeader">Versions</h3>
         <div class="apiVersions structVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged structVersionDeltaChanged">
             <a href="/docs/reference/main/commit/git_commit_create_options.html" class="apiVersionLink structVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
