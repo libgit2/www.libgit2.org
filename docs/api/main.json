@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "74e9a78d43cc5f6518b54e375f23adfe9b24efb0"
+    "commit": "5e4dcabe75bfb414fd69468835e8b0cc8fa70667"
   },
   "groups": {
     "sys/alloc": {
@@ -34554,7 +34554,8 @@
             "git_pathspec_match_workdir",
             "git_pathspec_match_index",
             "git_pathspec_match_tree",
-            "git_pathspec_match_diff"
+            "git_pathspec_match_diff",
+            "git_revwalk_pathspec"
           ]
         },
         "git_pathspec_match_list": {
@@ -45648,7 +45649,7 @@
           ],
           "location": {
             "file": "revwalk.h",
-            "line": 26,
+            "line": 27,
             "column": 9
           },
           "group": "revwalk"
@@ -45658,7 +45659,7 @@
           "name": "git_revwalk_new",
           "location": {
             "file": "revwalk.h",
-            "line": 73,
+            "line": 74,
             "column": 17
           },
           "returns": {
@@ -45692,7 +45693,7 @@
           "name": "git_revwalk_reset",
           "location": {
             "file": "revwalk.h",
-            "line": 89,
+            "line": 90,
             "column": 17
           },
           "returns": {
@@ -45719,7 +45720,7 @@
           "name": "git_revwalk_push",
           "location": {
             "file": "revwalk.h",
-            "line": 108,
+            "line": 109,
             "column": 17
           },
           "returns": {
@@ -45753,7 +45754,7 @@
           "name": "git_revwalk_push_glob",
           "location": {
             "file": "revwalk.h",
-            "line": 126,
+            "line": 127,
             "column": 17
           },
           "returns": {
@@ -45787,7 +45788,7 @@
           "name": "git_revwalk_push_head",
           "location": {
             "file": "revwalk.h",
-            "line": 134,
+            "line": 135,
             "column": 17
           },
           "returns": {
@@ -45812,7 +45813,7 @@
           "name": "git_revwalk_hide",
           "location": {
             "file": "revwalk.h",
-            "line": 149,
+            "line": 150,
             "column": 17
           },
           "returns": {
@@ -45845,7 +45846,7 @@
           "name": "git_revwalk_hide_glob",
           "location": {
             "file": "revwalk.h",
-            "line": 168,
+            "line": 169,
             "column": 17
           },
           "returns": {
@@ -45879,7 +45880,7 @@
           "name": "git_revwalk_hide_head",
           "location": {
             "file": "revwalk.h",
-            "line": 176,
+            "line": 177,
             "column": 17
           },
           "returns": {
@@ -45904,7 +45905,7 @@
           "name": "git_revwalk_push_ref",
           "location": {
             "file": "revwalk.h",
-            "line": 187,
+            "line": 188,
             "column": 17
           },
           "returns": {
@@ -45936,7 +45937,7 @@
           "name": "git_revwalk_hide_ref",
           "location": {
             "file": "revwalk.h",
-            "line": 198,
+            "line": 199,
             "column": 17
           },
           "returns": {
@@ -45968,7 +45969,7 @@
           "name": "git_revwalk_next",
           "location": {
             "file": "revwalk.h",
-            "line": 218,
+            "line": 219,
             "column": 17
           },
           "returns": {
@@ -46002,7 +46003,7 @@
           "name": "git_revwalk_sorting",
           "location": {
             "file": "revwalk.h",
-            "line": 230,
+            "line": 231,
             "column": 17
           },
           "returns": {
@@ -46029,12 +46030,44 @@
           ],
           "group": "revwalk"
         },
+        "git_revwalk_pathspec": {
+          "kind": "function",
+          "name": "git_revwalk_pathspec",
+          "location": {
+            "file": "revwalk.h",
+            "line": 242,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 or an error code"
+          },
+          "params": [
+            {
+              "name": "walk",
+              "type": "git_revwalk *",
+              "direction": "in",
+              "comment": "the walker being used for the traversal."
+            },
+            {
+              "name": "pathspec",
+              "type": "git_pathspec *",
+              "direction": "in",
+              "comment": "Paths to filter commits on"
+            }
+          ],
+          "comment": [
+            "Set a git_pathspec object to filter commits on",
+            "Changing the pathspec rests the walker"
+          ],
+          "group": "revwalk"
+        },
         "git_revwalk_push_range": {
           "kind": "function",
           "name": "git_revwalk_push_range",
           "location": {
             "file": "revwalk.h",
-            "line": 245,
+            "line": 257,
             "column": 17
           },
           "returns": {
@@ -46066,7 +46099,7 @@
           "name": "git_revwalk_simplify_first_parent",
           "location": {
             "file": "revwalk.h",
-            "line": 255,
+            "line": 267,
             "column": 17
           },
           "returns": {
@@ -46092,7 +46125,7 @@
           "name": "git_revwalk_free",
           "location": {
             "file": "revwalk.h",
-            "line": 263,
+            "line": 275,
             "column": 18
           },
           "returns": {
@@ -46116,7 +46149,7 @@
           "name": "git_revwalk_repository",
           "location": {
             "file": "revwalk.h",
-            "line": 272,
+            "line": 284,
             "column": 30
           },
           "returns": {
@@ -46145,7 +46178,7 @@
           ],
           "location": {
             "file": "revwalk.h",
-            "line": 283,
+            "line": 295,
             "column": 26
           },
           "params": [
@@ -46177,7 +46210,7 @@
           "name": "git_revwalk_add_hide_cb",
           "location": {
             "file": "revwalk.h",
-            "line": 295,
+            "line": 307,
             "column": 17
           },
           "returns": {
@@ -46238,6 +46271,7 @@
             "git_revwalk_hide_ref",
             "git_revwalk_next",
             "git_revwalk_sorting",
+            "git_revwalk_pathspec",
             "git_revwalk_push_range",
             "git_revwalk_simplify_first_parent",
             "git_revwalk_free",
