@@ -176,7 +176,7 @@ will have the following methods:</p>
 
         <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
         <div class="apiSignatureLink functionSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/odb.h#L456" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/odb.h#L480" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature functionSignature">
           int git_odb_open_rstream(<span class="apiSignatureParameter functionSignatureParameter">git_odb_stream **out</span>, <span class="apiSignatureParameter functionSignatureParameter">size_t *len</span>, <span class="apiSignatureParameter functionSignatureParameter">git_object_t *type</span>, <span class="apiSignatureParameter functionSignatureParameter">git_odb *db</span>, <span class="apiSignatureParameter functionSignatureParameter">const git_oid *oid</span>);
@@ -184,12 +184,12 @@ will have the following methods:</p>
 
         <h3 class="apiParametersHeader functionParametersHeader">Parameters</h3>
         <div class="apiParameters functionParameters">
-          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+          <div class="apiParameter functionParameter apiParameterOut functionParameterOut">
             <div class="apiParameterType functionParameterType">
               <a href="/docs/reference/main/odb_backend/git_odb_stream.html" class="apiLink structLink">git_odb_stream **</a>
             </div>
-            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
-              In
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionOut functionParameterDirectionOut">
+              Out
             </div>
             <div class="apiParameterName functionParameterName">
               out
@@ -198,12 +198,12 @@ will have the following methods:</p>
               <p>pointer where to store the stream</p> 
             </div>
           </div>
-          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+          <div class="apiParameter functionParameter apiParameterOut functionParameterOut">
             <div class="apiParameterType functionParameterType">
               size_t *
             </div>
-            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
-              In
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionOut functionParameterDirectionOut">
+              Out
             </div>
             <div class="apiParameterName functionParameterName">
               len

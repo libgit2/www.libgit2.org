@@ -144,7 +144,7 @@ advance the iterator internally to the next value.</p>
 
         <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
         <div class="apiSignatureLink functionSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/index.h#L928" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/index.h#L936" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature functionSignature">
           int git_index_conflict_next(<span class="apiSignatureParameter functionSignatureParameter">const git_index_entry **ancestor_out</span>, <span class="apiSignatureParameter functionSignatureParameter">const git_index_entry **our_out</span>, <span class="apiSignatureParameter functionSignatureParameter">const git_index_entry **their_out</span>, <span class="apiSignatureParameter functionSignatureParameter">git_index_conflict_iterator *iterator</span>);
@@ -152,12 +152,12 @@ advance the iterator internally to the next value.</p>
 
         <h3 class="apiParametersHeader functionParametersHeader">Parameters</h3>
         <div class="apiParameters functionParameters">
-          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+          <div class="apiParameter functionParameter apiParameterOut functionParameterOut">
             <div class="apiParameterType functionParameterType">
               <a href="/docs/reference/main/index/git_index_entry.html" class="apiLink structLink">const git_index_entry **</a>
             </div>
-            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
-              In
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionOut functionParameterDirectionOut">
+              Out
             </div>
             <div class="apiParameterName functionParameterName">
               ancestor_out
@@ -166,12 +166,12 @@ advance the iterator internally to the next value.</p>
               <p>Pointer to store the ancestor side of the conflict</p> 
             </div>
           </div>
-          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+          <div class="apiParameter functionParameter apiParameterOut functionParameterOut">
             <div class="apiParameterType functionParameterType">
               <a href="/docs/reference/main/index/git_index_entry.html" class="apiLink structLink">const git_index_entry **</a>
             </div>
-            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
-              In
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionOut functionParameterDirectionOut">
+              Out
             </div>
             <div class="apiParameterName functionParameterName">
               our_out
@@ -180,12 +180,12 @@ advance the iterator internally to the next value.</p>
               <p>Pointer to store our side of the conflict</p> 
             </div>
           </div>
-          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+          <div class="apiParameter functionParameter apiParameterOut functionParameterOut">
             <div class="apiParameterType functionParameterType">
               <a href="/docs/reference/main/index/git_index_entry.html" class="apiLink structLink">const git_index_entry **</a>
             </div>
-            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
-              In
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionOut functionParameterDirectionOut">
+              Out
             </div>
             <div class="apiParameterName functionParameterName">
               their_out
