@@ -25,11 +25,13 @@ layout: default
             <span>Version:</span>
             <select onChange="window.location.href = this.value">
               <option value="/docs/reference/main/common/git_libgit2_opts.html" selected>main</option>
+              <option value="/docs/reference/v1.9.5/common/git_libgit2_opts.html">v1.9.5</option>
               <option value="/docs/reference/v1.9.4/common/git_libgit2_opts.html">v1.9.4</option>
               <option value="/docs/reference/v1.9.3/common/git_libgit2_opts.html">v1.9.3</option>
               <option value="/docs/reference/v1.9.2/common/git_libgit2_opts.html">v1.9.2</option>
               <option value="/docs/reference/v1.9.1/common/git_libgit2_opts.html">v1.9.1</option>
               <option value="/docs/reference/v1.9.0/common/git_libgit2_opts.html">v1.9.0</option>
+              <option value="/docs/reference/v1.8.6/common/git_libgit2_opts.html">v1.8.6</option>
               <option value="/docs/reference/v1.8.5/common/git_libgit2_opts.html">v1.8.5</option>
               <option value="/docs/reference/v1.8.4/common/git_libgit2_opts.html">v1.8.4</option>
               <option value="/docs/reference/v1.8.3/common/git_libgit2_opts.html">v1.8.3</option>
@@ -561,11 +563,21 @@ file when downloading a pack file from a remote.</p>
 &gt; Sets the timeout (in milliseconds) for reading from and writing
 &gt; to a remote server. Set to 0 to use the system default.</p>
 
+        <p>opts(GIT_OPT_GET_PACK_MAX_OBJECT_SIZE, size_t *out)
+&gt; Gets the maximum size of a declared packfile object. This can
+&gt; be used to limit maximum memory usage when fetching from a
+&gt; remote.</p>
+
+        <p>opts(GIT_OPT_SET_PACK_MAX_OBJECT_SIZE, size_t object_size)
+&gt; Set the maximum size of an object that libgit2 will allow in
+&gt; a pack file when downloading a pack file from a remote.
+&gt; The default is 2 GiB.</p>
+
         </div>
 
         <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
         <div class="apiSignatureLink functionSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/common.h#L572" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/common.h#L584" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature functionSignature">
           int git_libgit2_opts(<span class="apiSignatureParameter functionSignatureParameter">int option</span>);
@@ -605,6 +617,9 @@ file when downloading a pack file from a remote.</p>
             <a href="/docs/reference/main/common/git_libgit2_opts.html" class="apiVersionLink functionVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
+            <a href="/docs/reference/v1.9.5/common/git_libgit2_opts.html" class="apiVersionLink functionVersionLink">v1.9.5</a>
+          </li>
+          <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
             <a href="/docs/reference/v1.9.4/common/git_libgit2_opts.html" class="apiVersionLink functionVersionLink">v1.9.4</a>
           </li>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
@@ -618,6 +633,9 @@ file when downloading a pack file from a remote.</p>
           </li>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
             <a href="/docs/reference/v1.9.0/common/git_libgit2_opts.html" class="apiVersionLink functionVersionLink">v1.9.0</a>
+          </li>
+          <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
+            <a href="/docs/reference/v1.8.6/common/git_libgit2_opts.html" class="apiVersionLink functionVersionLink">v1.8.6</a>
           </li>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
             <a href="/docs/reference/v1.8.5/common/git_libgit2_opts.html" class="apiVersionLink functionVersionLink">v1.8.5</a>

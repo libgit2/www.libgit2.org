@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "4654fdcaabafd9c47d064f92d9fb5ed1bc103d04"
+    "commit": "36b8879154a1b9d22d2c0fde88053299d01517c7"
   },
   "groups": {
     "sys/alloc": {
@@ -8702,6 +8702,12 @@
             },
             {
               "name": "GIT_OPT_ADD_SSL_X509_CERT"
+            },
+            {
+              "name": "GIT_OPT_GET_PACK_MAX_OBJECT_SIZE"
+            },
+            {
+              "name": "GIT_OPT_SET_PACK_MAX_OBJECT_SIZE"
             }
           ],
           "comment": [
@@ -8720,7 +8726,7 @@
           "name": "git_libgit2_opts",
           "location": {
             "file": "common.h",
-            "line": 572,
+            "line": 584,
             "column": 17
           },
           "returns": {
@@ -8815,7 +8821,9 @@
             "opts(GIT_OPT_GET_SERVER_CONNECT_TIMEOUT, int *timeout)\n      > Gets the timeout (in milliseconds) to attempt connections to\n      > a remote server.",
             "opts(GIT_OPT_SET_SERVER_CONNECT_TIMEOUT, int timeout)\n      > Sets the timeout (in milliseconds) to attempt connections to\n      > a remote server. Set to 0 to use the system default. Note that\n      > this may not be able to be configured longer than the system\n      > default, typically 75 seconds.",
             "opts(GIT_OPT_GET_SERVER_TIMEOUT, int *timeout)\n      > Gets the timeout (in milliseconds) for reading from and writing\n      > to a remote server.",
-            "opts(GIT_OPT_SET_SERVER_TIMEOUT, int timeout)\n      > Sets the timeout (in milliseconds) for reading from and writing\n      > to a remote server. Set to 0 to use the system default."
+            "opts(GIT_OPT_SET_SERVER_TIMEOUT, int timeout)\n      > Sets the timeout (in milliseconds) for reading from and writing\n      > to a remote server. Set to 0 to use the system default.",
+            "opts(GIT_OPT_GET_PACK_MAX_OBJECT_SIZE, size_t *out)\n      > Gets the maximum size of a declared packfile object. This can\n      > be used to limit maximum memory usage when fetching from a\n      > remote.",
+            "opts(GIT_OPT_SET_PACK_MAX_OBJECT_SIZE, size_t object_size)\n      > Set the maximum size of an object that libgit2 will allow in\n      > a pack file when downloading a pack file from a remote.\n      > The default is 2 GiB."
           ],
           "group": "common"
         },
@@ -8843,7 +8851,7 @@
           ],
           "location": {
             "file": "common.h",
-            "line": 579,
+            "line": 591,
             "column": 9
           },
           "group": "common",
@@ -8856,7 +8864,7 @@
           "name": "git_libgit2_buildinfo",
           "location": {
             "file": "common.h",
-            "line": 594,
+            "line": 606,
             "column": 26
           },
           "returns": {
@@ -49615,12 +49623,12 @@
           "name": "git_submodule_lookup",
           "location": {
             "file": "submodule.h",
-            "line": 233,
+            "line": 235,
             "column": 17
           },
           "returns": {
             "type": "int",
-            "comment": "0 on success, GIT_ENOTFOUND if submodule does not exist,\n         GIT_EEXISTS if a repository is found in working directory only,\n         -1 on other errors."
+            "comment": "0 on success, GIT_ENOTFOUND if submodule does not exist,\n         GIT_EEXISTS if a repository is found in working directory only,\n         GIT_EINVALID if the submodule configuration is not valid, or\n         GIT_EINVALIDSPEC if the submodule name is not valid\n         -1 on other errors."
           },
           "params": [
             {
@@ -49656,7 +49664,7 @@
           "name": "git_submodule_dup",
           "location": {
             "file": "submodule.h",
-            "line": 246,
+            "line": 248,
             "column": 17
           },
           "returns": {
@@ -49687,7 +49695,7 @@
           "name": "git_submodule_free",
           "location": {
             "file": "submodule.h",
-            "line": 253,
+            "line": 255,
             "column": 18
           },
           "returns": {
@@ -49711,7 +49719,7 @@
           "name": "git_submodule_foreach",
           "location": {
             "file": "submodule.h",
-            "line": 273,
+            "line": 275,
             "column": 17
           },
           "returns": {
@@ -49751,7 +49759,7 @@
           "name": "git_submodule_add_setup",
           "location": {
             "file": "submodule.h",
-            "line": 304,
+            "line": 306,
             "column": 17
           },
           "returns": {
@@ -49803,7 +49811,7 @@
           "name": "git_submodule_clone",
           "location": {
             "file": "submodule.h",
-            "line": 322,
+            "line": 324,
             "column": 17
           },
           "returns": {
@@ -49841,7 +49849,7 @@
           "name": "git_submodule_add_finalize",
           "location": {
             "file": "submodule.h",
-            "line": 338,
+            "line": 340,
             "column": 17
           },
           "returns": {
@@ -49867,7 +49875,7 @@
           "name": "git_submodule_add_to_index",
           "location": {
             "file": "submodule.h",
-            "line": 350,
+            "line": 352,
             "column": 17
           },
           "returns": {
@@ -49898,7 +49906,7 @@
           "name": "git_submodule_owner",
           "location": {
             "file": "submodule.h",
-            "line": 365,
+            "line": 367,
             "column": 30
           },
           "returns": {
@@ -49924,7 +49932,7 @@
           "name": "git_submodule_name",
           "location": {
             "file": "submodule.h",
-            "line": 373,
+            "line": 375,
             "column": 26
           },
           "returns": {
@@ -49949,7 +49957,7 @@
           "name": "git_submodule_path",
           "location": {
             "file": "submodule.h",
-            "line": 384,
+            "line": 386,
             "column": 26
           },
           "returns": {
@@ -49975,7 +49983,7 @@
           "name": "git_submodule_url",
           "location": {
             "file": "submodule.h",
-            "line": 392,
+            "line": 394,
             "column": 26
           },
           "returns": {
@@ -50000,7 +50008,7 @@
           "name": "git_submodule_resolve_url",
           "location": {
             "file": "submodule.h",
-            "line": 402,
+            "line": 404,
             "column": 17
           },
           "returns": {
@@ -50037,7 +50045,7 @@
           "name": "git_submodule_branch",
           "location": {
             "file": "submodule.h",
-            "line": 410,
+            "line": 412,
             "column": 26
           },
           "returns": {
@@ -50062,7 +50070,7 @@
           "name": "git_submodule_set_branch",
           "location": {
             "file": "submodule.h",
-            "line": 423,
+            "line": 425,
             "column": 17
           },
           "returns": {
@@ -50100,7 +50108,7 @@
           "name": "git_submodule_set_url",
           "location": {
             "file": "submodule.h",
-            "line": 437,
+            "line": 439,
             "column": 17
           },
           "returns": {
@@ -50138,7 +50146,7 @@
           "name": "git_submodule_index_id",
           "location": {
             "file": "submodule.h",
-            "line": 445,
+            "line": 447,
             "column": 29
           },
           "returns": {
@@ -50163,7 +50171,7 @@
           "name": "git_submodule_head_id",
           "location": {
             "file": "submodule.h",
-            "line": 453,
+            "line": 455,
             "column": 29
           },
           "returns": {
@@ -50188,7 +50196,7 @@
           "name": "git_submodule_wd_id",
           "location": {
             "file": "submodule.h",
-            "line": 466,
+            "line": 468,
             "column": 29
           },
           "returns": {
@@ -50214,7 +50222,7 @@
           "name": "git_submodule_ignore",
           "location": {
             "file": "submodule.h",
-            "line": 491,
+            "line": 493,
             "column": 36
           },
           "returns": {
@@ -50241,7 +50249,7 @@
           "name": "git_submodule_set_ignore",
           "location": {
             "file": "submodule.h",
-            "line": 504,
+            "line": 506,
             "column": 17
           },
           "returns": {
@@ -50280,7 +50288,7 @@
           "name": "git_submodule_update_strategy",
           "location": {
             "file": "submodule.h",
-            "line": 519,
+            "line": 521,
             "column": 36
           },
           "returns": {
@@ -50306,7 +50314,7 @@
           "name": "git_submodule_set_update",
           "location": {
             "file": "submodule.h",
-            "line": 532,
+            "line": 534,
             "column": 17
           },
           "returns": {
@@ -50345,7 +50353,7 @@
           "name": "git_submodule_fetch_recurse_submodules",
           "location": {
             "file": "submodule.h",
-            "line": 549,
+            "line": 551,
             "column": 37
           },
           "returns": {
@@ -50372,7 +50380,7 @@
           "name": "git_submodule_set_fetch_recurse_submodules",
           "location": {
             "file": "submodule.h",
-            "line": 562,
+            "line": 564,
             "column": 17
           },
           "returns": {
@@ -50411,7 +50419,7 @@
           "name": "git_submodule_init",
           "location": {
             "file": "submodule.h",
-            "line": 580,
+            "line": 582,
             "column": 17
           },
           "returns": {
@@ -50443,7 +50451,7 @@
           "name": "git_submodule_repo_init",
           "location": {
             "file": "submodule.h",
-            "line": 595,
+            "line": 597,
             "column": 17
           },
           "returns": {
@@ -50481,7 +50489,7 @@
           "name": "git_submodule_sync",
           "location": {
             "file": "submodule.h",
-            "line": 611,
+            "line": 613,
             "column": 17
           },
           "returns": {
@@ -50507,7 +50515,7 @@
           "name": "git_submodule_open",
           "location": {
             "file": "submodule.h",
-            "line": 625,
+            "line": 627,
             "column": 17
           },
           "returns": {
@@ -50539,7 +50547,7 @@
           "name": "git_submodule_reload",
           "location": {
             "file": "submodule.h",
-            "line": 639,
+            "line": 641,
             "column": 17
           },
           "returns": {
@@ -50571,7 +50579,7 @@
           "name": "git_submodule_status",
           "location": {
             "file": "submodule.h",
-            "line": 655,
+            "line": 657,
             "column": 17
           },
           "returns": {
@@ -50616,7 +50624,7 @@
           "name": "git_submodule_location",
           "location": {
             "file": "submodule.h",
-            "line": 675,
+            "line": 677,
             "column": 17
           },
           "returns": {
