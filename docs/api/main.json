@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "1a6ffa219194c0f9d6e3521f9733556b6e4decbc"
+    "commit": "9dd6d1738e0f93b0b4ba2c8648e1d3f64e9da042"
   },
   "groups": {
     "sys/alloc": {
@@ -21014,7 +21014,11 @@
               "type": "uint32_t",
               "comment": [
                 "See `git_filter_flag_t` above"
-              ]
+              ],
+              "extendedType": {
+                "kind": "flags",
+                "type": "git_filter_flag_t"
+              }
             },
             {
               "name": "commit_id",
@@ -21049,7 +21053,7 @@
           "name": "GIT_FILTER_OPTIONS_VERSION",
           "location": {
             "file": "filter.h",
-            "line": 95,
+            "line": 99,
             "column": 9
           },
           "value": "1",
@@ -21061,7 +21065,7 @@
           "name": "GIT_FILTER_OPTIONS_INIT",
           "location": {
             "file": "filter.h",
-            "line": 98,
+            "line": 102,
             "column": 9
           },
           "value": "{GIT_FILTER_OPTIONS_VERSION}",
@@ -21073,7 +21077,7 @@
           "name": "git_filter_options_init",
           "location": {
             "file": "filter.h",
-            "line": 110,
+            "line": 114,
             "column": 17
           },
           "returns": {
@@ -21111,18 +21115,18 @@
           ],
           "location": {
             "file": "filter.h",
-            "line": 141,
+            "line": 145,
             "column": 32
           },
           "group": "filter",
           "returnedBy": [
             "git_filter_list_load",
+            "git_filter_list_load_ext",
             "git_filter_list_new"
           ],
           "parameterTo": [
             "git_filter_list_stream_data",
             "git_filter_list_apply_to_data",
-            "git_filter_list_load_ext",
             "git_filter_list_contains",
             "git_filter_list_apply_to_buffer",
             "git_filter_list_apply_to_file",
@@ -21140,7 +21144,7 @@
           "name": "git_filter_list_load",
           "location": {
             "file": "filter.h",
-            "line": 158,
+            "line": 162,
             "column": 17
           },
           "returns": {
@@ -21197,7 +21201,7 @@
           "name": "git_filter_list_load_ext",
           "location": {
             "file": "filter.h",
-            "line": 181,
+            "line": 185,
             "column": 17
           },
           "returns": {
@@ -21208,7 +21212,7 @@
             {
               "name": "filters",
               "type": "git_filter_list **",
-              "direction": "in",
+              "direction": "out",
               "comment": "Output newly created git_filter_list (or NULL)"
             },
             {
@@ -21254,7 +21258,7 @@
           "name": "git_filter_list_contains",
           "location": {
             "file": "filter.h",
-            "line": 201,
+            "line": 205,
             "column": 17
           },
           "returns": {
@@ -21286,7 +21290,7 @@
           "name": "git_filter_list_apply_to_buffer",
           "location": {
             "file": "filter.h",
-            "line": 214,
+            "line": 218,
             "column": 17
           },
           "returns": {
@@ -21329,7 +21333,7 @@
           "name": "git_filter_list_apply_to_file",
           "location": {
             "file": "filter.h",
-            "line": 230,
+            "line": 234,
             "column": 17
           },
           "returns": {
@@ -21372,7 +21376,7 @@
           "name": "git_filter_list_apply_to_blob",
           "location": {
             "file": "filter.h",
-            "line": 244,
+            "line": 248,
             "column": 17
           },
           "returns": {
@@ -21409,7 +21413,7 @@
           "name": "git_filter_list_stream_buffer",
           "location": {
             "file": "filter.h",
-            "line": 258,
+            "line": 262,
             "column": 17
           },
           "returns": {
@@ -21452,7 +21456,7 @@
           "name": "git_filter_list_stream_file",
           "location": {
             "file": "filter.h",
-            "line": 274,
+            "line": 278,
             "column": 17
           },
           "returns": {
@@ -21495,7 +21499,7 @@
           "name": "git_filter_list_stream_blob",
           "location": {
             "file": "filter.h",
-            "line": 288,
+            "line": 292,
             "column": 17
           },
           "returns": {
@@ -21532,7 +21536,7 @@
           "name": "git_filter_list_free",
           "location": {
             "file": "filter.h",
-            "line": 298,
+            "line": 302,
             "column": 18
           },
           "returns": {
