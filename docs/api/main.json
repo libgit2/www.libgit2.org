@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "c3d7b6f6be5608128f98d522ca95a63b6a4463cd"
+    "commit": "d2ff991b49fee0ec1bc59e9da3da44e6efb0e779"
   },
   "groups": {
     "sys/alloc": {
@@ -8271,15 +8271,27 @@
     },
     "common": {
       "apis": {
+        "GIT_EXTERN_DECL": {
+          "kind": "macro",
+          "name": "GIT_EXTERN_DECL",
+          "location": {
+            "file": "common.h",
+            "line": 42,
+            "column": 11
+          },
+          "value": "__declspec(dllimport)",
+          "comment": "External API / visibility controls",
+          "group": "common"
+        },
         "GIT_EXTERN(type)": {
           "kind": "macro",
           "name": "GIT_EXTERN(type)",
           "location": {
             "file": "common.h",
-            "line": 43,
+            "line": 52,
             "column": 10
           },
-          "value": "extern __attribute__((visibility(\"default\"))) type",
+          "value": "GIT_EXTERN_DECL type __cdecl",
           "comment": "Declare a public function exported for application use.",
           "group": "common"
         },
@@ -8288,7 +8300,7 @@
           "name": "GIT_CALLBACK(name)",
           "location": {
             "file": "common.h",
-            "line": 52,
+            "line": 59,
             "column": 10
           },
           "value": "(__cdecl *name)",
@@ -8300,7 +8312,7 @@
           "name": "GIT_DEPRECATED(func)",
           "location": {
             "file": "common.h",
-            "line": 62,
+            "line": 69,
             "column": 10
           },
           "value": " __attribute__((deprecated)) __attribute__((used)) func",
@@ -8312,7 +8324,7 @@
           "name": "GIT_FORMAT_PRINTF(a,b)",
           "location": {
             "file": "common.h",
-            "line": 71,
+            "line": 78,
             "column": 10
           },
           "value": "__attribute__((format (printf, a, b)))",
@@ -8324,7 +8336,7 @@
           "name": "GIT_PATH_LIST_SEPARATOR",
           "location": {
             "file": "common.h",
-            "line": 100,
+            "line": 107,
             "column": 10
           },
           "value": "';'",
@@ -8336,7 +8348,7 @@
           "name": "GIT_PATH_MAX",
           "location": {
             "file": "common.h",
-            "line": 108,
+            "line": 115,
             "column": 9
           },
           "value": "4096",
@@ -8348,7 +8360,7 @@
           "name": "git_libgit2_version",
           "location": {
             "file": "common.h",
-            "line": 119,
+            "line": 126,
             "column": 17
           },
           "returns": {
@@ -8385,7 +8397,7 @@
           "name": "git_libgit2_prerelease",
           "location": {
             "file": "common.h",
-            "line": 130,
+            "line": 137,
             "column": 26
           },
           "returns": {
@@ -8499,7 +8511,7 @@
           ],
           "location": {
             "file": "common.h",
-            "line": 138,
+            "line": 145,
             "column": 9
           },
           "group": "common",
@@ -8515,7 +8527,7 @@
           "name": "git_libgit2_features",
           "location": {
             "file": "common.h",
-            "line": 187,
+            "line": 194,
             "column": 17
           },
           "returns": {
@@ -8536,7 +8548,7 @@
           "name": "git_libgit2_feature_backend",
           "location": {
             "file": "common.h",
-            "line": 208,
+            "line": 215,
             "column": 26
           },
           "returns": {
@@ -8716,7 +8728,7 @@
           ],
           "location": {
             "file": "common.h",
-            "line": 217,
+            "line": 224,
             "column": 9
           },
           "group": "common"
@@ -8726,7 +8738,7 @@
           "name": "git_libgit2_opts",
           "location": {
             "file": "common.h",
-            "line": 583,
+            "line": 590,
             "column": 17
           },
           "returns": {
@@ -8851,7 +8863,7 @@
           ],
           "location": {
             "file": "common.h",
-            "line": 590,
+            "line": 597,
             "column": 9
           },
           "group": "common",
@@ -8864,7 +8876,7 @@
           "name": "git_libgit2_buildinfo",
           "location": {
             "file": "common.h",
-            "line": 605,
+            "line": 612,
             "column": 26
           },
           "returns": {
