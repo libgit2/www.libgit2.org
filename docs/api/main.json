@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "ddf3b5c85d86a389330b1d1dd90f08f60ae05fe4"
+    "commit": "c3d7b6f6be5608128f98d522ca95a63b6a4463cd"
   },
   "groups": {
     "sys/alloc": {
@@ -3775,7 +3775,6 @@
             "git_config_find_global",
             "git_config_find_xdg",
             "git_config_find_system",
-            "git_config_find_programdata",
             "git_config_get_path",
             "git_config_get_string_buf",
             "git_config_parse_path",
@@ -3789,6 +3788,7 @@
             "git_buf_contains_nul",
             "git_buf_free",
             "git_commit_signing_cb",
+            "git_config_find_programdata",
             "git_diff_format_email",
             "git_diff_commit_as_email",
             "git_describe_format",
@@ -8726,7 +8726,7 @@
           "name": "git_libgit2_opts",
           "location": {
             "file": "common.h",
-            "line": 584,
+            "line": 583,
             "column": 17
           },
           "returns": {
@@ -8757,9 +8757,9 @@
             "* opts(GIT_OPT_SET_MWINDOW_FILE_LIMIT, size_t):",
             "> Set the maximum number of files that can be mapped at any time\n\t\t> by the library. The default (0) is unlimited.",
             "* opts(GIT_OPT_GET_SEARCH_PATH, int level, git_buf *buf)",
-            "> Get the search path for a given level of config data.  \"level\" must\n\t\t> be one of `GIT_CONFIG_LEVEL_SYSTEM`, `GIT_CONFIG_LEVEL_GLOBAL`,\n\t\t> `GIT_CONFIG_LEVEL_XDG`, or `GIT_CONFIG_LEVEL_PROGRAMDATA`.\n\t\t> The search path is written to the `out` buffer.",
+            "> Get the search path for a given level of config data.  \"level\" must\n\t\t> be one of `GIT_CONFIG_LEVEL_SYSTEM`, `GIT_CONFIG_LEVEL_GLOBAL`,\n\t\t> `GIT_CONFIG_LEVEL_XDG`.\n\t\t> The search path is written to the `out` buffer.",
             "* opts(GIT_OPT_SET_SEARCH_PATH, int level, const char *path)",
-            "> Set the search path for a level of config data.  The search path\n\t\t> applied to shared attributes and ignore files, too.\n\t\t>\n\t\t> - `path` lists directories delimited by GIT_PATH_LIST_SEPARATOR.\n\t\t>   Pass NULL to reset to the default (generally based on environment\n\t\t>   variables).  Use magic path `$PATH` to include the old value\n\t\t>   of the path (if you want to prepend or append, for instance).\n\t\t>\n\t\t> - `level` must be `GIT_CONFIG_LEVEL_SYSTEM`,\n\t\t>   `GIT_CONFIG_LEVEL_GLOBAL`, `GIT_CONFIG_LEVEL_XDG`, or\n\t\t>   `GIT_CONFIG_LEVEL_PROGRAMDATA`.",
+            "> Set the search path for a level of config data.  The search path\n\t\t> applied to shared attributes and ignore files, too.\n\t\t>\n\t\t> - `path` lists directories delimited by GIT_PATH_LIST_SEPARATOR.\n\t\t>   Pass NULL to reset to the default (generally based on environment\n\t\t>   variables).  Use magic path `$PATH` to include the old value\n\t\t>   of the path (if you want to prepend or append, for instance).\n\t\t>\n\t\t> - `level` must be `GIT_CONFIG_LEVEL_SYSTEM`,\n\t\t>   `GIT_CONFIG_LEVEL_GLOBAL`, `GIT_CONFIG_LEVEL_XDG`.",
             "* opts(GIT_OPT_SET_CACHE_OBJECT_LIMIT, git_object_t type, size_t size)",
             "> Set the maximum data size for the given type of object to be\n\t\t> considered eligible for caching in memory.  Setting to value to\n\t\t> zero means that that type of object will not be cached.\n\t\t> Defaults to 0 for GIT_OBJECT_BLOB (i.e. won't cache blobs) and 4k\n\t\t> for GIT_OBJECT_COMMIT, GIT_OBJECT_TREE, and GIT_OBJECT_TAG.",
             "* opts(GIT_OPT_SET_CACHE_MAX_SIZE, ssize_t max_storage_bytes)",
@@ -8851,7 +8851,7 @@
           ],
           "location": {
             "file": "common.h",
-            "line": 591,
+            "line": 590,
             "column": 9
           },
           "group": "common",
@@ -8864,7 +8864,7 @@
           "name": "git_libgit2_buildinfo",
           "location": {
             "file": "common.h",
-            "line": 606,
+            "line": 605,
             "column": 26
           },
           "returns": {
@@ -8898,13 +8898,6 @@
           "name": "git_config_level_t",
           "referenceName": "git_config_level_t",
           "members": [
-            {
-              "name": "GIT_CONFIG_LEVEL_PROGRAMDATA",
-              "value": "1",
-              "comment": [
-                "System-wide on Windows, for compatibility with \"Portable Git\"."
-              ]
-            },
             {
               "name": "GIT_CONFIG_LEVEL_SYSTEM",
               "value": "2",
@@ -9033,7 +9026,7 @@
           ],
           "location": {
             "file": "config.h",
-            "line": 103,
+            "line": 98,
             "column": 16
           },
           "group": "config",
@@ -9051,7 +9044,7 @@
           "name": "git_config_entry_free",
           "location": {
             "file": "config.h",
-            "line": 131,
+            "line": 126,
             "column": 18
           },
           "returns": {
@@ -9079,7 +9072,7 @@
           ],
           "location": {
             "file": "config.h",
-            "line": 140,
+            "line": 135,
             "column": 26
           },
           "params": [
@@ -9134,7 +9127,7 @@
           ],
           "location": {
             "file": "config.h",
-            "line": 150,
+            "line": 145,
             "column": 9
           },
           "group": "config"
@@ -9163,7 +9156,7 @@
           ],
           "location": {
             "file": "config.h",
-            "line": 160,
+            "line": 155,
             "column": 9
           },
           "group": "config",
@@ -9177,7 +9170,7 @@
           "name": "git_config_find_global",
           "location": {
             "file": "config.h",
-            "line": 183,
+            "line": 178,
             "column": 17
           },
           "returns": {
@@ -9205,7 +9198,7 @@
           "name": "git_config_find_xdg",
           "location": {
             "file": "config.h",
-            "line": 200,
+            "line": 195,
             "column": 17
           },
           "returns": {
@@ -9232,7 +9225,7 @@
           "name": "git_config_find_system",
           "location": {
             "file": "config.h",
-            "line": 212,
+            "line": 207,
             "column": 17
           },
           "returns": {
@@ -9253,38 +9246,12 @@
           ],
           "group": "config"
         },
-        "git_config_find_programdata": {
-          "kind": "function",
-          "name": "git_config_find_programdata",
-          "location": {
-            "file": "config.h",
-            "line": 223,
-            "column": 17
-          },
-          "returns": {
-            "type": "int",
-            "comment": "0 if a ProgramData configuration file has been\n\tfound. Its path will be stored in `out`."
-          },
-          "params": [
-            {
-              "name": "out",
-              "type": "git_buf *",
-              "direction": "in",
-              "comment": "Pointer to a user-allocated git_buf in which to store the path"
-            }
-          ],
-          "comment": [
-            "Locate the path to the configuration file in ProgramData",
-            "Look for the file in `%PROGRAMDATA%\\Git\\config\n` used by portable git."
-          ],
-          "group": "config"
-        },
         "git_config_open_default": {
           "kind": "function",
           "name": "git_config_open_default",
           "location": {
             "file": "config.h",
-            "line": 235,
+            "line": 219,
             "column": 17
           },
           "returns": {
@@ -9310,7 +9277,7 @@
           "name": "git_config_new",
           "location": {
             "file": "config.h",
-            "line": 246,
+            "line": 230,
             "column": 17
           },
           "returns": {
@@ -9336,7 +9303,7 @@
           "name": "git_config_add_file_ondisk",
           "location": {
             "file": "config.h",
-            "line": 275,
+            "line": 259,
             "column": 17
           },
           "returns": {
@@ -9390,7 +9357,7 @@
           "name": "git_config_open_ondisk",
           "location": {
             "file": "config.h",
-            "line": 294,
+            "line": 278,
             "column": 17
           },
           "returns": {
@@ -9422,7 +9389,7 @@
           "name": "git_config_open_level",
           "location": {
             "file": "config.h",
-            "line": 312,
+            "line": 296,
             "column": 17
           },
           "returns": {
@@ -9462,7 +9429,7 @@
           "name": "git_config_open_global",
           "location": {
             "file": "config.h",
-            "line": 330,
+            "line": 314,
             "column": 17
           },
           "returns": {
@@ -9494,7 +9461,7 @@
           "name": "git_config_set_writeorder",
           "location": {
             "file": "config.h",
-            "line": 343,
+            "line": 327,
             "column": 17
           },
           "returns": {
@@ -9531,7 +9498,7 @@
           "name": "git_config_snapshot",
           "location": {
             "file": "config.h",
-            "line": 362,
+            "line": 346,
             "column": 17
           },
           "returns": {
@@ -9564,7 +9531,7 @@
           "name": "git_config_free",
           "location": {
             "file": "config.h",
-            "line": 369,
+            "line": 353,
             "column": 18
           },
           "returns": {
@@ -9588,7 +9555,7 @@
           "name": "git_config_get_entry",
           "location": {
             "file": "config.h",
-            "line": 381,
+            "line": 365,
             "column": 17
           },
           "returns": {
@@ -9626,7 +9593,7 @@
           "name": "git_config_get_int32",
           "location": {
             "file": "config.h",
-            "line": 398,
+            "line": 382,
             "column": 17
           },
           "returns": {
@@ -9664,7 +9631,7 @@
           "name": "git_config_get_int64",
           "location": {
             "file": "config.h",
-            "line": 415,
+            "line": 399,
             "column": 17
           },
           "returns": {
@@ -9702,7 +9669,7 @@
           "name": "git_config_get_bool",
           "location": {
             "file": "config.h",
-            "line": 435,
+            "line": 419,
             "column": 17
           },
           "returns": {
@@ -9741,7 +9708,7 @@
           "name": "git_config_get_path",
           "location": {
             "file": "config.h",
-            "line": 456,
+            "line": 440,
             "column": 17
           },
           "returns": {
@@ -9780,7 +9747,7 @@
           "name": "git_config_get_string",
           "location": {
             "file": "config.h",
-            "line": 477,
+            "line": 461,
             "column": 17
           },
           "returns": {
@@ -9819,7 +9786,7 @@
           "name": "git_config_get_string_buf",
           "location": {
             "file": "config.h",
-            "line": 496,
+            "line": 480,
             "column": 17
           },
           "returns": {
@@ -9858,7 +9825,7 @@
           "name": "git_config_get_multivar_foreach",
           "location": {
             "file": "config.h",
-            "line": 518,
+            "line": 502,
             "column": 17
           },
           "returns": {
@@ -9910,7 +9877,7 @@
           "name": "git_config_multivar_iterator_new",
           "location": {
             "file": "config.h",
-            "line": 539,
+            "line": 523,
             "column": 17
           },
           "returns": {
@@ -9954,7 +9921,7 @@
           "name": "git_config_next",
           "location": {
             "file": "config.h",
-            "line": 555,
+            "line": 539,
             "column": 17
           },
           "returns": {
@@ -9986,7 +9953,7 @@
           "name": "git_config_iterator_free",
           "location": {
             "file": "config.h",
-            "line": 564,
+            "line": 548,
             "column": 18
           },
           "returns": {
@@ -10010,7 +9977,7 @@
           "name": "git_config_set_int32",
           "location": {
             "file": "config.h",
-            "line": 575,
+            "line": 559,
             "column": 17
           },
           "returns": {
@@ -10047,7 +10014,7 @@
           "name": "git_config_set_int64",
           "location": {
             "file": "config.h",
-            "line": 586,
+            "line": 570,
             "column": 17
           },
           "returns": {
@@ -10084,7 +10051,7 @@
           "name": "git_config_set_bool",
           "location": {
             "file": "config.h",
-            "line": 597,
+            "line": 581,
             "column": 17
           },
           "returns": {
@@ -10121,7 +10088,7 @@
           "name": "git_config_set_string",
           "location": {
             "file": "config.h",
-            "line": 611,
+            "line": 595,
             "column": 17
           },
           "returns": {
@@ -10159,7 +10126,7 @@
           "name": "git_config_set_multivar",
           "location": {
             "file": "config.h",
-            "line": 627,
+            "line": 611,
             "column": 17
           },
           "returns": {
@@ -10203,7 +10170,7 @@
           "name": "git_config_delete_entry",
           "location": {
             "file": "config.h",
-            "line": 641,
+            "line": 625,
             "column": 17
           },
           "returns": {
@@ -10234,7 +10201,7 @@
           "name": "git_config_delete_multivar",
           "location": {
             "file": "config.h",
-            "line": 654,
+            "line": 638,
             "column": 17
           },
           "returns": {
@@ -10272,7 +10239,7 @@
           "name": "git_config_foreach",
           "location": {
             "file": "config.h",
-            "line": 675,
+            "line": 659,
             "column": 17
           },
           "returns": {
@@ -10312,7 +10279,7 @@
           "name": "git_config_iterator_new",
           "location": {
             "file": "config.h",
-            "line": 690,
+            "line": 674,
             "column": 17
           },
           "returns": {
@@ -10344,7 +10311,7 @@
           "name": "git_config_iterator_glob_new",
           "location": {
             "file": "config.h",
-            "line": 709,
+            "line": 693,
             "column": 17
           },
           "returns": {
@@ -10383,7 +10350,7 @@
           "name": "git_config_foreach_match",
           "location": {
             "file": "config.h",
-            "line": 734,
+            "line": 718,
             "column": 17
           },
           "returns": {
@@ -10430,7 +10397,7 @@
           "name": "git_config_get_mapped",
           "location": {
             "file": "config.h",
-            "line": 774,
+            "line": 758,
             "column": 17
           },
           "returns": {
@@ -10486,7 +10453,7 @@
           "name": "git_config_lookup_map_value",
           "location": {
             "file": "config.h",
-            "line": 790,
+            "line": 774,
             "column": 17
           },
           "returns": {
@@ -10529,7 +10496,7 @@
           "name": "git_config_parse_bool",
           "location": {
             "file": "config.h",
-            "line": 807,
+            "line": 791,
             "column": 17
           },
           "returns": {
@@ -10561,7 +10528,7 @@
           "name": "git_config_parse_int32",
           "location": {
             "file": "config.h",
-            "line": 820,
+            "line": 804,
             "column": 17
           },
           "returns": {
@@ -10593,7 +10560,7 @@
           "name": "git_config_parse_int64",
           "location": {
             "file": "config.h",
-            "line": 833,
+            "line": 817,
             "column": 17
           },
           "returns": {
@@ -10625,7 +10592,7 @@
           "name": "git_config_parse_path",
           "location": {
             "file": "config.h",
-            "line": 849,
+            "line": 833,
             "column": 17
           },
           "returns": {
@@ -10658,7 +10625,7 @@
           "name": "git_config_backend_foreach_match",
           "location": {
             "file": "config.h",
-            "line": 868,
+            "line": 852,
             "column": 17
           },
           "returns": {
@@ -10704,7 +10671,7 @@
           "name": "git_config_lock",
           "location": {
             "file": "config.h",
-            "line": 891,
+            "line": 875,
             "column": 17
           },
           "returns": {
@@ -13042,6 +13009,47 @@
           "typedef": true,
           "group": "deprecated"
         },
+        "GIT_CONFIG_LEVEL_PROGRAMDATA": {
+          "kind": "macro",
+          "name": "GIT_CONFIG_LEVEL_PROGRAMDATA",
+          "location": {
+            "file": "deprecated.h",
+            "line": 315,
+            "column": 9
+          },
+          "value": "1",
+          "comment": "This was used for system-wide configuration for compatibility with \"Portable Git\", however this setting was removed. @deprecated this option is ignored",
+          "group": "deprecated"
+        },
+        "git_config_find_programdata": {
+          "kind": "function",
+          "name": "git_config_find_programdata",
+          "location": {
+            "file": "deprecated.h",
+            "line": 329,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 if a ProgramData configuration file has been\n\tfound. Its path will be stored in `out`."
+          },
+          "params": [
+            {
+              "name": "out",
+              "type": "git_buf *",
+              "direction": "in",
+              "comment": "Pointer to a user-allocated git_buf in which to store the path"
+            }
+          ],
+          "comment": [
+            "Locate the path to the configuration file in ProgramData",
+            "Look for the file in `%PROGRAMDATA%\\Git\\config\n` used by portable git."
+          ],
+          "deprecations": [
+            "Don't use this any more as this is not supported by Git >= 2.24"
+          ],
+          "group": "deprecated"
+        },
         "git_diff_format_email_flags_t": {
           "kind": "enum",
           "name": "git_diff_format_email_flags_t",
@@ -13067,7 +13075,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 325,
+            "line": 345,
             "column": 9
           },
           "group": "deprecated"
@@ -13136,7 +13144,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 342,
+            "line": 362,
             "column": 9
           },
           "subkind": "options",
@@ -13158,7 +13166,7 @@
           "name": "GIT_DIFF_FORMAT_EMAIL_OPTIONS_VERSION",
           "location": {
             "file": "deprecated.h",
-            "line": 368,
+            "line": 388,
             "column": 9
           },
           "value": "1",
@@ -13170,7 +13178,7 @@
           "name": "GIT_DIFF_FORMAT_EMAIL_OPTIONS_INIT",
           "location": {
             "file": "deprecated.h",
-            "line": 370,
+            "line": 390,
             "column": 9
           },
           "value": "{GIT_DIFF_FORMAT_EMAIL_OPTIONS_VERSION, 0, 1, 1, NULL, NULL, NULL, NULL}",
@@ -13182,7 +13190,7 @@
           "name": "git_diff_format_email",
           "location": {
             "file": "deprecated.h",
-            "line": 378,
+            "line": 398,
             "column": 17
           },
           "returns": {
@@ -13218,7 +13226,7 @@
           "name": "git_diff_commit_as_email",
           "location": {
             "file": "deprecated.h",
-            "line": 389,
+            "line": 409,
             "column": 17
           },
           "returns": {
@@ -13270,7 +13278,7 @@
           "name": "git_diff_format_email_options_init",
           "location": {
             "file": "deprecated.h",
-            "line": 408,
+            "line": 428,
             "column": 17
           },
           "returns": {
@@ -13302,7 +13310,7 @@
           "name": "GITERR_NONE",
           "location": {
             "file": "deprecated.h",
-            "line": 426,
+            "line": 446,
             "column": 9
           },
           "value": "GIT_ERROR_NONE",
@@ -13314,7 +13322,7 @@
           "name": "GITERR_NOMEMORY",
           "location": {
             "file": "deprecated.h",
-            "line": 428,
+            "line": 448,
             "column": 9
           },
           "value": "GIT_ERROR_NOMEMORY",
@@ -13326,7 +13334,7 @@
           "name": "GITERR_OS",
           "location": {
             "file": "deprecated.h",
-            "line": 430,
+            "line": 450,
             "column": 9
           },
           "value": "GIT_ERROR_OS",
@@ -13338,7 +13346,7 @@
           "name": "GITERR_INVALID",
           "location": {
             "file": "deprecated.h",
-            "line": 432,
+            "line": 452,
             "column": 9
           },
           "value": "GIT_ERROR_INVALID",
@@ -13350,7 +13358,7 @@
           "name": "GITERR_REFERENCE",
           "location": {
             "file": "deprecated.h",
-            "line": 434,
+            "line": 454,
             "column": 9
           },
           "value": "GIT_ERROR_REFERENCE",
@@ -13362,7 +13370,7 @@
           "name": "GITERR_ZLIB",
           "location": {
             "file": "deprecated.h",
-            "line": 436,
+            "line": 456,
             "column": 9
           },
           "value": "GIT_ERROR_ZLIB",
@@ -13374,7 +13382,7 @@
           "name": "GITERR_REPOSITORY",
           "location": {
             "file": "deprecated.h",
-            "line": 438,
+            "line": 458,
             "column": 9
           },
           "value": "GIT_ERROR_REPOSITORY",
@@ -13386,7 +13394,7 @@
           "name": "GITERR_CONFIG",
           "location": {
             "file": "deprecated.h",
-            "line": 440,
+            "line": 460,
             "column": 9
           },
           "value": "GIT_ERROR_CONFIG",
@@ -13398,7 +13406,7 @@
           "name": "GITERR_REGEX",
           "location": {
             "file": "deprecated.h",
-            "line": 442,
+            "line": 462,
             "column": 9
           },
           "value": "GIT_ERROR_REGEX",
@@ -13410,7 +13418,7 @@
           "name": "GITERR_ODB",
           "location": {
             "file": "deprecated.h",
-            "line": 444,
+            "line": 464,
             "column": 9
           },
           "value": "GIT_ERROR_ODB",
@@ -13422,7 +13430,7 @@
           "name": "GITERR_INDEX",
           "location": {
             "file": "deprecated.h",
-            "line": 446,
+            "line": 466,
             "column": 9
           },
           "value": "GIT_ERROR_INDEX",
@@ -13434,7 +13442,7 @@
           "name": "GITERR_OBJECT",
           "location": {
             "file": "deprecated.h",
-            "line": 448,
+            "line": 468,
             "column": 9
           },
           "value": "GIT_ERROR_OBJECT",
@@ -13446,7 +13454,7 @@
           "name": "GITERR_NET",
           "location": {
             "file": "deprecated.h",
-            "line": 450,
+            "line": 470,
             "column": 9
           },
           "value": "GIT_ERROR_NET",
@@ -13458,7 +13466,7 @@
           "name": "GITERR_TAG",
           "location": {
             "file": "deprecated.h",
-            "line": 452,
+            "line": 472,
             "column": 9
           },
           "value": "GIT_ERROR_TAG",
@@ -13470,7 +13478,7 @@
           "name": "GITERR_TREE",
           "location": {
             "file": "deprecated.h",
-            "line": 454,
+            "line": 474,
             "column": 9
           },
           "value": "GIT_ERROR_TREE",
@@ -13482,7 +13490,7 @@
           "name": "GITERR_INDEXER",
           "location": {
             "file": "deprecated.h",
-            "line": 456,
+            "line": 476,
             "column": 9
           },
           "value": "GIT_ERROR_INDEXER",
@@ -13494,7 +13502,7 @@
           "name": "GITERR_SSL",
           "location": {
             "file": "deprecated.h",
-            "line": 458,
+            "line": 478,
             "column": 9
           },
           "value": "GIT_ERROR_SSL",
@@ -13506,7 +13514,7 @@
           "name": "GITERR_SUBMODULE",
           "location": {
             "file": "deprecated.h",
-            "line": 460,
+            "line": 480,
             "column": 9
           },
           "value": "GIT_ERROR_SUBMODULE",
@@ -13518,7 +13526,7 @@
           "name": "GITERR_THREAD",
           "location": {
             "file": "deprecated.h",
-            "line": 462,
+            "line": 482,
             "column": 9
           },
           "value": "GIT_ERROR_THREAD",
@@ -13530,7 +13538,7 @@
           "name": "GITERR_STASH",
           "location": {
             "file": "deprecated.h",
-            "line": 464,
+            "line": 484,
             "column": 9
           },
           "value": "GIT_ERROR_STASH",
@@ -13542,7 +13550,7 @@
           "name": "GITERR_CHECKOUT",
           "location": {
             "file": "deprecated.h",
-            "line": 466,
+            "line": 486,
             "column": 9
           },
           "value": "GIT_ERROR_CHECKOUT",
@@ -13554,7 +13562,7 @@
           "name": "GITERR_FETCHHEAD",
           "location": {
             "file": "deprecated.h",
-            "line": 468,
+            "line": 488,
             "column": 9
           },
           "value": "GIT_ERROR_FETCHHEAD",
@@ -13566,7 +13574,7 @@
           "name": "GITERR_MERGE",
           "location": {
             "file": "deprecated.h",
-            "line": 470,
+            "line": 490,
             "column": 9
           },
           "value": "GIT_ERROR_MERGE",
@@ -13578,7 +13586,7 @@
           "name": "GITERR_SSH",
           "location": {
             "file": "deprecated.h",
-            "line": 472,
+            "line": 492,
             "column": 9
           },
           "value": "GIT_ERROR_SSH",
@@ -13590,7 +13598,7 @@
           "name": "GITERR_FILTER",
           "location": {
             "file": "deprecated.h",
-            "line": 474,
+            "line": 494,
             "column": 9
           },
           "value": "GIT_ERROR_FILTER",
@@ -13602,7 +13610,7 @@
           "name": "GITERR_REVERT",
           "location": {
             "file": "deprecated.h",
-            "line": 476,
+            "line": 496,
             "column": 9
           },
           "value": "GIT_ERROR_REVERT",
@@ -13614,7 +13622,7 @@
           "name": "GITERR_CALLBACK",
           "location": {
             "file": "deprecated.h",
-            "line": 478,
+            "line": 498,
             "column": 9
           },
           "value": "GIT_ERROR_CALLBACK",
@@ -13626,7 +13634,7 @@
           "name": "GITERR_CHERRYPICK",
           "location": {
             "file": "deprecated.h",
-            "line": 480,
+            "line": 500,
             "column": 9
           },
           "value": "GIT_ERROR_CHERRYPICK",
@@ -13638,7 +13646,7 @@
           "name": "GITERR_DESCRIBE",
           "location": {
             "file": "deprecated.h",
-            "line": 482,
+            "line": 502,
             "column": 9
           },
           "value": "GIT_ERROR_DESCRIBE",
@@ -13650,7 +13658,7 @@
           "name": "GITERR_REBASE",
           "location": {
             "file": "deprecated.h",
-            "line": 484,
+            "line": 504,
             "column": 9
           },
           "value": "GIT_ERROR_REBASE",
@@ -13662,7 +13670,7 @@
           "name": "GITERR_FILESYSTEM",
           "location": {
             "file": "deprecated.h",
-            "line": 486,
+            "line": 506,
             "column": 9
           },
           "value": "GIT_ERROR_FILESYSTEM",
@@ -13674,7 +13682,7 @@
           "name": "GITERR_PATCH",
           "location": {
             "file": "deprecated.h",
-            "line": 488,
+            "line": 508,
             "column": 9
           },
           "value": "GIT_ERROR_PATCH",
@@ -13686,7 +13694,7 @@
           "name": "GITERR_WORKTREE",
           "location": {
             "file": "deprecated.h",
-            "line": 490,
+            "line": 510,
             "column": 9
           },
           "value": "GIT_ERROR_WORKTREE",
@@ -13698,7 +13706,7 @@
           "name": "GITERR_SHA1",
           "location": {
             "file": "deprecated.h",
-            "line": 492,
+            "line": 512,
             "column": 9
           },
           "value": "GIT_ERROR_SHA1",
@@ -13710,7 +13718,7 @@
           "name": "GIT_ERROR_SHA1",
           "location": {
             "file": "deprecated.h",
-            "line": 494,
+            "line": 514,
             "column": 9
           },
           "value": "GIT_ERROR_SHA",
@@ -13722,7 +13730,7 @@
           "name": "giterr_last",
           "location": {
             "file": "deprecated.h",
-            "line": 507,
+            "line": 527,
             "column": 31
           },
           "returns": {
@@ -13745,7 +13753,7 @@
           "name": "giterr_clear",
           "location": {
             "file": "deprecated.h",
-            "line": 519,
+            "line": 539,
             "column": 18
           },
           "returns": {
@@ -13768,7 +13776,7 @@
           "name": "giterr_set_str",
           "location": {
             "file": "deprecated.h",
-            "line": 531,
+            "line": 551,
             "column": 18
           },
           "returns": {
@@ -13801,7 +13809,7 @@
           "name": "giterr_set_oom",
           "location": {
             "file": "deprecated.h",
-            "line": 543,
+            "line": 563,
             "column": 18
           },
           "returns": {
@@ -13824,7 +13832,7 @@
           "name": "GIT_IDXENTRY_NAMEMASK",
           "location": {
             "file": "deprecated.h",
-            "line": 560,
+            "line": 580,
             "column": 9
           },
           "value": "GIT_INDEX_ENTRY_NAMEMASK",
@@ -13836,7 +13844,7 @@
           "name": "GIT_IDXENTRY_STAGEMASK",
           "location": {
             "file": "deprecated.h",
-            "line": 562,
+            "line": 582,
             "column": 9
           },
           "value": "GIT_INDEX_ENTRY_STAGEMASK",
@@ -13848,7 +13856,7 @@
           "name": "GIT_IDXENTRY_STAGESHIFT",
           "location": {
             "file": "deprecated.h",
-            "line": 564,
+            "line": 584,
             "column": 9
           },
           "value": "GIT_INDEX_ENTRY_STAGESHIFT",
@@ -13860,7 +13868,7 @@
           "name": "GIT_IDXENTRY_EXTENDED",
           "location": {
             "file": "deprecated.h",
-            "line": 568,
+            "line": 588,
             "column": 9
           },
           "value": "GIT_INDEX_ENTRY_EXTENDED",
@@ -13872,7 +13880,7 @@
           "name": "GIT_IDXENTRY_VALID",
           "location": {
             "file": "deprecated.h",
-            "line": 570,
+            "line": 590,
             "column": 9
           },
           "value": "GIT_INDEX_ENTRY_VALID",
@@ -13884,7 +13892,7 @@
           "name": "GIT_IDXENTRY_STAGE(E)",
           "location": {
             "file": "deprecated.h",
-            "line": 573,
+            "line": 593,
             "column": 9
           },
           "value": "GIT_INDEX_ENTRY_STAGE(E)",
@@ -13896,7 +13904,7 @@
           "name": "GIT_IDXENTRY_STAGE_SET(E,S)",
           "location": {
             "file": "deprecated.h",
-            "line": 575,
+            "line": 595,
             "column": 9
           },
           "value": "GIT_INDEX_ENTRY_STAGE_SET(E,S)",
@@ -13908,7 +13916,7 @@
           "name": "GIT_IDXENTRY_INTENT_TO_ADD",
           "location": {
             "file": "deprecated.h",
-            "line": 579,
+            "line": 599,
             "column": 9
           },
           "value": "GIT_INDEX_ENTRY_INTENT_TO_ADD",
@@ -13920,7 +13928,7 @@
           "name": "GIT_IDXENTRY_SKIP_WORKTREE",
           "location": {
             "file": "deprecated.h",
-            "line": 581,
+            "line": 601,
             "column": 9
           },
           "value": "GIT_INDEX_ENTRY_SKIP_WORKTREE",
@@ -13932,7 +13940,7 @@
           "name": "GIT_IDXENTRY_EXTENDED_FLAGS",
           "location": {
             "file": "deprecated.h",
-            "line": 583,
+            "line": 603,
             "column": 9
           },
           "value": "(GIT_INDEX_ENTRY_INTENT_TO_ADD | GIT_INDEX_ENTRY_SKIP_WORKTREE)",
@@ -13944,7 +13952,7 @@
           "name": "GIT_IDXENTRY_EXTENDED2",
           "location": {
             "file": "deprecated.h",
-            "line": 585,
+            "line": 605,
             "column": 9
           },
           "value": "(1 << 15)",
@@ -13956,7 +13964,7 @@
           "name": "GIT_IDXENTRY_UPDATE",
           "location": {
             "file": "deprecated.h",
-            "line": 587,
+            "line": 607,
             "column": 9
           },
           "value": "(1 << 0)",
@@ -13968,7 +13976,7 @@
           "name": "GIT_IDXENTRY_REMOVE",
           "location": {
             "file": "deprecated.h",
-            "line": 589,
+            "line": 609,
             "column": 9
           },
           "value": "(1 << 1)",
@@ -13980,7 +13988,7 @@
           "name": "GIT_IDXENTRY_UPTODATE",
           "location": {
             "file": "deprecated.h",
-            "line": 591,
+            "line": 611,
             "column": 9
           },
           "value": "(1 << 2)",
@@ -13992,7 +14000,7 @@
           "name": "GIT_IDXENTRY_ADDED",
           "location": {
             "file": "deprecated.h",
-            "line": 593,
+            "line": 613,
             "column": 9
           },
           "value": "(1 << 3)",
@@ -14004,7 +14012,7 @@
           "name": "GIT_IDXENTRY_HASHED",
           "location": {
             "file": "deprecated.h",
-            "line": 595,
+            "line": 615,
             "column": 9
           },
           "value": "(1 << 4)",
@@ -14016,7 +14024,7 @@
           "name": "GIT_IDXENTRY_UNHASHED",
           "location": {
             "file": "deprecated.h",
-            "line": 597,
+            "line": 617,
             "column": 9
           },
           "value": "(1 << 5)",
@@ -14028,7 +14036,7 @@
           "name": "GIT_IDXENTRY_WT_REMOVE",
           "location": {
             "file": "deprecated.h",
-            "line": 599,
+            "line": 619,
             "column": 9
           },
           "value": "(1 << 6)",
@@ -14040,7 +14048,7 @@
           "name": "GIT_IDXENTRY_CONFLICTED",
           "location": {
             "file": "deprecated.h",
-            "line": 601,
+            "line": 621,
             "column": 9
           },
           "value": "(1 << 7)",
@@ -14052,7 +14060,7 @@
           "name": "GIT_IDXENTRY_UNPACKED",
           "location": {
             "file": "deprecated.h",
-            "line": 603,
+            "line": 623,
             "column": 9
           },
           "value": "(1 << 8)",
@@ -14064,7 +14072,7 @@
           "name": "GIT_IDXENTRY_NEW_SKIP_WORKTREE",
           "location": {
             "file": "deprecated.h",
-            "line": 605,
+            "line": 625,
             "column": 9
           },
           "value": "(1 << 9)",
@@ -14076,7 +14084,7 @@
           "name": "GIT_INDEXCAP_IGNORE_CASE",
           "location": {
             "file": "deprecated.h",
-            "line": 609,
+            "line": 629,
             "column": 9
           },
           "value": "GIT_INDEX_CAPABILITY_IGNORE_CASE",
@@ -14088,7 +14096,7 @@
           "name": "GIT_INDEXCAP_NO_FILEMODE",
           "location": {
             "file": "deprecated.h",
-            "line": 611,
+            "line": 631,
             "column": 9
           },
           "value": "GIT_INDEX_CAPABILITY_NO_FILEMODE",
@@ -14100,7 +14108,7 @@
           "name": "GIT_INDEXCAP_NO_SYMLINKS",
           "location": {
             "file": "deprecated.h",
-            "line": 613,
+            "line": 633,
             "column": 9
           },
           "value": "GIT_INDEX_CAPABILITY_NO_SYMLINKS",
@@ -14112,7 +14120,7 @@
           "name": "GIT_INDEXCAP_FROM_OWNER",
           "location": {
             "file": "deprecated.h",
-            "line": 615,
+            "line": 635,
             "column": 9
           },
           "value": "GIT_INDEX_CAPABILITY_FROM_OWNER",
@@ -14124,7 +14132,7 @@
           "name": "git_index_add_frombuffer",
           "location": {
             "file": "deprecated.h",
-            "line": 617,
+            "line": 637,
             "column": 17
           },
           "returns": {
@@ -14155,7 +14163,7 @@
           "name": "git_otype",
           "location": {
             "file": "deprecated.h",
-            "line": 635,
+            "line": 655,
             "column": 9
           },
           "value": "git_object_t",
@@ -14167,7 +14175,7 @@
           "name": "GIT_OBJ_ANY",
           "location": {
             "file": "deprecated.h",
-            "line": 638,
+            "line": 658,
             "column": 9
           },
           "value": "GIT_OBJECT_ANY",
@@ -14179,7 +14187,7 @@
           "name": "GIT_OBJ_BAD",
           "location": {
             "file": "deprecated.h",
-            "line": 640,
+            "line": 660,
             "column": 9
           },
           "value": "GIT_OBJECT_INVALID",
@@ -14191,7 +14199,7 @@
           "name": "GIT_OBJ__EXT1",
           "location": {
             "file": "deprecated.h",
-            "line": 642,
+            "line": 662,
             "column": 9
           },
           "value": "0",
@@ -14203,7 +14211,7 @@
           "name": "GIT_OBJ_COMMIT",
           "location": {
             "file": "deprecated.h",
-            "line": 644,
+            "line": 664,
             "column": 9
           },
           "value": "GIT_OBJECT_COMMIT",
@@ -14215,7 +14223,7 @@
           "name": "GIT_OBJ_TREE",
           "location": {
             "file": "deprecated.h",
-            "line": 646,
+            "line": 666,
             "column": 9
           },
           "value": "GIT_OBJECT_TREE",
@@ -14227,7 +14235,7 @@
           "name": "GIT_OBJ_BLOB",
           "location": {
             "file": "deprecated.h",
-            "line": 648,
+            "line": 668,
             "column": 9
           },
           "value": "GIT_OBJECT_BLOB",
@@ -14239,7 +14247,7 @@
           "name": "GIT_OBJ_TAG",
           "location": {
             "file": "deprecated.h",
-            "line": 650,
+            "line": 670,
             "column": 9
           },
           "value": "GIT_OBJECT_TAG",
@@ -14251,7 +14259,7 @@
           "name": "GIT_OBJ__EXT2",
           "location": {
             "file": "deprecated.h",
-            "line": 652,
+            "line": 672,
             "column": 9
           },
           "value": "5",
@@ -14263,7 +14271,7 @@
           "name": "GIT_OBJ_OFS_DELTA",
           "location": {
             "file": "deprecated.h",
-            "line": 654,
+            "line": 674,
             "column": 9
           },
           "value": "GIT_OBJECT_OFS_DELTA",
@@ -14275,7 +14283,7 @@
           "name": "GIT_OBJ_REF_DELTA",
           "location": {
             "file": "deprecated.h",
-            "line": 656,
+            "line": 676,
             "column": 9
           },
           "value": "GIT_OBJECT_REF_DELTA",
@@ -14287,7 +14295,7 @@
           "name": "git_object__size",
           "location": {
             "file": "deprecated.h",
-            "line": 670,
+            "line": 690,
             "column": 20
           },
           "returns": {
@@ -14314,7 +14322,7 @@
           "name": "git_object_typeisloose",
           "location": {
             "file": "deprecated.h",
-            "line": 680,
+            "line": 700,
             "column": 17
           },
           "returns": {
@@ -14343,7 +14351,7 @@
           "name": "git_odb_hash",
           "location": {
             "file": "deprecated.h",
-            "line": 705,
+            "line": 725,
             "column": 17
           },
           "returns": {
@@ -14390,7 +14398,7 @@
           "name": "git_odb_hashfile",
           "location": {
             "file": "deprecated.h",
-            "line": 727,
+            "line": 747,
             "column": 17
           },
           "returns": {
@@ -14431,7 +14439,7 @@
           "name": "git_remote_is_valid_name",
           "location": {
             "file": "deprecated.h",
-            "line": 751,
+            "line": 771,
             "column": 17
           },
           "returns": {
@@ -14459,7 +14467,7 @@
           "name": "git_ref_t",
           "location": {
             "file": "deprecated.h",
-            "line": 768,
+            "line": 788,
             "column": 9
           },
           "value": "git_reference_t",
@@ -14471,7 +14479,7 @@
           "name": "git_reference_normalize_t",
           "location": {
             "file": "deprecated.h",
-            "line": 770,
+            "line": 790,
             "column": 9
           },
           "value": "git_reference_format_t",
@@ -14483,7 +14491,7 @@
           "name": "GIT_REF_INVALID",
           "location": {
             "file": "deprecated.h",
-            "line": 773,
+            "line": 793,
             "column": 9
           },
           "value": "GIT_REFERENCE_INVALID",
@@ -14495,7 +14503,7 @@
           "name": "GIT_REF_OID",
           "location": {
             "file": "deprecated.h",
-            "line": 775,
+            "line": 795,
             "column": 9
           },
           "value": "GIT_REFERENCE_DIRECT",
@@ -14507,7 +14515,7 @@
           "name": "GIT_REF_SYMBOLIC",
           "location": {
             "file": "deprecated.h",
-            "line": 777,
+            "line": 797,
             "column": 9
           },
           "value": "GIT_REFERENCE_SYMBOLIC",
@@ -14519,7 +14527,7 @@
           "name": "GIT_REF_LISTALL",
           "location": {
             "file": "deprecated.h",
-            "line": 779,
+            "line": 799,
             "column": 9
           },
           "value": "GIT_REFERENCE_ALL",
@@ -14531,7 +14539,7 @@
           "name": "GIT_REF_FORMAT_NORMAL",
           "location": {
             "file": "deprecated.h",
-            "line": 782,
+            "line": 802,
             "column": 9
           },
           "value": "GIT_REFERENCE_FORMAT_NORMAL",
@@ -14543,7 +14551,7 @@
           "name": "GIT_REF_FORMAT_ALLOW_ONELEVEL",
           "location": {
             "file": "deprecated.h",
-            "line": 784,
+            "line": 804,
             "column": 9
           },
           "value": "GIT_REFERENCE_FORMAT_ALLOW_ONELEVEL",
@@ -14555,7 +14563,7 @@
           "name": "GIT_REF_FORMAT_REFSPEC_PATTERN",
           "location": {
             "file": "deprecated.h",
-            "line": 786,
+            "line": 806,
             "column": 9
           },
           "value": "GIT_REFERENCE_FORMAT_REFSPEC_PATTERN",
@@ -14567,7 +14575,7 @@
           "name": "GIT_REF_FORMAT_REFSPEC_SHORTHAND",
           "location": {
             "file": "deprecated.h",
-            "line": 788,
+            "line": 808,
             "column": 9
           },
           "value": "GIT_REFERENCE_FORMAT_REFSPEC_SHORTHAND",
@@ -14579,7 +14587,7 @@
           "name": "git_reference_is_valid_name",
           "location": {
             "file": "deprecated.h",
-            "line": 805,
+            "line": 825,
             "column": 17
           },
           "returns": {
@@ -14609,7 +14617,7 @@
           "name": "git_tag_create_frombuffer",
           "location": {
             "file": "deprecated.h",
-            "line": 807,
+            "line": 827,
             "column": 17
           },
           "returns": {
@@ -14640,7 +14648,7 @@
           "name": "GIT_REPOSITORY_INIT_NO_DOTGIT_DIR",
           "location": {
             "file": "deprecated.h",
-            "line": 824,
+            "line": 844,
             "column": 9
           },
           "value": "0",
@@ -14659,7 +14667,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 837,
+            "line": 857,
             "column": 23
           },
           "typedef": true,
@@ -14670,7 +14678,7 @@
           "name": "GIT_REVPARSE_SINGLE",
           "location": {
             "file": "deprecated.h",
-            "line": 840,
+            "line": 860,
             "column": 9
           },
           "value": "GIT_REVSPEC_SINGLE",
@@ -14682,7 +14690,7 @@
           "name": "GIT_REVPARSE_RANGE",
           "location": {
             "file": "deprecated.h",
-            "line": 842,
+            "line": 862,
             "column": 9
           },
           "value": "GIT_REVSPEC_RANGE",
@@ -14694,7 +14702,7 @@
           "name": "GIT_REVPARSE_MERGE_BASE",
           "location": {
             "file": "deprecated.h",
-            "line": 844,
+            "line": 864,
             "column": 9
           },
           "value": "GIT_REVSPEC_MERGE_BASE",
@@ -14713,7 +14721,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 858,
+            "line": 878,
             "column": 24
           },
           "typedef": true,
@@ -14725,7 +14733,7 @@
           "type": "git_credential_userpass_plaintext",
           "location": {
             "file": "deprecated.h",
-            "line": 859,
+            "line": 879,
             "column": 43
           },
           "typedef": true,
@@ -14737,7 +14745,7 @@
           "type": "git_credential_username",
           "location": {
             "file": "deprecated.h",
-            "line": 860,
+            "line": 880,
             "column": 33
           },
           "typedef": true,
@@ -14749,7 +14757,7 @@
           "type": "git_credential_default",
           "location": {
             "file": "deprecated.h",
-            "line": 861,
+            "line": 881,
             "column": 32
           },
           "typedef": true,
@@ -14761,7 +14769,7 @@
           "type": "git_credential_ssh_key",
           "location": {
             "file": "deprecated.h",
-            "line": 862,
+            "line": 882,
             "column": 32
           },
           "typedef": true,
@@ -14773,7 +14781,7 @@
           "type": "git_credential_ssh_interactive",
           "location": {
             "file": "deprecated.h",
-            "line": 863,
+            "line": 883,
             "column": 40
           },
           "typedef": true,
@@ -14785,7 +14793,7 @@
           "type": "git_credential_ssh_custom",
           "location": {
             "file": "deprecated.h",
-            "line": 864,
+            "line": 884,
             "column": 35
           },
           "typedef": true,
@@ -14797,7 +14805,7 @@
           "type": "git_credential_acquire_cb",
           "location": {
             "file": "deprecated.h",
-            "line": 866,
+            "line": 886,
             "column": 35
           },
           "typedef": true,
@@ -14809,7 +14817,7 @@
           "type": "git_credential_sign_cb",
           "location": {
             "file": "deprecated.h",
-            "line": 867,
+            "line": 887,
             "column": 32
           },
           "typedef": true,
@@ -14821,7 +14829,7 @@
           "type": "git_credential_sign_cb",
           "location": {
             "file": "deprecated.h",
-            "line": 868,
+            "line": 888,
             "column": 32
           },
           "typedef": true,
@@ -14833,7 +14841,7 @@
           "type": "git_credential_ssh_interactive_cb",
           "location": {
             "file": "deprecated.h",
-            "line": 869,
+            "line": 889,
             "column": 43
           },
           "typedef": true,
@@ -14845,7 +14853,7 @@
           "type": "git_credential_ssh_interactive_cb",
           "location": {
             "file": "deprecated.h",
-            "line": 870,
+            "line": 890,
             "column": 43
           },
           "typedef": true,
@@ -14856,7 +14864,7 @@
           "name": "git_credtype_t",
           "location": {
             "file": "deprecated.h",
-            "line": 873,
+            "line": 893,
             "column": 9
           },
           "value": "git_credential_t",
@@ -14868,7 +14876,7 @@
           "name": "GIT_CREDTYPE_USERPASS_PLAINTEXT",
           "location": {
             "file": "deprecated.h",
-            "line": 876,
+            "line": 896,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_USERPASS_PLAINTEXT",
@@ -14880,7 +14888,7 @@
           "name": "GIT_CREDTYPE_SSH_KEY",
           "location": {
             "file": "deprecated.h",
-            "line": 878,
+            "line": 898,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_SSH_KEY",
@@ -14892,7 +14900,7 @@
           "name": "GIT_CREDTYPE_SSH_CUSTOM",
           "location": {
             "file": "deprecated.h",
-            "line": 880,
+            "line": 900,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_SSH_CUSTOM",
@@ -14904,7 +14912,7 @@
           "name": "GIT_CREDTYPE_DEFAULT",
           "location": {
             "file": "deprecated.h",
-            "line": 882,
+            "line": 902,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_DEFAULT",
@@ -14916,7 +14924,7 @@
           "name": "GIT_CREDTYPE_SSH_INTERACTIVE",
           "location": {
             "file": "deprecated.h",
-            "line": 884,
+            "line": 904,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_SSH_INTERACTIVE",
@@ -14928,7 +14936,7 @@
           "name": "GIT_CREDTYPE_USERNAME",
           "location": {
             "file": "deprecated.h",
-            "line": 886,
+            "line": 906,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_USERNAME",
@@ -14940,7 +14948,7 @@
           "name": "GIT_CREDTYPE_SSH_MEMORY",
           "location": {
             "file": "deprecated.h",
-            "line": 888,
+            "line": 908,
             "column": 9
           },
           "value": "GIT_CREDENTIAL_SSH_MEMORY",
@@ -14952,7 +14960,7 @@
           "name": "git_cred_free",
           "location": {
             "file": "deprecated.h",
-            "line": 890,
+            "line": 910,
             "column": 18
           },
           "returns": {
@@ -14971,7 +14979,7 @@
           "name": "git_cred_has_username",
           "location": {
             "file": "deprecated.h",
-            "line": 891,
+            "line": 911,
             "column": 17
           },
           "returns": {
@@ -14990,7 +14998,7 @@
           "name": "git_cred_get_username",
           "location": {
             "file": "deprecated.h",
-            "line": 892,
+            "line": 912,
             "column": 26
           },
           "returns": {
@@ -15009,7 +15017,7 @@
           "name": "git_cred_userpass_plaintext_new",
           "location": {
             "file": "deprecated.h",
-            "line": 893,
+            "line": 913,
             "column": 17
           },
           "returns": {
@@ -15036,7 +15044,7 @@
           "name": "git_cred_default_new",
           "location": {
             "file": "deprecated.h",
-            "line": 897,
+            "line": 917,
             "column": 17
           },
           "returns": {
@@ -15055,7 +15063,7 @@
           "name": "git_cred_username_new",
           "location": {
             "file": "deprecated.h",
-            "line": 898,
+            "line": 918,
             "column": 17
           },
           "returns": {
@@ -15078,7 +15086,7 @@
           "name": "git_cred_ssh_key_new",
           "location": {
             "file": "deprecated.h",
-            "line": 899,
+            "line": 919,
             "column": 17
           },
           "returns": {
@@ -15113,7 +15121,7 @@
           "name": "git_cred_ssh_key_memory_new",
           "location": {
             "file": "deprecated.h",
-            "line": 905,
+            "line": 925,
             "column": 17
           },
           "returns": {
@@ -15148,7 +15156,7 @@
           "name": "git_cred_ssh_interactive_new",
           "location": {
             "file": "deprecated.h",
-            "line": 911,
+            "line": 931,
             "column": 17
           },
           "returns": {
@@ -15180,7 +15188,7 @@
           "name": "git_cred_ssh_key_from_agent",
           "location": {
             "file": "deprecated.h",
-            "line": 916,
+            "line": 936,
             "column": 17
           },
           "returns": {
@@ -15203,7 +15211,7 @@
           "name": "git_cred_ssh_custom_new",
           "location": {
             "file": "deprecated.h",
-            "line": 919,
+            "line": 939,
             "column": 17
           },
           "returns": {
@@ -15244,7 +15252,7 @@
           "type": "git_credential_userpass_payload",
           "location": {
             "file": "deprecated.h",
-            "line": 929,
+            "line": 949,
             "column": 41
           },
           "typedef": true,
@@ -15255,7 +15263,7 @@
           "name": "git_cred_userpass",
           "location": {
             "file": "deprecated.h",
-            "line": 931,
+            "line": 951,
             "column": 17
           },
           "returns": {
@@ -15297,7 +15305,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 950,
+            "line": 970,
             "column": 22
           },
           "typedef": true,
@@ -15308,7 +15316,7 @@
           "name": "GIT_OID_RAWSZ",
           "location": {
             "file": "deprecated.h",
-            "line": 966,
+            "line": 986,
             "column": 10
           },
           "value": "GIT_OID_SHA1_SIZE",
@@ -15320,7 +15328,7 @@
           "name": "GIT_OID_HEXSZ",
           "location": {
             "file": "deprecated.h",
-            "line": 968,
+            "line": 988,
             "column": 10
           },
           "value": "GIT_OID_SHA1_HEXSIZE",
@@ -15332,7 +15340,7 @@
           "name": "GIT_OID_HEX_ZERO",
           "location": {
             "file": "deprecated.h",
-            "line": 970,
+            "line": 990,
             "column": 10
           },
           "value": "GIT_OID_SHA1_HEXZERO",
@@ -15344,7 +15352,7 @@
           "name": "git_oid_iszero",
           "location": {
             "file": "deprecated.h",
-            "line": 973,
+            "line": 993,
             "column": 17
           },
           "returns": {
@@ -15363,7 +15371,7 @@
           "name": "git_oidarray_free",
           "location": {
             "file": "deprecated.h",
-            "line": 997,
+            "line": 1017,
             "column": 18
           },
           "returns": {
@@ -15397,7 +15405,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 1018,
+            "line": 1038,
             "column": 30
           },
           "typedef": true,
@@ -15413,7 +15421,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 1026,
+            "line": 1046,
             "column": 33
           },
           "typedef": true,
@@ -15429,7 +15437,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 1034,
+            "line": 1054,
             "column": 39
           },
           "typedef": true,
@@ -15440,7 +15448,7 @@
           "name": "git_remote_completion_type",
           "location": {
             "file": "deprecated.h",
-            "line": 1037,
+            "line": 1057,
             "column": 9
           },
           "value": "git_remote_completion_t",
@@ -15456,7 +15464,7 @@
           ],
           "location": {
             "file": "deprecated.h",
-            "line": 1042,
+            "line": 1062,
             "column": 26
           },
           "params": [
@@ -15475,7 +15483,7 @@
           "name": "git_strarray_copy",
           "location": {
             "file": "deprecated.h",
-            "line": 1066,
+            "line": 1086,
             "column": 17
           },
           "returns": {
@@ -15507,7 +15515,7 @@
           "name": "git_strarray_free",
           "location": {
             "file": "deprecated.h",
-            "line": 1078,
+            "line": 1098,
             "column": 18
           },
           "returns": {
@@ -15536,7 +15544,7 @@
           "name": "LIBGIT2_VER_MAJOR",
           "location": {
             "file": "deprecated.h",
-            "line": 1092,
+            "line": 1112,
             "column": 9
           },
           "value": "LIBGIT2_VERSION_MAJOR",
@@ -15548,7 +15556,7 @@
           "name": "LIBGIT2_VER_MINOR",
           "location": {
             "file": "deprecated.h",
-            "line": 1093,
+            "line": 1113,
             "column": 9
           },
           "value": "LIBGIT2_VERSION_MINOR",
@@ -15560,7 +15568,7 @@
           "name": "LIBGIT2_VER_REVISION",
           "location": {
             "file": "deprecated.h",
-            "line": 1094,
+            "line": 1114,
             "column": 9
           },
           "value": "LIBGIT2_VERSION_REVISION",
@@ -15572,7 +15580,7 @@
           "name": "LIBGIT2_VER_PATCH",
           "location": {
             "file": "deprecated.h",
-            "line": 1095,
+            "line": 1115,
             "column": 9
           },
           "value": "LIBGIT2_VERSION_PATCH",
@@ -15584,7 +15592,7 @@
           "name": "LIBGIT2_VER_PRERELEASE",
           "location": {
             "file": "deprecated.h",
-            "line": 1096,
+            "line": 1116,
             "column": 9
           },
           "value": "LIBGIT2_VERSION_PRERELEASE",
@@ -15596,7 +15604,7 @@
           "name": "git_blame_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1110,
+            "line": 1130,
             "column": 17
           },
           "returns": {
@@ -15625,7 +15633,7 @@
           "name": "git_checkout_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1111,
+            "line": 1131,
             "column": 17
           },
           "returns": {
@@ -15648,7 +15656,7 @@
           "name": "git_cherrypick_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1112,
+            "line": 1132,
             "column": 17
           },
           "returns": {
@@ -15671,7 +15679,7 @@
           "name": "git_clone_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1113,
+            "line": 1133,
             "column": 17
           },
           "returns": {
@@ -15694,7 +15702,7 @@
           "name": "git_describe_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1114,
+            "line": 1134,
             "column": 17
           },
           "returns": {
@@ -15717,7 +15725,7 @@
           "name": "git_describe_init_format_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1115,
+            "line": 1135,
             "column": 17
           },
           "returns": {
@@ -15740,7 +15748,7 @@
           "name": "git_diff_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1116,
+            "line": 1136,
             "column": 17
           },
           "returns": {
@@ -15763,7 +15771,7 @@
           "name": "git_diff_find_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1117,
+            "line": 1137,
             "column": 17
           },
           "returns": {
@@ -15786,7 +15794,7 @@
           "name": "git_diff_format_email_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1118,
+            "line": 1138,
             "column": 17
           },
           "returns": {
@@ -15809,7 +15817,7 @@
           "name": "git_diff_patchid_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1119,
+            "line": 1139,
             "column": 17
           },
           "returns": {
@@ -15832,7 +15840,7 @@
           "name": "git_fetch_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1120,
+            "line": 1140,
             "column": 17
           },
           "returns": {
@@ -15855,7 +15863,7 @@
           "name": "git_indexer_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1121,
+            "line": 1141,
             "column": 17
           },
           "returns": {
@@ -15878,7 +15886,7 @@
           "name": "git_merge_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1122,
+            "line": 1142,
             "column": 17
           },
           "returns": {
@@ -15901,7 +15909,7 @@
           "name": "git_merge_file_init_input",
           "location": {
             "file": "deprecated.h",
-            "line": 1123,
+            "line": 1143,
             "column": 17
           },
           "returns": {
@@ -15924,7 +15932,7 @@
           "name": "git_merge_file_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1124,
+            "line": 1144,
             "column": 17
           },
           "returns": {
@@ -15947,7 +15955,7 @@
           "name": "git_proxy_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1125,
+            "line": 1145,
             "column": 17
           },
           "returns": {
@@ -15970,7 +15978,7 @@
           "name": "git_push_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1126,
+            "line": 1146,
             "column": 17
           },
           "returns": {
@@ -15993,7 +16001,7 @@
           "name": "git_rebase_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1127,
+            "line": 1147,
             "column": 17
           },
           "returns": {
@@ -16016,7 +16024,7 @@
           "name": "git_remote_create_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1128,
+            "line": 1148,
             "column": 17
           },
           "returns": {
@@ -16039,7 +16047,7 @@
           "name": "git_repository_init_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1129,
+            "line": 1149,
             "column": 17
           },
           "returns": {
@@ -16062,7 +16070,7 @@
           "name": "git_revert_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1130,
+            "line": 1150,
             "column": 17
           },
           "returns": {
@@ -16085,7 +16093,7 @@
           "name": "git_stash_apply_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1131,
+            "line": 1151,
             "column": 17
           },
           "returns": {
@@ -16108,7 +16116,7 @@
           "name": "git_status_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1132,
+            "line": 1152,
             "column": 17
           },
           "returns": {
@@ -16131,7 +16139,7 @@
           "name": "git_submodule_update_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1133,
+            "line": 1153,
             "column": 17
           },
           "returns": {
@@ -16154,7 +16162,7 @@
           "name": "git_worktree_add_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1134,
+            "line": 1154,
             "column": 17
           },
           "returns": {
@@ -16177,7 +16185,7 @@
           "name": "git_worktree_prune_init_options",
           "location": {
             "file": "deprecated.h",
-            "line": 1135,
+            "line": 1155,
             "column": 17
           },
           "returns": {
