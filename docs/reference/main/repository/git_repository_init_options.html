@@ -162,6 +162,7 @@ additional initialization features.</p>
 <span class="apiSignatureMember structSignatureMember">const char *template_path</span>
 <span class="apiSignatureMember structSignatureMember">const char *initial_head</span>
 <span class="apiSignatureMember structSignatureMember">const char *origin_url</span>
+<span class="apiSignatureMember structSignatureMember">git_oid_t oid_type</span>
 <span class="apiSignatureMember structSignatureMember">git_refdb_t refdb_type</span>
           };
         </div>
@@ -254,6 +255,17 @@ additional initialization features.</p>
             </div>
             <div class="apiMemberDescription structMemberDescription">
               <p>If this is non-NULL, then after the rest of the repository initialization is completed, an &quot;origin&quot; remote will be added pointing to this URL.</p> 
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              <a href="/docs/reference/main/oid/git_oid_t.html" class="apiLink enumLink">git_oid_t</a>
+            </div>
+            <div class="apiMemberName structMemberName">
+              oid_type
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>Type of object IDs to use for this repository, or 0 for default (currently SHA1).</p> 
             </div>
           </div>
           <div class="apiMember structMember">

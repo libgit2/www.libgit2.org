@@ -91,6 +91,9 @@ layout: default
         <div class="apiSignature structSignature">
           typedef struct git_indexer_options {
 <span class="apiSignatureMember structSignatureMember">unsigned int version</span>
+<span class="apiSignatureMember structSignatureMember">unsigned int mode</span>
+<span class="apiSignatureMember structSignatureMember">git_oid_t oid_type</span>
+<span class="apiSignatureMember structSignatureMember">git_odb *odb</span>
 <span class="apiSignatureMember structSignatureMember">git_indexer_progress_cb progress_cb</span>
 <span class="apiSignatureMember structSignatureMember">void *progress_cb_payload</span>
 <span class="apiSignatureMember structSignatureMember">unsigned char verify</span>
@@ -108,6 +111,39 @@ layout: default
             </div>
             <div class="apiMemberDescription structMemberDescription">
               
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              unsigned int
+            </div>
+            <div class="apiMemberName structMemberName">
+              mode
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>permissions to use creating packfile or 0 for defaults</p> 
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              <a href="/docs/reference/main/oid/git_oid_t.html" class="apiLink enumLink">git_oid_t</a>
+            </div>
+            <div class="apiMemberName structMemberName">
+              oid_type
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>the type of object ids in the packfile or 0 for SHA1</p> 
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              <a href="/docs/reference/main/odb/git_odb.html" class="apiLink objectLink">git_odb *</a>
+            </div>
+            <div class="apiMemberName structMemberName">
+              odb
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>object database from which to read base objects when fixing thin packs. This can be NULL if there are no thin packs; if a thin pack is encountered, an error will be returned if there are bases missing.</p> 
             </div>
           </div>
           <div class="apiMember structMember">
@@ -162,7 +198,7 @@ layout: default
         <h3 class="apiVersionsHeader structVersionsHeader">Versions</h3>
         <div class="apiVersions structVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged structVersionDeltaChanged">
             <a href="/docs/reference/main/indexer/git_indexer_options.html" class="apiVersionLink structVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">

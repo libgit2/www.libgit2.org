@@ -84,20 +84,20 @@ is not valid.</p>
 
         <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
         <div class="apiSignatureLink functionSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/object.h#L359" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/object.h#L335" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature functionSignature">
-          int git_object_rawcontent_is_valid(<span class="apiSignatureParameter functionSignatureParameter">int *valid</span>, <span class="apiSignatureParameter functionSignatureParameter">const char *buf</span>, <span class="apiSignatureParameter functionSignatureParameter">size_t len</span>, <span class="apiSignatureParameter functionSignatureParameter">git_object_t object_type</span>);
+          int git_object_rawcontent_is_valid(<span class="apiSignatureParameter functionSignatureParameter">int *valid</span>, <span class="apiSignatureParameter functionSignatureParameter">const char *buf</span>, <span class="apiSignatureParameter functionSignatureParameter">size_t len</span>, <span class="apiSignatureParameter functionSignatureParameter">git_object_t object_type</span>, <span class="apiSignatureParameter functionSignatureParameter">git_oid_t oid_type</span>);
         </div>
 
         <h3 class="apiParametersHeader functionParametersHeader">Parameters</h3>
         <div class="apiParameters functionParameters">
-          <div class="apiParameter functionParameter apiParameterOut functionParameterOut">
+          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
             <div class="apiParameterType functionParameterType">
               int *
             </div>
-            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionOut functionParameterDirectionOut">
-              Out
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
+              In
             </div>
             <div class="apiParameterName functionParameterName">
               valid
@@ -148,6 +148,20 @@ is not valid.</p>
               <p>The type of the object in the buffer</p> 
             </div>
           </div>
+          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+            <div class="apiParameterType functionParameterType">
+              <a href="/docs/reference/main/oid/git_oid_t.html" class="apiLink enumLink">git_oid_t</a>
+            </div>
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
+              In
+            </div>
+            <div class="apiParameterName functionParameterName">
+              oid_type
+            </div>
+            <div class="apiParameterDescription functionParameterDescription">
+              <p>The object ID type for the OIDs in the given buffer</p> 
+            </div>
+          </div>
         </div>
 
         <h3 class="apiReturnHeader functionReturnHeader">Returns</h3>
@@ -162,7 +176,7 @@ is not valid.</p>
         <h3 class="apiVersionsHeader functionVersionsHeader">Versions</h3>
         <div class="apiVersions functionVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged functionVersionDeltaChanged">
             <a href="/docs/reference/main/object/git_object_rawcontent_is_valid.html" class="apiVersionLink functionVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">

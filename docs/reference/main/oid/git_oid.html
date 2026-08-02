@@ -158,11 +158,12 @@ layout: default
 
         <h3 class="apiSignatureHeader structSignatureHeader">Signature</h3>
         <div class="apiSignatureLink structSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/oid.h#L103" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/oid.h#L81" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature structSignature">
           typedef struct git_oid {
-<span class="apiSignatureMember structSignatureMember">unsigned char[20] id</span>
+<span class="apiSignatureMember structSignatureMember">unsigned char type</span>
+<span class="apiSignatureMember structSignatureMember">unsigned char[32] id</span>
           };
         </div>
 
@@ -170,7 +171,18 @@ layout: default
         <div class="apiMembers structMembers">
           <div class="apiMember structMember">
             <div class="apiMemberType structMemberType">
-              unsigned char[20]
+              unsigned char
+            </div>
+            <div class="apiMemberName structMemberName">
+              type
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>type of object id</p> 
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              unsigned char[32]
             </div>
             <div class="apiMemberName structMemberName">
               id
@@ -458,6 +470,15 @@ layout: default
             <a href="/docs/reference/main/odb/git_odb_open_rstream.html" className="apiLink functionLink">git_odb_open_rstream</a>
           </li>
           <li>
+            <a href="/docs/reference/main/oid/git_oid_from_string.html" className="apiLink functionLink">git_oid_from_string</a>
+          </li>
+          <li>
+            <a href="/docs/reference/main/oid/git_oid_from_prefix.html" className="apiLink functionLink">git_oid_from_prefix</a>
+          </li>
+          <li>
+            <a href="/docs/reference/main/oid/git_oid_from_raw.html" className="apiLink functionLink">git_oid_from_raw</a>
+          </li>
+          <li>
             <a href="/docs/reference/main/oid/git_oid_fromstr.html" className="apiLink functionLink">git_oid_fromstr</a>
           </li>
           <li>
@@ -630,7 +651,7 @@ layout: default
         <h3 class="apiVersionsHeader structVersionsHeader">Versions</h3>
         <div class="apiVersions structVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged structVersionDeltaChanged">
             <a href="/docs/reference/main/oid/git_oid.html" class="apiVersionLink structVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">

@@ -52,6 +52,7 @@ you can use <a href="/docs/reference/main/sys/midx/git_midx_writer_options_init.
         <div class="apiSignature structSignature">
           typedef struct git_midx_writer_options {
 <span class="apiSignatureMember structSignatureMember">unsigned int version</span>
+<span class="apiSignatureMember structSignatureMember">git_oid_t oid_type</span>
           };
         </div>
 
@@ -68,6 +69,17 @@ you can use <a href="/docs/reference/main/sys/midx/git_midx_writer_options_init.
               
             </div>
           </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              <a href="/docs/reference/main/oid/git_oid_t.html" class="apiLink enumLink">git_oid_t</a>
+            </div>
+            <div class="apiMemberName structMemberName">
+              oid_type
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>The object ID type that this commit graph contains.</p> 
+            </div>
+          </div>
         </div>
 
         <h3 class="apiParameterToHeader structParameterToHeader">Parameter To</h3>
@@ -76,12 +88,15 @@ you can use <a href="/docs/reference/main/sys/midx/git_midx_writer_options_init.
           <li>
             <a href="/docs/reference/main/sys/midx/git_midx_writer_options_init.html" className="apiLink functionLink">git_midx_writer_options_init</a>
           </li>
+          <li>
+            <a href="/docs/reference/main/sys/midx/git_midx_writer_new.html" className="apiLink functionLink">git_midx_writer_new</a>
+          </li>
           </ul>
         </div>
         <h3 class="apiVersionsHeader structVersionsHeader">Versions</h3>
         <div class="apiVersions structVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged structVersionDeltaChanged">
             <a href="/docs/reference/main/sys/midx/git_midx_writer_options.html" class="apiVersionLink structVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">

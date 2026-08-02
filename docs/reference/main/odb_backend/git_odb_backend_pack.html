@@ -156,10 +156,10 @@ layout: default
 
         <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
         <div class="apiSignatureLink functionSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/odb_backend.h#L186" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/odb_backend.h#L143" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature functionSignature">
-          int git_odb_backend_pack(<span class="apiSignatureParameter functionSignatureParameter">git_odb_backend **out</span>, <span class="apiSignatureParameter functionSignatureParameter">const char *objects_dir</span>);
+          int git_odb_backend_pack(<span class="apiSignatureParameter functionSignatureParameter">git_odb_backend **out</span>, <span class="apiSignatureParameter functionSignatureParameter">const char *objects_dir</span>, <span class="apiSignatureParameter functionSignatureParameter">const git_odb_backend_pack_options *opts</span>);
         </div>
 
         <h3 class="apiParametersHeader functionParametersHeader">Parameters</h3>
@@ -192,6 +192,20 @@ layout: default
               <p>the Git repository's objects directory</p> 
             </div>
           </div>
+          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+            <div class="apiParameterType functionParameterType">
+              <a href="/docs/reference/main/odb_backend/git_odb_backend_pack_options.html" class="apiLink structLink">const git_odb_backend_pack_options *</a>
+            </div>
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
+              In
+            </div>
+            <div class="apiParameterName functionParameterName">
+              opts
+            </div>
+            <div class="apiParameterDescription functionParameterDescription">
+              <p>the options to use when creating the pack backend</p> 
+            </div>
+          </div>
         </div>
 
         <h3 class="apiReturnHeader functionReturnHeader">Returns</h3>
@@ -206,7 +220,7 @@ layout: default
         <h3 class="apiVersionsHeader functionVersionsHeader">Versions</h3>
         <div class="apiVersions functionVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged functionVersionDeltaChanged">
             <a href="/docs/reference/main/odb_backend/git_odb_backend_pack.html" class="apiVersionLink functionVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">

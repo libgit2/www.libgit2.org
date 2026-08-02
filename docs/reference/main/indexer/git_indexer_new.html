@@ -148,20 +148,20 @@ layout: default
 
         <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
         <div class="apiSignatureLink functionSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/indexer.h#L151" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/indexer.h#L130" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature functionSignature">
-          int git_indexer_new(<span class="apiSignatureParameter functionSignatureParameter">git_indexer **out</span>, <span class="apiSignatureParameter functionSignatureParameter">const char *path</span>, <span class="apiSignatureParameter functionSignatureParameter">unsigned int mode</span>, <span class="apiSignatureParameter functionSignatureParameter">git_odb *odb</span>, <span class="apiSignatureParameter functionSignatureParameter">git_indexer_options *opts</span>);
+          int git_indexer_new(<span class="apiSignatureParameter functionSignatureParameter">git_indexer **out</span>, <span class="apiSignatureParameter functionSignatureParameter">const char *path</span>, <span class="apiSignatureParameter functionSignatureParameter">git_indexer_options *opts</span>);
         </div>
 
         <h3 class="apiParametersHeader functionParametersHeader">Parameters</h3>
         <div class="apiParameters functionParameters">
-          <div class="apiParameter functionParameter apiParameterOut functionParameterOut">
+          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
             <div class="apiParameterType functionParameterType">
               <a href="/docs/reference/main/indexer/git_indexer.html" class="apiLink objectLink">git_indexer **</a>
             </div>
-            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionOut functionParameterDirectionOut">
-              Out
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
+              In
             </div>
             <div class="apiParameterName functionParameterName">
               out
@@ -186,34 +186,6 @@ layout: default
           </div>
           <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
             <div class="apiParameterType functionParameterType">
-              unsigned int
-            </div>
-            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
-              In
-            </div>
-            <div class="apiParameterName functionParameterName">
-              mode
-            </div>
-            <div class="apiParameterDescription functionParameterDescription">
-              <p>permissions to use creating packfile or 0 for defaults</p> 
-            </div>
-          </div>
-          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
-            <div class="apiParameterType functionParameterType">
-              <a href="/docs/reference/main/odb/git_odb.html" class="apiLink objectLink">git_odb *</a>
-            </div>
-            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
-              In
-            </div>
-            <div class="apiParameterName functionParameterName">
-              odb
-            </div>
-            <div class="apiParameterDescription functionParameterDescription">
-              <p>object database from which to read base objects when fixing thin packs. Pass NULL if no thin pack is expected (an error will be returned if there are bases missing)</p> 
-            </div>
-          </div>
-          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
-            <div class="apiParameterType functionParameterType">
               <a href="/docs/reference/main/indexer/git_indexer_options.html" class="apiLink structLink">git_indexer_options *</a>
             </div>
             <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
@@ -223,7 +195,7 @@ layout: default
               opts
             </div>
             <div class="apiParameterDescription functionParameterDescription">
-              <p>Optional structure containing additional options. See <a href="/docs/reference/main/indexer/git_indexer_options.html" class="apiLink structLink"><code><span class="codeWord">git_indexer_options</span></code></a> above.</p> 
+              <p>the options to create the indexer with</p> 
             </div>
           </div>
         </div>
@@ -240,7 +212,7 @@ layout: default
         <h3 class="apiVersionsHeader functionVersionsHeader">Versions</h3>
         <div class="apiVersions functionVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged functionVersionDeltaChanged">
             <a href="/docs/reference/main/indexer/git_indexer_new.html" class="apiVersionLink functionVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged functionVersionDeltaUnchanged">

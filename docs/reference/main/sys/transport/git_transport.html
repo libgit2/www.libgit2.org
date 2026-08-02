@@ -152,6 +152,7 @@ layout: default
 <span class="apiSignatureMember structSignatureMember">int (*)(git_transport *, const char *, int, const git_remote_connect_options *) connect</span>
 <span class="apiSignatureMember structSignatureMember">int (*)(git_transport *, const git_remote_connect_options *) set_connect_opts</span>
 <span class="apiSignatureMember structSignatureMember">int (*)(unsigned int *, git_transport *) capabilities</span>
+<span class="apiSignatureMember structSignatureMember">int (*)(git_oid_t *, git_transport *) oid_type</span>
 <span class="apiSignatureMember structSignatureMember">int (*)(const git_remote_head ***, size_t *, git_transport *) ls</span>
 <span class="apiSignatureMember structSignatureMember">int (*)(git_transport *, git_push *) push</span>
 <span class="apiSignatureMember structSignatureMember">int (*)(git_transport *, git_repository *, const git_fetch_negotiation *) negotiate_fetch</span>
@@ -208,6 +209,17 @@ layout: default
             </div>
             <div class="apiMemberDescription structMemberDescription">
               <p>Gets the capabilities for this remote repository.</p>  <p>This function may be called after a successful call to <code><span class="codeWord">connect()</span></code>.</p> 
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              int (*)(git_oid_t *, git_transport *)
+            </div>
+            <div class="apiMemberName structMemberName">
+              oid_type
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>Gets the object type for the remote repository.</p>  <p>This function may be called after a successful call to <code><span class="codeWord">connect()</span></code>.</p> 
             </div>
           </div>
           <div class="apiMember structMember">
@@ -367,7 +379,7 @@ layout: default
         <h3 class="apiVersionsHeader structVersionsHeader">Versions</h3>
         <div class="apiVersions structVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged structVersionDeltaChanged">
             <a href="/docs/reference/main/sys/transport/git_transport.html" class="apiVersionLink structVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">

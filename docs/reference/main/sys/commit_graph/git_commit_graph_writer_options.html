@@ -77,11 +77,12 @@ you can use <a href="/docs/reference/main/sys/commit_graph/git_commit_graph_writ
 
         <h3 class="apiSignatureHeader structSignatureHeader">Signature</h3>
         <div class="apiSignatureLink structSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/sys/commit_graph.h#L115" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/sys/commit_graph.h#L111" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature structSignature">
           typedef struct git_commit_graph_writer_options {
 <span class="apiSignatureMember structSignatureMember">unsigned int version</span>
+<span class="apiSignatureMember structSignatureMember">git_oid_t oid_type</span>
 <span class="apiSignatureMember structSignatureMember">git_commit_graph_split_strategy_t split_strategy</span>
 <span class="apiSignatureMember structSignatureMember">float size_multiple</span>
 <span class="apiSignatureMember structSignatureMember">size_t max_commits</span>
@@ -99,6 +100,17 @@ you can use <a href="/docs/reference/main/sys/commit_graph/git_commit_graph_writ
             </div>
             <div class="apiMemberDescription structMemberDescription">
               
+            </div>
+          </div>
+          <div class="apiMember structMember">
+            <div class="apiMemberType structMemberType">
+              <a href="/docs/reference/main/oid/git_oid_t.html" class="apiLink enumLink">git_oid_t</a>
+            </div>
+            <div class="apiMemberName structMemberName">
+              oid_type
+            </div>
+            <div class="apiMemberDescription structMemberDescription">
+              <p>The object ID type that this commit graph contains.</p> 
             </div>
           </div>
           <div class="apiMember structMember">
@@ -150,7 +162,7 @@ you can use <a href="/docs/reference/main/sys/commit_graph/git_commit_graph_writ
         <h3 class="apiVersionsHeader structVersionsHeader">Versions</h3>
         <div class="apiVersions structVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged structVersionDeltaChanged">
             <a href="/docs/reference/main/sys/commit_graph/git_commit_graph_writer_options.html" class="apiVersionLink structVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged structVersionDeltaUnchanged">

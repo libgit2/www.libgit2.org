@@ -68,10 +68,21 @@ layout: default
               GIT_OID_SHA1
             </div>
             <div class="apiMemberValue enumMemberValue">
-              1
+              (1 << 0)
             </div>
             <div class="apiMemberDescription enumMemberDescription">
               <p>SHA1</p> 
+            </div>
+          </div>
+          <div class="apiMember enumMember">
+            <div class="apiMemberName enumMemberName">
+              GIT_OID_SHA256
+            </div>
+            <div class="apiMemberValue enumMemberValue">
+              (1 << 1)
+            </div>
+            <div class="apiMemberDescription enumMemberDescription">
+              <p>SHA256</p> 
             </div>
           </div>
         </div>
@@ -89,6 +100,18 @@ layout: default
         <div class="apiParameterTo enumParameterTo">
           <ul>
           <li>
+            <a href="/docs/reference/main/object/git_object_rawcontent_is_valid.html" className="apiLink functionLink">git_object_rawcontent_is_valid</a>
+          </li>
+          <li>
+            <a href="/docs/reference/main/oid/git_oid_from_string.html" className="apiLink functionLink">git_oid_from_string</a>
+          </li>
+          <li>
+            <a href="/docs/reference/main/oid/git_oid_from_prefix.html" className="apiLink functionLink">git_oid_from_prefix</a>
+          </li>
+          <li>
+            <a href="/docs/reference/main/oid/git_oid_from_raw.html" className="apiLink functionLink">git_oid_from_raw</a>
+          </li>
+          <li>
             <a href="/docs/reference/main/remote/git_remote_oid_type.html" className="apiLink functionLink">git_remote_oid_type</a>
           </li>
           </ul>
@@ -96,7 +119,7 @@ layout: default
         <h3 class="apiVersionsHeader enumVersionsHeader">Versions</h3>
         <div class="apiVersions enumVersions">
           <ul>
-          <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
+          <li class="apiVersionDeltaChanged enumVersionDeltaChanged">
             <a href="/docs/reference/main/oid/git_oid_t.html" class="apiVersionLink enumVersionLink">main</a>
           </li>
           <li class="apiVersionDeltaUnchanged enumVersionDeltaUnchanged">
