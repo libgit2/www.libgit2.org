@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "db532f784b40b2fe55a37d8a9eac887b4718c473"
+    "commit": "270074bc292a51af1dd38456ae4526d244c91cfe"
   },
   "groups": {
     "sys/alloc": {
@@ -3798,6 +3798,7 @@
             "git_filter_list_apply_to_buffer",
             "git_filter_list_apply_to_file",
             "git_filter_list_apply_to_blob",
+            "git_index_extension_lookup",
             "git_message_prettify",
             "git_note_default_ref",
             "git_object_short_id",
@@ -24997,6 +24998,117 @@
           ],
           "group": "index"
         },
+        "git_index_extension_lookup": {
+          "kind": "function",
+          "name": "git_index_extension_lookup",
+          "location": {
+            "file": "index.h",
+            "line": 951,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 (no error), GIT_ENOTFOUND (extension not present),\n         or an error code"
+          },
+          "params": [
+            {
+              "name": "out",
+              "type": "git_buf *",
+              "direction": "in",
+              "comment": "the extension's data (not including the header)"
+            },
+            {
+              "name": "index",
+              "type": "git_index *",
+              "direction": "in",
+              "comment": "an existing index object"
+            },
+            {
+              "name": "signature",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the 4 character signature of the desired extension"
+            }
+          ],
+          "comment": [
+            "Look up an index extension by its signature"
+          ],
+          "group": "index"
+        },
+        "git_index_extension_add": {
+          "kind": "function",
+          "name": "git_index_extension_add",
+          "location": {
+            "file": "index.h",
+            "line": 966,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 (no error), GIT_EEXISTS (extension already present),\n         or an error code"
+          },
+          "params": [
+            {
+              "name": "index",
+              "type": "git_index *",
+              "direction": "in",
+              "comment": "an existing index object"
+            },
+            {
+              "name": "signature",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the 4 character signature of the desired extension"
+            },
+            {
+              "name": "data",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the contents of the extension (not including the header)"
+            },
+            {
+              "name": "data_len",
+              "type": "size_t",
+              "direction": "in",
+              "comment": "the length of the data"
+            }
+          ],
+          "comment": [
+            "Add an extension to the index"
+          ],
+          "group": "index"
+        },
+        "git_index_extension_remove": {
+          "kind": "function",
+          "name": "git_index_extension_remove",
+          "location": {
+            "file": "index.h",
+            "line": 980,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 (no error), GIT_ENOTFOUND (extension not present),\n         or an error code"
+          },
+          "params": [
+            {
+              "name": "index",
+              "type": "git_index *",
+              "direction": "in",
+              "comment": "an existing index object"
+            },
+            {
+              "name": "signature",
+              "type": "const char *",
+              "direction": "in",
+              "comment": "the 4 character signature of the desired extension"
+            }
+          ],
+          "comment": [
+            "Remove an index extension by its signature"
+          ],
+          "group": "index"
+        },
         "git_index": {
           "kind": "struct",
           "name": "git_index",
@@ -25064,6 +25176,9 @@
             "git_index_conflict_cleanup",
             "git_index_has_conflicts",
             "git_index_conflict_iterator_new",
+            "git_index_extension_lookup",
+            "git_index_extension_add",
+            "git_index_extension_remove",
             "git_pathspec_match_index",
             "git_rebase_inmemory_index",
             "git_index_name_entrycount",

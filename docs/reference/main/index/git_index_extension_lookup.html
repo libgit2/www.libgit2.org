@@ -1,0 +1,109 @@
+---
+title: git_index_extension_lookup (libgit2 main)
+layout: default
+---
+
+      <div class="api function">
+        <div class="apiBreadcrumb functionBreadcrumb">
+          <ul>
+            <li><a href="/docs/reference/main/index.html">API Documentation</a></li>
+            <li><a href="/docs/reference/main/index/index.html">index</a></li>
+          </ul>
+        </div>
+        <div class="apiHeader functionHeader">
+          <h2 class="apiName functionName">git_index_extension_lookup</h2>
+
+           <script src="/js/minisearch.js"></script>
+           <script src="/js/search.js"></script>
+           <div class="headerSearchArea functionHeaderSearchArea" id="headersearcharea">
+             <input class="headerSearchBox functionHeaderSearchBox" id="headersearchbox" placeholder="Search..." onInput="handleSearchSuggest({ version: 'main' })" onFocusIn="handleSearchSuggest({ version: 'main' })" onKeyUp="if (event.code === 'Enter') { submitSearch({ version: 'main' }); }"/>
+             <div class="headerSearchResults functionHeaderSearchResults" id="headersearchresults">
+             </div>
+           </div>
+
+          <div class="apiHeaderVersionSelect functionHeaderVersionSelect">
+            <span>Version:</span>
+            <select onChange="window.location.href = this.value">
+              <option value="/docs/reference/main/index/git_index_extension_lookup.html" selected>main</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="apiDescription functionDescription">
+        <p>Look up an index extension by its signature</p>
+
+        </div>
+
+        <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
+        <div class="apiSignatureLink functionSignatureLink">
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/index.h#L951" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="apiSignature functionSignature">
+          int git_index_extension_lookup(<span class="apiSignatureParameter functionSignatureParameter">git_buf *out</span>, <span class="apiSignatureParameter functionSignatureParameter">git_index *index</span>, <span class="apiSignatureParameter functionSignatureParameter">const char *signature</span>);
+        </div>
+
+        <h3 class="apiParametersHeader functionParametersHeader">Parameters</h3>
+        <div class="apiParameters functionParameters">
+          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+            <div class="apiParameterType functionParameterType">
+              <a href="/docs/reference/main/buffer/git_buf.html" class="apiLink structLink">git_buf *</a>
+            </div>
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
+              In
+            </div>
+            <div class="apiParameterName functionParameterName">
+              out
+            </div>
+            <div class="apiParameterDescription functionParameterDescription">
+              <p>the extension's data (not including the header)</p> 
+            </div>
+          </div>
+          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+            <div class="apiParameterType functionParameterType">
+              <a href="/docs/reference/main/index/git_index.html" class="apiLink objectLink">git_index *</a>
+            </div>
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
+              In
+            </div>
+            <div class="apiParameterName functionParameterName">
+              index
+            </div>
+            <div class="apiParameterDescription functionParameterDescription">
+              <p>an existing index object</p> 
+            </div>
+          </div>
+          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+            <div class="apiParameterType functionParameterType">
+              const char *
+            </div>
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
+              In
+            </div>
+            <div class="apiParameterName functionParameterName">
+              signature
+            </div>
+            <div class="apiParameterDescription functionParameterDescription">
+              <p>the 4 character signature of the desired extension</p> 
+            </div>
+          </div>
+        </div>
+
+        <h3 class="apiReturnHeader functionReturnHeader">Returns</h3>
+        <div class="apiReturn functionReturn">
+          <div class="apiReturnType functionReturnType">
+            int
+          </div>
+          <div class="apiReturnDescription functionReturnDescription">
+            <p>0 (no error), GIT_ENOTFOUND (extension not present), or an error code</p> 
+          </div>
+        </div>
+        <h3 class="apiVersionsHeader functionVersionsHeader">Versions</h3>
+        <div class="apiVersions functionVersions">
+          <ul>
+          <li class="apiVersionDeltaIntroduced functionVersionDeltaIntroduced">
+            <a href="/docs/reference/main/index/git_index_extension_lookup.html" class="apiVersionLink functionVersionLink">main</a>
+          </li>
+          </ul>
+        </div>
+      </div>
