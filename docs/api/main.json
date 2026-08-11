@@ -1,7 +1,7 @@
 {
   "info": {
-    "version": "main",
-    "commit": "82249d1488f573f3bac3e6360e56eed6544b0ea2"
+    "version": "ethomson/reftable_build",
+    "commit": "ee8859eb2dd9f92bd346e5629e9947149143692e"
   },
   "groups": {
     "sys/alloc": {
