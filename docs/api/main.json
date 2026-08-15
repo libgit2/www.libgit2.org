@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "0b87f30bd9c4c01959993c457bffcb1779b9967a"
+    "commit": "0334930c0ee3efcd9b145e4a1cedce5e29be7afc"
   },
   "groups": {
     "sys/alloc": {
@@ -37411,7 +37411,7 @@
               ],
               "params": [
                 {
-                  "name": "out",
+                  "name": "iter",
                   "direction": "in",
                   "comment": "The implementation shall set this to the allocated\n          reference iterator. A custom structure may be used with an\n          embedded `git_reference_iterator` structure. Both `next`\n          and `next_name` functions of `git_reference_iterator` need\n          to be populated."
                 },
@@ -37706,7 +37706,7 @@
                   "comment": "The reference which should be unlocked."
                 },
                 {
-                  "name": "who",
+                  "name": "sig",
                   "direction": "in",
                   "comment": "The person updating the reference. Shall be used to create\n          a reflog entry in case `update_reflog` is set."
                 },
