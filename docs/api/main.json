@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "d5084573f213a9364bd8982175360971c26363de"
+    "commit": "0ed7968adc30e0c594f490635ca3fb936d77a130"
   },
   "groups": {
     "sys/alloc": {
@@ -43316,6 +43316,7 @@
             "git_transport_ssh_with_paths",
             "git_transport_dummy",
             "git_transport_local",
+            "git_transport_bundle",
             "git_transport_smart"
           ]
         },
@@ -52981,6 +52982,7 @@
             "git_transport_ssh_with_paths",
             "git_transport_dummy",
             "git_transport_local",
+            "git_transport_bundle",
             "git_transport_smart"
           ],
           "parameterTo": [
@@ -53264,12 +53266,50 @@
           ],
           "group": "sys/transport"
         },
+        "git_transport_bundle": {
+          "kind": "function",
+          "name": "git_transport_bundle",
+          "location": {
+            "file": "sys/transport.h",
+            "line": 278,
+            "column": 17
+          },
+          "returns": {
+            "type": "int",
+            "comment": "0 or an error code"
+          },
+          "params": [
+            {
+              "name": "out",
+              "type": "git_transport **",
+              "direction": "out",
+              "comment": "The newly created transport (out)"
+            },
+            {
+              "name": "owner",
+              "type": "git_remote *",
+              "direction": "in",
+              "comment": "The git_remote which will own this transport"
+            },
+            {
+              "name": "payload",
+              "type": "void *",
+              "direction": "in",
+              "comment": "You must pass NULL for this parameter."
+            }
+          ],
+          "comment": [
+            "Create an instance of the bundle transport.",
+            "The bundle transport reads references and objects from a git bundle\n file on the local filesystem.  It supports fetching and cloning; it\n does not support pushing or shallow operations."
+          ],
+          "group": "sys/transport"
+        },
         "git_transport_smart": {
           "kind": "function",
           "name": "git_transport_smart",
           "location": {
             "file": "sys/transport.h",
-            "line": 274,
+            "line": 291,
             "column": 17
           },
           "returns": {
@@ -53306,7 +53346,7 @@
           "name": "git_transport_smart_certificate_check",
           "location": {
             "file": "sys/transport.h",
-            "line": 291,
+            "line": 308,
             "column": 17
           },
           "returns": {
@@ -53349,7 +53389,7 @@
           "name": "git_transport_smart_credentials",
           "location": {
             "file": "sys/transport.h",
-            "line": 309,
+            "line": 326,
             "column": 17
           },
           "returns": {
@@ -53392,7 +53432,7 @@
           "name": "git_transport_remote_connect_options",
           "location": {
             "file": "sys/transport.h",
-            "line": 325,
+            "line": 342,
             "column": 17
           },
           "returns": {
@@ -53446,7 +53486,7 @@
           ],
           "location": {
             "file": "sys/transport.h",
-            "line": 335,
+            "line": 352,
             "column": 9
           },
           "group": "sys/transport"
@@ -53493,7 +53533,7 @@
           ],
           "location": {
             "file": "sys/transport.h",
-            "line": 352,
+            "line": 369,
             "column": 8
           },
           "group": "sys/transport"
@@ -53532,7 +53572,7 @@
           ],
           "location": {
             "file": "sys/transport.h",
-            "line": 385,
+            "line": 402,
             "column": 8
           },
           "group": "sys/transport",
@@ -53552,7 +53592,7 @@
           ],
           "location": {
             "file": "sys/transport.h",
-            "line": 419,
+            "line": 436,
             "column": 26
           },
           "params": [
@@ -53618,7 +53658,7 @@
           ],
           "location": {
             "file": "sys/transport.h",
-            "line": 438,
+            "line": 455,
             "column": 16
           },
           "group": "sys/transport"
@@ -53628,7 +53668,7 @@
           "name": "git_smart_subtransport_http",
           "location": {
             "file": "sys/transport.h",
-            "line": 464,
+            "line": 481,
             "column": 17
           },
           "returns": {
@@ -53666,7 +53706,7 @@
           "name": "git_smart_subtransport_git",
           "location": {
             "file": "sys/transport.h",
-            "line": 477,
+            "line": 494,
             "column": 17
           },
           "returns": {
@@ -53703,7 +53743,7 @@
           "name": "git_smart_subtransport_ssh",
           "location": {
             "file": "sys/transport.h",
-            "line": 490,
+            "line": 507,
             "column": 17
           },
           "returns": {

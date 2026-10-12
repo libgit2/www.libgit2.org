@@ -1,0 +1,113 @@
+---
+title: git_transport_bundle (libgit2 main)
+layout: default
+---
+
+      <div class="api function">
+        <div class="apiBreadcrumb functionBreadcrumb">
+          <ul>
+            <li><a href="/docs/reference/main/index.html">API Documentation</a></li>
+            <li><a href="/docs/reference/main/sys/transport/index.html">transport (advanced)</a></li>
+          </ul>
+        </div>
+        <div class="apiHeader functionHeader">
+          <h2 class="apiName functionName">git_transport_bundle</h2>
+
+           <script src="/js/minisearch.js"></script>
+           <script src="/js/search.js"></script>
+           <div class="headerSearchArea functionHeaderSearchArea" id="headersearcharea">
+             <input class="headerSearchBox functionHeaderSearchBox" id="headersearchbox" placeholder="Search..." onInput="handleSearchSuggest({ version: 'main' })" onFocusIn="handleSearchSuggest({ version: 'main' })" onKeyUp="if (event.code === 'Enter') { submitSearch({ version: 'main' }); }"/>
+             <div class="headerSearchResults functionHeaderSearchResults" id="headersearchresults">
+             </div>
+           </div>
+
+          <div class="apiHeaderVersionSelect functionHeaderVersionSelect">
+            <span>Version:</span>
+            <select onChange="window.location.href = this.value">
+              <option value="/docs/reference/main/sys/transport/git_transport_bundle.html" selected>main</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="apiDescription functionDescription">
+        <p>Create an instance of the bundle transport.</p>
+
+        <p>The bundle transport reads references and objects from a git bundle
+file on the local filesystem.  It supports fetching and cloning; it
+does not support pushing or shallow operations.</p>
+
+        </div>
+
+        <h3 class="apiSignatureHeader functionSignatureHeader">Signature</h3>
+        <div class="apiSignatureLink functionSignatureLink">
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/sys/transport.h#L278" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <div class="apiSignature functionSignature">
+          int git_transport_bundle(<span class="apiSignatureParameter functionSignatureParameter">git_transport **out</span>, <span class="apiSignatureParameter functionSignatureParameter">git_remote *owner</span>, <span class="apiSignatureParameter functionSignatureParameter">void *payload</span>);
+        </div>
+
+        <h3 class="apiParametersHeader functionParametersHeader">Parameters</h3>
+        <div class="apiParameters functionParameters">
+          <div class="apiParameter functionParameter apiParameterOut functionParameterOut">
+            <div class="apiParameterType functionParameterType">
+              <a href="/docs/reference/main/sys/transport/git_transport.html" class="apiLink structLink">git_transport **</a>
+            </div>
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionOut functionParameterDirectionOut">
+              Out
+            </div>
+            <div class="apiParameterName functionParameterName">
+              out
+            </div>
+            <div class="apiParameterDescription functionParameterDescription">
+              <p>The newly created transport (out)</p> 
+            </div>
+          </div>
+          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+            <div class="apiParameterType functionParameterType">
+              <a href="/docs/reference/main/remote/git_remote.html" class="apiLink objectLink">git_remote *</a>
+            </div>
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
+              In
+            </div>
+            <div class="apiParameterName functionParameterName">
+              owner
+            </div>
+            <div class="apiParameterDescription functionParameterDescription">
+              <p>The git_remote which will own this transport</p> 
+            </div>
+          </div>
+          <div class="apiParameter functionParameter apiParameterIn functionParameterIn">
+            <div class="apiParameterType functionParameterType">
+              void *
+            </div>
+            <div class="apiParameterDirection functionParameterDirection apiParameterDirectionIn functionParameterDirectionIn">
+              In
+            </div>
+            <div class="apiParameterName functionParameterName">
+              payload
+            </div>
+            <div class="apiParameterDescription functionParameterDescription">
+              <p>You must pass NULL for this parameter.</p> 
+            </div>
+          </div>
+        </div>
+
+        <h3 class="apiReturnHeader functionReturnHeader">Returns</h3>
+        <div class="apiReturn functionReturn">
+          <div class="apiReturnType functionReturnType">
+            int
+          </div>
+          <div class="apiReturnDescription functionReturnDescription">
+            <p>0 or an error code</p> 
+          </div>
+        </div>
+        <h3 class="apiVersionsHeader functionVersionsHeader">Versions</h3>
+        <div class="apiVersions functionVersions">
+          <ul>
+          <li class="apiVersionDeltaIntroduced functionVersionDeltaIntroduced">
+            <a href="/docs/reference/main/sys/transport/git_transport_bundle.html" class="apiVersionLink functionVersionLink">main</a>
+          </li>
+          </ul>
+        </div>
+      </div>
