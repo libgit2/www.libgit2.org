@@ -39,12 +39,12 @@ layout: default
 
 
         <div class="apiDescription macroDescription">
-        <p>Compare the libgit2 version against a given version. Evaluates to true if the given major, minor, and revision values are greater than or equal to the currently running libgit2 version. For example: #if LIBGIT2_VERSION_CHECK(1, 6, 3) # error libgit2 version is &gt;= 1.6.3 #endif</p>
+        <p>Compare the libgit2 version against a given version. Evaluates to true if the given major, minor, and revision values are greater than or equal to the currently running libgit2 version. For example: #if LIBGIT2_VERSION_CHECK(1, 6, 3) # error libgit2 version is &gt;= 1.6.3 #endif Note that this does not take prerelease information into account.</p>
 
         </div>
         <h3 class="apiSignatureHeader macroSignatureHeader">Signature</h3>
         <div class="apiSignatureLink macroSignatureLink">
-          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/version.h#L72" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://github.com/libgit2/libgit2/blob/main/include/git2/version.h#L75" target="_blank" rel="noopener">GitHub</a>
         </div>
         <div class="apiSignature macroSignature">
           #define LIBGIT2_VERSION_CHECK(major, minor, revision)  (LIBGIT2_VERSION_NUMBER &gt;= ((major)*1000000)+((minor)*10000)+((revision)*100))        </div>
