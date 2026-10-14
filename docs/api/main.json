@@ -1,7 +1,7 @@
 {
   "info": {
     "version": "main",
-    "commit": "4af47f040cb4d80c75f37f626f511843e0dd8d44"
+    "commit": "62b84a7cfd2be07e6671f6e270db345951a7ac69"
   },
   "groups": {
     "sys/alloc": {
@@ -11185,7 +11185,7 @@
           "location": {
             "file": "sys/config.h",
             "line": 203,
-            "column": 12
+            "column": 17
           },
           "returns": {
             "type": "int",
@@ -11228,7 +11228,7 @@
           "location": {
             "file": "sys/config.h",
             "line": 219,
-            "column": 12
+            "column": 17
           },
           "returns": {
             "type": "int",
