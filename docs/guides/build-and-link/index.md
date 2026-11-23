@@ -50,14 +50,14 @@ Here are some of the most useful:
 | Option | Notes |
 | --- | --- |
 | `BUILD_SHARED_LIBS` | This defaults to `ON`, which produces dynamic libraries (DLLs on Windows). Set it to `OFF` if you want the build to generate static libraries. |
-| `CMAKE_BUILD_TYPE` | This selects the build configuration; available options are `Debug` (the default), `Release`, and `RelWithDebInfo`. In the case of Visual Studio and other multi-configuration project systems, this selects the default build configuration. |
-| `BUILD_CLAR` | Selects whether the unit-test suite is built. This defaults to `ON`; set to `OFF` for a faster build. |
+| `CMAKE_BUILD_TYPE` | This selects the build configuration; available options are `Debug` (the default), `Release`, `RelWithDebInfo` and `MinSizeRel`. In the case of Visual Studio and other multi-configuration project systems, this selects the default build configuration. |
+| `BUILD_TESTS` | Selects whether the unit-test suite is built. This defaults to `ON`; set to `OFF` for a faster build. |
 | `THREADSAFE` | Selects whether libgit2 tries to be threadsafe. This defaults to `ON`, unless you **know** your application will only be single-threaded, it's recommended you leave it `ON`. |
 | `LIBGIT2_FILENAME` | Sets the basename of the output binary. For example, if this is set to `foo`, the output will be something like `foo.dll` or `foo.so`. This option is useful to know what version of libgit2 was built, if your build system doesn't embed that information into the binary. |
 | `STDCALL` | *(MSVC Only)* By default, libgit2 builds with the `cdecl` calling convention.  If you're working with Win32 or the CLR, set this to `ON` to build with the `stdcall` convention. |
 | `STATIC_CRT` | *(MSVC Only)* libgit2 will link the static CRT libraries. This defaults to `ON`  |
 
-Take a look at the [`CMakeLists.txt`](https://github.com/libgit2/libgit2/blob/master/CMakeLists.txt) file for more information.
+This list may not be suitable for your version. For a full list of available options, see the [`CMakeLists.txt`](https://github.com/libgit2/libgit2/blob/main/CMakeLists.txt) file in the libgit2 repository (and its commit history).
 
 # Linking and Usage
 
