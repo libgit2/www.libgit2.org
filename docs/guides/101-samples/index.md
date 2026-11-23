@@ -41,7 +41,7 @@ if (error < 0) {
   exit(error);
 }
 ~~~
-([`git_error_last`](http://libgit2.org/libgit2/#HEAD/group/error/git_error_last))
+([`git_error_last`](http://libgit2.org/libgit2/#HEAD/group/errors/git_error_last))
 
 <h3 id="best_practices_freeing">Freeing</h3>
 
@@ -54,7 +54,7 @@ git_repository_init(&repo, "/tmp/…", false);
 git_repository_free(repo);
 ~~~
 
-([`_free` APIs](http://libgit2.org/libgit2/#HEAD/search/_free))
+([`_free` APIs](http://libgit2.org/docs/reference/search?q=_free))
 
 
 <h2 id="repositories">Repositories</h2>
@@ -184,7 +184,6 @@ clone_opts.remote_cb     = create_remote;
 error = git_clone(&repo, url, path, &clone_opts);
 ~~~
 
-([`git_clone_into`](http://libgit2.org/libgit2/#HEAD/group/clone/git_clone_into))
 
 <h3 id="repositories_clone_mirror">Clone (Mirror)</h3>
 
@@ -317,8 +316,7 @@ git_oid_tostr(shortsha, 9, &oid);
 ~~~
 
 ([`git_oid_fromstr`](http://libgit2.org/libgit2/#HEAD/group/oid/git_oid_fromstr),
-[`git_oid_tostr`](http://libgit2.org/libgit2/#HEAD/group/oid/git_oid_tostr),
-[`git_oid_allocfmt`](http://libgit2.org/libgit2/#HEAD/group/oid/git_oid_allocfmt))
+[`git_oid_tostr`](http://libgit2.org/libgit2/#HEAD/group/oid/git_oid_tostr)
 
 
 <h3 id="objects_lookups">Lookups</h3>
@@ -362,7 +360,7 @@ if (git_object_type(obj) == GIT_OBJECT_COMMIT) {
 
 ([`git_object_lookup`](http://libgit2.org/libgit2/#HEAD/group/object/git_object_lookup),
 [`git_object_type`](http://libgit2.org/libgit2/#HEAD/group/object/git_object_type),
-[`git_otype`](http://libgit2.org/libgit2/#HEAD/type/git_otype))
+[`git_otype`](http://libgit2.org/docs/reference/main/deprecated/git_otype))
 
 
 <h2 id="blobs">Blobs</h2>
@@ -396,7 +394,7 @@ git_buf_free(&filtered_content);
 (
   [`git_blob_rawsize`](http://libgit2.org/libgit2/#HEAD/group/blob/git_blob_rawsize),
   [`git_blob_rawcontent`](http://libgit2.org/libgit2/#HEAD/group/blob/git_blob_rawcontent),
-  [`git_blob_filtered_content`](http://libgit2.org/libgit2/#HEAD/group/blob/git_blob_filtered_content)
+  [`git_blob_filtered_content`](http://libgit2.org/docs/reference/main/deprecated/git_blob_filtered_content)
 )
 
 <h3 id="blobs_create">Create</h3>
@@ -411,9 +409,9 @@ error = git_blob_create_frombuffer(&oid, repo, str, strlen(str));
 ~~~
 
 (
-  [`git_blob_create_fromworkdir`](http://libgit2.org/libgit2/#HEAD/group/blob/git_blob_create_fromworkdir),
-  [`git_blob_create_fromdisk`](http://libgit2.org/libgit2/#HEAD/group/blob/git_blob_create_fromdisk),
-  [`git_blob_create_frombuffer`](http://libgit2.org/libgit2/#HEAD/group/blob/git_blob_create_frombuffer)
+  [`git_blob_create_fromworkdir`](http://libgit2.org/docs/reference/main/deprecated/git_blob_create_fromworkdir),
+  [`git_blob_create_fromdisk`](http://libgit2.org/docs/reference/main/deprecated/git_blob_create_fromdisk),
+  [`git_blob_create_frombuffer`](http://libgit2.org/docs/reference/main/deprecated/git_blob_create_frombuffer)
 )
 
 
@@ -504,8 +502,8 @@ error = git_tree_walk(tree, GIT_TREEWALK_PRE, walk_cb, &d);
 
 ([`git_revparse_single`](http://libgit2.org/libgit2/#HEAD/group/revparse/git_revparse_single),
 [`git_tree_walk`](http://libgit2.org/libgit2/#HEAD/group/tree/git_tree_walk),
-[`git_treewalk_mode`](http://libgit2.org/libgit2/#HEAD/type/git_treewalk_mode),
-[`git_treewalk_cb`](http://libgit2.org/libgit2/#HEAD/type/git_treewalk_cb))
+[`git_treewalk_mode`](http://libgit2.org/docs/reference/main/tree/git_treewalk_mode),
+[`git_treewalk_cb`](http://libgit2.org/docs/reference/main/tree/git_treewalk_cb))
 
 <h3 id="trees_treebuilder">Treebuilder</h3>
 
@@ -539,10 +537,10 @@ git_treebuilder_free(bld);
 
 ([`git_revparse_single`](http://libgit2.org/libgit2/#HEAD/group/revparse/git_revparse_single),
 [`git_object_free`](http://libgit2.org/libgit2/#HEAD/group/object/git_object_free),
-[`git_treebuilder_new`](http://libgit2.org/libgit2/#HEAD/group/treebuilder/git_treebuilder_new),
-[`git_treebuilder_insert`](http://libgit2.org/libgit2/#HEAD/group/treebuilder/git_treebuilder_insert),
-[`git_treebuilder_write`](http://libgit2.org/libgit2/#HEAD/group/treebuilder/git_treebuilder_write),
-[`git_treebuilder_free`](http://libgit2.org/libgit2/#HEAD/group/treebuilder/git_treebuilder_free))
+[`git_treebuilder_new`](http://libgit2.org/docs/reference/main/tree/git_treebuilder_new),
+[`git_treebuilder_insert`](http://libgit2.org/docs/reference/main/tree/git_treebuilder_insert),
+[`git_treebuilder_write`](http://libgit2.org/docs/reference/main/tree/git_treebuilder_write),
+[`git_treebuilder_free`](http://libgit2.org/docs/reference/main/tree/git_treebuilder_free))
 
 
 <h2 id="commits">Commits</h2>
@@ -646,7 +644,7 @@ git_reference *ref = NULL;
 int error = git_reference_lookup(&ref, repo, "refs/heads/master");
 ~~~
 
-([`git_reference_lookup`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_lookup))
+([`git_reference_lookup`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_lookup))
 
 <h3 id="references_lookups_short_name">Lookups (short name)</h3>
 
@@ -655,7 +653,7 @@ git_reference *ref = NULL;
 int error = git_reference_dwim(&ref, repo, "master");
 ~~~
 
-([`git_reference_dwim`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_dwim))
+([`git_reference_dwim`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_dwim))
 
 <h3 id="references_lookups_resolved">Lookups (resolved)</h3>
 
@@ -666,7 +664,7 @@ git_oid oid = {{0}};
 int error = git_reference_name_to_id(&oid, repo, "HEAD");
 ~~~
 
-([`git_reference_name_to_id`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_name_to_id))
+([`git_reference_name_to_id`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_name_to_id))
 
 <h3 id="references_listing">Listing</h3>
 
@@ -675,7 +673,7 @@ git_strarray refs = {0};
 int error = git_reference_list(&refs, repo);
 ~~~
 
-([`git_reference_list`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_list))
+([`git_reference_list`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_list))
 
 <h3 id="references_foreach_refs">Foreach (refs)</h3>
 
@@ -692,7 +690,7 @@ ref_data d = {0};
 int error = git_reference_foreach(repo, each_ref_cb, &d);
 ~~~
 
-([`git_reference_foreach`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_foreach))
+([`git_reference_foreach`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_foreach))
 
 <h3 id="references_foreach_names">Foreach (names)</h3>
 
@@ -709,7 +707,7 @@ ref_data d = {0};
 int error = git_reference_foreach_name(repo, each_name_cb, &d);
 ~~~
 
-([`git_reference_foreach_name`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_foreach_name))
+([`git_reference_foreach_name`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_foreach_name))
 
 <h3 id="references_foreach_glob">Foreach (glob)</h3>
 
@@ -726,7 +724,7 @@ ref_data d = {0};
 int error = git_reference_foreach_glob(repo, "refs/remotes/*", each_name_cb, &d);
 ~~~
 
-([`git_reference_foreach_glob`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_foreach_glob))
+([`git_reference_foreach_glob`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_foreach_glob))
 
 <h3 id="references_iterator_all">Iterator (all)</h3>
 
@@ -745,8 +743,8 @@ if (error != GIT_ITEROVER) {
 ~~~
 
 (
-  [`git_reference_iterator_new`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_iterator_new),
-  [`git_reference_next`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_next)
+  [`git_reference_iterator_new`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_iterator_new),
+  [`git_reference_next`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_next)
 )
 
 <h3 id="references_iterator_glob">Iterator (glob)</h3>
@@ -766,8 +764,8 @@ if (error != GIT_ITEROVER) {
 ~~~
 
 (
-  [`git_reference_iterator_glob_new`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_iterator_glob_new),
-  [`git_reference_next_name`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_next_name)
+  [`git_reference_iterator_glob_new`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_iterator_glob_new),
+  [`git_reference_next_name`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_next_name)
 )
 
 <h3 id="references_create_direct">Create (direct)</h3>
@@ -781,7 +779,7 @@ int error = git_reference_create(&ref, repo,
       NULL);                     /* the message for the reflog */
 ~~~
 
-([`git_reference_create`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_create))
+([`git_reference_create`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_create))
 
 <h3 id="references_create_symbolic">Create (symbolic)</h3>
 
@@ -794,7 +792,7 @@ int error = git_reference_symbolic_create(&ref, repo,
       NULL);                     /* the message for the reflog */
 ~~~
 
-([`git_reference_symbolic_create`](http://libgit2.org/libgit2/#HEAD/group/reference/git_reference_symbolic_create))
+([`git_reference_symbolic_create`](http://libgit2.org/libgit2/#HEAD/group/refs/git_reference_symbolic_create))
 
 
 <h2 id="tags">Tags</h2>
@@ -1155,7 +1153,6 @@ for (size_t i=0; i<count; ++i) {
 
 ([`git_status_list_new`](http://libgit2.org/libgit2/#HEAD/group/status/git_status_list_new),
 [`git_status_options`](http://libgit2.org/libgit2/#HEAD/type/git_status_options),
-[`git_status_options`](http://libgit2.org/libgit2/#HEAD/type/git_status_options),
 [`git_status_list_entrycount`](http://libgit2.org/libgit2/#HEAD/group/status/git_status_list_entrycount),
 [`git_status_byindex`](http://libgit2.org/libgit2/#HEAD/group/status/git_status_byindex),
 [`git_status_entry`](http://libgit2.org/libgit2/#HEAD/type/git_status_entry))
@@ -1445,7 +1442,7 @@ git_config_iterator_free(iter);
 
 (
   [`git_config_set_multivar`](http://libgit2.org/libgit2/#HEAD/group/config/git_config_set_multivar),
-  [`git_config_get_multivar`](http://libgit2.org/libgit2/#HEAD/group/config/git_config_get_multivar),
+  [`git_config_get_multivar_foreach`](http://libgit2.org/libgit2/#HEAD/group/config/git_config_get_multivar_foreach),
   [`git_config_multivar_iterator_new`](http://libgit2.org/libgit2/#HEAD/group/config/git_config_multivar_iterator_new),
   [`git_config_next`](http://libgit2.org/libgit2/#HEAD/group/config/git_config_next),
   [`git_config_free`](http://libgit2.org/libgit2/#HEAD/group/config/git_config_free)
